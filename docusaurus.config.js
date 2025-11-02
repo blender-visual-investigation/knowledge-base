@@ -128,6 +128,10 @@ const config = {
             title: 'Community',
             items: [
               {
+                label: 'YouTube',
+                href: 'https://www.youtube.com/@blendervisualinvestigation',
+              },
+              {
                 label: 'Sketchfab',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },

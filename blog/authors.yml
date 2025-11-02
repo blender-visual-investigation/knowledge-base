@@ -1,13 +1,9 @@
 boudewyn:
   name: Boudewyn
   title: BVI Founder
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
+  url: https://www.bau-douin.de
+  image_url: https://github.com/blender-visual-investigation.png
   socials:
-    x: boudewyn
     linkedin: boudewyn
-    github: boudewyn
-    newsletter: https://www.greatfrontend.com
 
 

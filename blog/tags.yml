@@ -1,19 +1,172 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+# Blender Basics
+blender-basics:
+  label: Blender Basics
+  permalink: /blender-basics
+  description: Introduction to Blender fundamentals and core concepts
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+3d-fundamentals:
+  label: 3D Fundamentals
+  permalink: /3d-fundamentals
+  description: Understanding 3D space, modeling, and rendering basics
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+getting-started:
+  label: Getting Started
+  permalink: /getting-started
+  description: Beginner-friendly tutorials and guides
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+# Tools & Add-ons
+tools:
+  label: Tools
+  permalink: /tools
+  description: Essential Blender tools for visual investigations
+
+addons:
+  label: Add-ons
+  permalink: /addons
+  description: Recommended Blender add-ons and extensions
+
+plugins:
+  label: Plugins
+  permalink: /plugins
+  description: Third-party plugins for enhanced workflows
+
+# Techniques
+techniques:
+  label: Techniques
+  permalink: /techniques
+  description: Advanced techniques for visual investigation work
+
+modeling:
+  label: Modeling
+  permalink: /modeling
+  description: 3D modeling techniques and best practices
+
+texturing:
+  label: Texturing
+  permalink: /texturing
+  description: Material creation and texture mapping
+
+lighting:
+  label: Lighting
+  permalink: /lighting
+  description: Lighting setup and rendering techniques
+
+animation:
+  label: Animation
+  permalink: /animation
+  description: Animation workflows and techniques
+
+rendering:
+  label: Rendering
+  permalink: /rendering
+  description: Rendering settings and optimization
+
+# Visual Investigation Context
+forensics:
+  label: Forensics
+  permalink: /forensics
+  description: Digital forensic visualization and analysis
+
+reconstruction:
+  label: Reconstruction
+  permalink: /reconstruction
+  description: Crime scene and incident reconstruction
+
+evidence-visualization:
+  label: Evidence Visualization
+  permalink: /evidence-visualization
+  description: Visualizing evidence and investigation data
+
+photogrammetry:
+  label: Photogrammetry
+  permalink: /photogrammetry
+  description: Creating 3D models from photographs
+
+geospatial:
+  label: Geospatial
+  permalink: /geospatial
+  description: Geographic and spatial data visualization
+
+# Tutorials & Use Cases
+tutorials:
+  label: Tutorials
+  permalink: /tutorials
+  description: Step-by-step tutorials and guides
+
+case-study:
+  label: Case Study
+  permalink: /case-study
+  description: Real-world investigation case studies
+
+workflow:
+  label: Workflow
+  permalink: /workflow
+  description: Complete workflows combining multiple techniques
+
+best-practices:
+  label: Best Practices
+  permalink: /best-practices
+  description: Industry standards and recommended practices
+
+# News & Updates
+ai:
+  label: AI
+  permalink: /ai
+  description: Artificial intelligence in 3D and Blender
+
+machine-learning:
+  label: Machine Learning
+  permalink: /machine-learning
+  description: ML applications in visual investigation
+
+news:
+  label: News
+  permalink: /news
+  description: Latest developments and updates
+
+releases:
+  label: Releases
+  permalink: /releases
+  description: New software releases and updates
+
+announcements:
+  label: Announcements
+  permalink: /announcements
+  description: Important announcements and news
+
+# Technology & Integration
+python:
+  label: Python
+  permalink: /python
+  description: Python scripting in Blender
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Automating workflows with scripts
+
+data-import:
+  label: Data Import
+  permalink: /data-import
+  description: Importing various data formats into Blender
+
+integration:
+  label: Integration
+  permalink: /integration
+  description: Integrating Blender with other tools
+
+# Community & Resources
+resources:
+  label: Resources
+  permalink: /resources
+  description: Helpful resources and references
+
+community:
+  label: Community
+  permalink: /community
+  description: Community contributions and highlights
+
+tips:
+  label: Tips & Tricks
+  permalink: /tips
+  description: Quick tips and useful tricks
