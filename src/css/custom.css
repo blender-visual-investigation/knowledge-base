@@ -1,0 +1,154 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #308ce7;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #308ce7;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #020617;
+}
+
+/* Make search box wider and align to right */
+.navbar__search {
+  margin-left: auto;
+}
+
+.navbar__search-input {
+  width: 300px;
+  min-width: 300px;
+}
+
+@media (max-width: 996px) {
+  .navbar__search-input {
+    width: 200px;
+    min-width: 200px;
+  }
+}
+
+/* Adjust sidebar separator */
+.sidebar,
+.theme-doc-sidebar-container {
+  border-right: none !important;
+}
+
+.main {
+  border-left: none !important;
+}
+
+/* Frosted glass navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Add space below navbar */
+.main-wrapper {
+  padding-top: 35px !important;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  background-size: 100% 150px;
+  background-repeat: no-repeat;
+}
+
+[data-theme='dark'] .main-wrapper {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  background-size: 100% 150px;
+  background-repeat: no-repeat;
+}
+
+/* Add header to TOC */
+.table-of-contents::before {
+  content: "On this page";
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+[data-theme='dark'] .table-of-contents::before {
+  color: var(--ifm-color-emphasis-200) !important;
+}
+
+/* Use theme font color for TOC header in light mode */
+.table-of-contents::before {
+  color: var(--ifm-color-emphasis-900) !important;
+}
+
+/* Normalize TOC link weight, keep active slightly bolder */
+.table-of-contents a,
+.table-of-contents li,
+.table-of-contents ul,
+.table-of-contents li a,
+.table-of-contents .menu__link,
+.table-of-contents .menu__item,
+.docItemTOC a,
+.docItemTOC li,
+.toc a,
+.toc li {
+  font-weight: 400 !important;
+}
+.table-of-contents a.active,
+.table-of-contents .active,
+.table-of-contents .menu__link--active,
+.docItemTOC a.active,
+.toc a.active {
+  font-weight: 600 !important;
+}
+
+/* Ensure inline bold/strong in headings doesn't force TOC bolding */
+.table-of-contents strong,
+.table-of-contents b,
+.table-of-contents em,
+.docItemTOC strong,
+.docItemTOC b,
+.docItemTOC em,
+.toc strong,
+.toc b,
+.toc em {
+  font-weight: 400 !important;
+}
+
+/* Sidebar arrows restored to original styling */
+
+/* Flip the sidebar toggle arrows */
+.navbar-sidebar__toggle svg {
+  transform: scaleX(-1);
+}
+
+/* Sidebar link color in dark mode */
+[data-theme='dark'] .menu__link {
+  color: #87a0b3 !important;
+}
+
+/* Make footer copyright 75% size */
+.footer__copyright {
+  font-size: 75%;
+}

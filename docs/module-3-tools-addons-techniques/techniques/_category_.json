@@ -1,0 +1,8 @@
+{
+  "label": "Techniques",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Proven techniques for 3D reconstruction, analysis, and visualization."
+  }
+}
