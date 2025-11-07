@@ -1,5 +1,9 @@
 {
-  "label": "Working in Blender",
-  "position": 2
-
+  "label": "Working with Blender",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "Working with Blender",
+    "description": "Learn the fundamentals of the Blender interface and start our first exploratorive project."
+  }
 }

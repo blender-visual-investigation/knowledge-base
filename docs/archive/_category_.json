@@ -1,0 +1,9 @@
+{
+  "label": "Archive",
+  "position": 99,
+  "link": {
+    "type": "generated-index",
+    "title": "Archive",
+    "description": "Archive of tutorial examples and legacy content."
+  }
+}

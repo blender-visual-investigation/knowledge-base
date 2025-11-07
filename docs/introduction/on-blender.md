@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # On Blender
 
 Introduction to Blender and why it's valuable for visual investigation.

@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # General Information
 
 Overview of the visual investigation knowledge base and how to use these resources effectively.

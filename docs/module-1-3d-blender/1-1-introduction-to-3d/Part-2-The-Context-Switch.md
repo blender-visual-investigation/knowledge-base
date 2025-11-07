@@ -1,3 +1,10 @@
+---
+title: 1.2 The Context Switch
+description: Description DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription
+
+---
+
+
 # Part 2: The Context Switch (Computer Graphics & Modeling)
 
 In this section, we will explore the transition from mathematical concepts to their application in computer graphics and 3D modeling. Understanding this context switch is crucial for leveraging the power of tools like Blender and other 3D software.

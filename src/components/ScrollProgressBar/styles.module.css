@@ -10,7 +10,7 @@
 
 .progressBar {
   height: 100%;
-  background: linear-gradient(90deg, #1976d2, #42a5f5);
-  box-shadow: 0 0 10px rgba(25, 118, 210, 0.5);
+  background: linear-gradient(90deg, #ef4c3c, #ff6b5a);
+  box-shadow: 0 0 10px rgba(239, 76, 60, 0.5);
   transition: width 0.1s ease-out;
 }

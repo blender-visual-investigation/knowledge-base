@@ -15,6 +15,8 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: #f3f4f6;
+  --ifm-font-color-base: #101828;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -28,6 +30,8 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-background-color: #020617;
+  --ifm-font-color-base: #d1d5db;
+  --ifm-heading-color: #ffffff;
 }
 
 /* Make search box wider and align to right */
@@ -48,40 +52,44 @@
 }
 
 /* Adjust sidebar separator */
-.sidebar,
-.theme-doc-sidebar-container {
-  border-right: none !important;
-}
+@media (min-width: 997px) {
+  .sidebar,
+  .theme-doc-sidebar-container {
+    border-right: none !important;
+  }
 
-.main {
-  border-left: none !important;
+  .main {
+    border-left: none !important;
+  }
 }
 
 /* Frosted glass navbar */
 .navbar {
-  background: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 [data-theme='dark'] .navbar {
-  background: rgba(0, 0, 0, 0.8) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 /* Add space below navbar */
-.main-wrapper {
-  padding-top: 35px !important;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-  background-size: 100% 150px;
-  background-repeat: no-repeat;
-}
+@media (min-width: 997px) {
+  .main-wrapper {
+    padding-top: 35px !important;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    background-size: 100% 150px;
+    background-repeat: no-repeat;
+  }
 
-[data-theme='dark'] .main-wrapper {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-  background-size: 100% 150px;
-  background-repeat: no-repeat;
+  [data-theme='dark'] .main-wrapper {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    background-size: 100% 150px;
+    background-repeat: no-repeat;
+  }
 }
 
 /* Add header to TOC */
@@ -94,7 +102,7 @@
 }
 
 [data-theme='dark'] .table-of-contents::before {
-  color: var(--ifm-color-emphasis-200) !important;
+  color: #ffffff !important;
 }
 
 /* Use theme font color for TOC header in light mode */
@@ -136,7 +144,15 @@
   font-weight: 400 !important;
 }
 
-/* Sidebar arrows restored to original styling */
+/* Scale all sidebar chevrons/arrows */
+@media (min-width: 997px) {
+  .menu__caret,
+  .theme-doc-sidebar-container .menu__caret,
+  .theme-doc-sidebar-container svg.menu__caret,
+  .menu__link-container svg {
+    transform: scale(0.7) !important;
+  }
+}
 
 /* Flip the sidebar toggle arrows */
 .navbar-sidebar__toggle svg {
@@ -144,11 +160,152 @@
 }
 
 /* Sidebar link color in dark mode */
-[data-theme='dark'] .menu__link {
-  color: #87a0b3 !important;
+@media (min-width: 997px) {
+  [data-theme='dark'] .menu__link {
+    color: #ffffff !important;
+  }
 }
 
 /* Make footer copyright 75% size */
 .footer__copyright {
   font-size: 75%;
+}
+
+/* Custom footer background color */
+.footer {
+  background-color: #0d0f13 !important;
+}
+
+/* Replace hash symbol with link icon for heading anchors */
+.hash-link::before {
+  content: "🔗";
+  font-size: 0.8em;
+}
+
+.hash-link::after {
+  content: "" !important;
+}
+
+.hash-link {
+  text-decoration: none !important;
+  color: var(--ifm-color-primary) !important;
+}
+
+.hash-link:hover {
+  text-decoration: none !important;
+}
+
+/* Hide item count on generated index category cards */
+.card__footer,
+.generatedIndexPage .card__footer,
+.theme-doc-generated-index-page .card__footer,
+article .card__footer {
+  display: none !important;
+}
+
+/* Make photo-centric cards 1/3 size */
+.card-demo {
+  max-width: 33%;
+}
+
+@media (max-width: 996px) {
+  .card-demo {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-demo {
+    max-width: 100%;
+  }
+}
+
+/* Add icons to sidebar links */
+@media (min-width: 997px) {
+  .menu__link::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    content: "\f15b";
+    margin-right: 0.5rem;
+    color: var(--ifm-color-emphasis-600);
+  }
+
+  /* Category items get folder icon */
+  .menu__list-item--collapsed .menu__link::before,
+  .menu__list-item:not(.menu__list-item--collapsed) > .menu__link::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    content: "\f07c";
+  }
+
+  /* Active/current page gets a different icon */
+  .menu__link--active::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    content: "\f192";
+    color: var(--ifm-color-primary);
+  }
+}
+
+/* Add vertical indicator lines to nested sidebar items */
+@media (min-width: 997px) {
+  .menu__list .menu__list {
+    border-left: 1px solid var(--ifm-color-emphasis-300);
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  [data-theme='dark'] .menu__list .menu__list {
+    border-left: 1px solid var(--ifm-color-emphasis-200);
+  }
+
+  /* Add subtle hover effect to the indicator lines */
+  .menu__list-item:hover > .menu__list {
+    border-left-color: var(--ifm-color-primary);
+  }
+}
+
+/* Style the sidebar collapse button */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container button[title="Collapse sidebar"],
+  .collapseSidebarButton_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 8px;
+    background: transparent;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .theme-doc-sidebar-container button[title="Collapse sidebar"]:hover,
+  .collapseSidebarButton_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module:hover {
+    opacity: 1;
+    background: var(--ifm-color-emphasis-200);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-container button[title="Collapse sidebar"],
+  [data-theme='dark'] .collapseSidebarButton_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module {
+    border-color: var(--ifm-color-emphasis-200);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-container button[title="Collapse sidebar"]:hover,
+  [data-theme='dark'] .collapseSidebarButton_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Style the chevron icon in the collapse button */
+  .theme-doc-sidebar-container button[title="Collapse sidebar"] svg,
+  .collapseSidebarButton_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module svg {
+    width: 20px;
+    height: 20px;
+  }
 }

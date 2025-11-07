@@ -1,4 +1,7 @@
-# Structure
+---
+sidebar_position: 2
+---
+# Knowledge Base Structure
 
 Understanding how this knowledge base is organized.
 

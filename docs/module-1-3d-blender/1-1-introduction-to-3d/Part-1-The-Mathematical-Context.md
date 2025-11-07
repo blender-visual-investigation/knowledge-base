@@ -1,3 +1,10 @@
+---
+title: 1.1 The Mathematical Context
+description: Beginner DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription
+
+---
+
+
 
 # Part 1: The Mathematical Context (Pure Geometry)
 
@@ -13,6 +20,28 @@ Axis
 Origin
 
 ## Geometry
+
+<div class="card-demo">
+  <div class="card">
+    <div class="card__image">
+      <img
+        src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80"
+        alt="Abstract 3D geometry visualization"
+        title="Geometric Principles"
+      />
+    </div>
+    <div class="card__body">
+      <h4>The Foundation of 3D</h4>
+      <small>
+        Geometry is the mathematical language that Blender speaks. Every vertex, edge, and face in your 3D models follows geometric principles that have been studied for thousands of years.
+      </small>
+    </div>
+    <div class="card__footer">
+      <button class="button button--primary button--block">Learn More</button>
+    </div>
+  </div>
+</div>
+
 Blender is a 3D program, but what does that mean? In essence Blender's First Principle is Geometry. To remember what a term means I like to look at its Etymological Definition: Geometry literally means "earth measurement" (from Greek geo, meaning "earth," and metron, meaning "measurement"). It is the branch of mathematics concerned with the properties of space and the relationship between points, lines, surfaces, solids, and higher-dimensional analogs. The modern, Applied Definition (for Visual Investigation) would be something like: Geometry is the study of how to measure, represent, and manipulate space. It provides the rules and tools (like a coordinate systems) necessary to translate real-world physical objects into a usable, measurable digital model.
 
 The entire Blender interface, from the moment you open up Blender for the first time and see the default cube in the viewport, is an exercise in geometry; what you see is a Euclidean Cartesian Coordinate System defined by three dimensions (the X,Y,Z axes). Every single thing you create, be it points (vertices), lines (edges) or surfaces (faces), they all are the fundamental building blocks of geometry. When you move (translate), rotate (orient), or scale an object, you are performing geometric transformations defined by mathematical rules. In short, you cannot model, texture, animate, or render anything without adhering to the rules of geometry. All the other advanced features Blender offers, like physics simulations, rigging, keyframing, etc. are layered on top of this fundamental geometric base. You could say: Geometry is the language Blender speaks.

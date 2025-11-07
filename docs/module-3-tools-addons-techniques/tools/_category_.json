@@ -3,6 +3,8 @@
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Essential Blender tools for visual investigation and forensic analysis."
+    "title": "Tools",
+    "description": "Essential Blender tools for visual investigation and forensic analysis.",
+    "image": "/img/docusaurus.png"
   }
 }

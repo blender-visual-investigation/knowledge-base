@@ -1,10 +1,9 @@
-# 1.3 : Blender First Steps
+# 1.3.1 : The UI
 
-Setting up Blender to our needs and showing what it does
+Adjust the user interface
 
-## Exercise 1: Basic Object Manipulation
-
-### Objective
+### todo
+Remove all the stuff we don't need
 Practice the fundamental transformation operations.
 
 ### Steps
