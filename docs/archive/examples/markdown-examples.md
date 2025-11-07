@@ -35,7 +35,7 @@ This page demonstrates all the markdown features available in Docusaurus.
 
 [External link](https://docusaurus.io)
 
-[Internal link](./intro.md)
+[Internal link](/docs/intro)
 
 [Link with title](https://docusaurus.io "Docusaurus Homepage")
 
