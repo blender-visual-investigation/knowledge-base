@@ -1,12 +1,12 @@
 ---
-title: 1.1 The Mathematical Context
+title: The Mathematical Context
 description: Beginner DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription
 
 ---
 
 
 
-# Part 1: The Mathematical Context (Pure Geometry)
+# The Mathematical Context
 
 Aimed at complete beginners. The beatuy of Blender is that you don't have to know all this to work with Blender, but having an intuition of what the terms that you will encounter mean, or how they relate to eachother within a broader context might prove helpful. Understanding the fundamental concepts of 3D space and coordinate systems. These principles are what Blender, or any software that uses 3D in one way or another are built upon. I want to show you how I have come to understand them. I want to be very thorough and slightly philosophical, blame my bachelors. To me this works best, and I hope for you to, I'll try to keep it as simple as I can. You don't need this information just to work with Blender, but understanding it will help you grasp what you are doing at a fundamental level and will help you if you decide to introduce working with geometry nodes in Blender later on in your journey. 
 
@@ -73,6 +73,10 @@ No object can exist on this point.
 ### 1D
 Now lets apply this to our 0D point, and establish its position within the simplest possible space, the 1st dimension (1D). When we introduce the first dimension and a point of origin, we also introduce two factors: direction and length/distance. Direction can only be positive or negative, relative to the point of origin. Be aware that direction does not mean orientation in the sense that it is orientated towards something. We are talking about geometric or placement direction/orientation. This only signifies where the point is relative to the origin point. In 1D space this can either be a positive direction (to the right) or negative (to the left) relative to the origin point.
 
+import Interactive1D from '@site/src/components/Interactive1D';
+
+<Interactive1D />
+
 The coordinate X tells you how far the point is from the Origin. A point can be located from the origin in either a positive or negative direction: The single line has only two possible directions: Positive (usually increasing X) and Negative (usually decreasing X). In 1D, "Orientation" is just a label we put on one of the two possible directions of movement. It doesn't require extra coordinates because there is literally no "up/down" or "left/right" to face. In 1D, the concept of rotation is impossible. An object cannot spin or change its heading without leaving the line. 
 
 A 0D point in 1D space can have a location. A physical object placed at that location can also have a direction (orientation). This is Geometric Direction, so not object direction. a point by itself has a direction only 
@@ -98,6 +102,10 @@ Now, let's break the line and start moving sideways.
 
 ### 2D
 When we move to 2D, we add a second, entirely independent dimension, the Y axis, which is perpendicular to the X axis. Freedom of Movement: The point is no longer constrained to a line; it can move anywhere on a flat surface, or a Plane. Location (Coordinates): To locate the point, you now need two coordinates (X,Y) because X tells you nothing about Y.
+
+import Interactive2D from '@site/src/components/Interactive2D';
+
+<Interactive2D />
 
     X location: "How far right/left?"
     Y location: "How far up/down?"
@@ -126,6 +134,10 @@ The most important takeaway here is: X and Y are independent.
 
 ### 3D
 The idea of objects having length, width, and depth—the three dimensions—was an intuitive concept that predates modern mathematics. While the idea of three-dimensional objects was ancient, René Descartes (1596–1650) was crucial in providing the analytical framework for three dimensions. Analytic Geometry: Descartes is credited with developing analytic geometry, which uses an algebraic system (like coordinates) to describe geometric shapes and locations. This system, which relates points in space to a set of ordered numbers (x, y, z), made it possible to treat three-dimensional space with algebraic equations. So while Descartes did not invent the idea of three dimensions, he did provide the coordinate system (x,y,z) that became the essential tool for modern mathematical and physical analysis of three-dimensional space.
+
+import Interactive3D from '@site/src/components/Interactive3D';
+
+<Interactive3D />
 
 
 | Dimension | Description | Coordinates Needed | Example |

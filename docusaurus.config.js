@@ -134,13 +134,7 @@ const config = {
           src: 'img/BVI_Logo_Small.png',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Base',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Blog', position: 'right'},
           {
             type: 'search',
             position: 'right',
