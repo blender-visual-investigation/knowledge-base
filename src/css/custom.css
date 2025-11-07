@@ -4,8 +4,12 @@
  * work well for content-centric websites.
  */
 
+/* Import Overpass font */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;600;700&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-base: 'Overpass', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --ifm-color-primary: #308ce7;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -29,9 +33,15 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-background-color: #020617;
+  --ifm-background-color: #070a11;
   --ifm-font-color-base: #d1d5db;
   --ifm-heading-color: #ffffff;
+}
+
+/* Ensure Overpass is applied globally */
+body,
+html {
+  font-family: 'Overpass', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 /* Make search box wider and align to right */
@@ -80,15 +90,14 @@
 @media (min-width: 997px) {
   .main-wrapper {
     padding-top: 35px !important;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    background-size: 100% 150px;
-    background-repeat: no-repeat;
-  }
-
-  [data-theme='dark'] .main-wrapper {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-    background-size: 100% 150px;
-    background-repeat: no-repeat;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, #101828 0%, #070a11 100%);
+    background-size: 50px 50px, 50px 50px, 100% 150px;
+    background-repeat: repeat, repeat, no-repeat;
+    background-position: 0 0, 0 0, 0 0;
+    background-attachment: fixed, fixed, scroll;
   }
 }
 
@@ -161,7 +170,7 @@
 
 /* Sidebar link color in dark mode */
 @media (min-width: 997px) {
-  [data-theme='dark'] .menu__link {
+  [data-theme='dark'] .menu__link:not(.menu__link--active) {
     color: #ffffff !important;
   }
 }
@@ -225,25 +234,45 @@ article .card__footer {
   .menu__link::before {
     font-family: "Font Awesome 6 Free";
     font-weight: 400;
-    content: "\f15b";
+    content: "\f07c";
     margin-right: 0.5rem;
     color: var(--ifm-color-emphasis-600);
+    font-size: 0.9em;
+    position: relative;
+    top: -3px;
   }
 
-  /* Category items get folder icon */
+  /* Category items get closed folder icon by default */
   .menu__list-item--collapsed .menu__link::before,
   .menu__list-item:not(.menu__list-item--collapsed) > .menu__link::before {
     font-family: "Font Awesome 6 Free";
     font-weight: 400;
+    content: "\f07b";
+  }
+
+  /* Only expanded categories with visible children get open folder icon */
+  .menu__list-item:not(.menu__list-item--collapsed) > .menu__link[aria-expanded="true"]::before {
     content: "\f07c";
   }
 
-  /* Active/current page gets a different icon */
+  /* Reset all links to default color first */
+  .menu__link {
+    color: var(--ifm-menu-color) !important;
+  }
+
+  /* Active/current page gets blue text, blue icon, and darker blue background */
+  .menu__link--active {
+    color: #1e90ff !important;
+    background-color: rgba(30, 144, 255, 0.2) !important;
+    border-radius: 4px;
+  }
+
+  /* Active page gets open folder icon - must come after other rules */
   .menu__link--active::before {
     font-family: "Font Awesome 6 Free";
     font-weight: 400;
-    content: "\f192";
-    color: var(--ifm-color-primary);
+    content: "\f07c" !important;
+    color: #1e90ff !important;
   }
 }
 

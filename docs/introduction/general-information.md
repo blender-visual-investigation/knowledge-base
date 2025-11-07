@@ -21,3 +21,6 @@ This knowledge base provides comprehensive guidance on using Blender for visual 
 ## How to Navigate
 
 Browse through the modules sequentially for a structured learning path, or jump to specific topics using the sidebar navigation.
+
+## Mobile
+Site is made to be viewed on a desktop, but mobile can be used
