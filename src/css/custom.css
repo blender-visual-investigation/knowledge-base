@@ -182,11 +182,19 @@ html {
 /* Make footer copyright 75% size */
 .footer__copyright {
   font-size: 75%;
+  margin-top: 50px;
 }
 
 /* Custom footer background color */
 .footer {
   background-color: #0d0f13 !important;
+}
+
+/* Add horizontal divider above Template Pages in sidebar */
+.theme-doc-sidebar-item-category:has(a[href*="template-pages"]) {
+  border-top: 1px solid var(--ifm-toc-border-color);
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 /* Replace hash symbol with link icon for heading anchors */

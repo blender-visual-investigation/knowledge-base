@@ -2,14 +2,12 @@
 sidebar_position: 2
 ---
 
-# Template Page
+# QGIS
 
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
   <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
     <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
     <span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>INTERMEDIATE</span>
-    <span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>ADVANCED</span>
-    <span style={{backgroundColor: '#f44336', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>EXPERT</span>
   </div>
   <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
     <span style={{fontSize: '16px'}}>📖</span>
@@ -18,7 +16,6 @@ sidebar_position: 2
 </div>
 
 ---
-
 
 <div style={{
   position: 'relative',
@@ -48,14 +45,12 @@ sidebar_position: 2
 
 ## Introduction
 
-Welcome to this page! This is your introduction section where you can provide an overview of the topic.
+This page focuses on how to use QGIS to extract useful maps for our research. Unlike using just Google Earth or Google Maps, QGIS offers access to various kinds of maps from many different sources, making it a versatile tool for geospatial analysis.
 
-This section should give readers a clear understanding of:
-- What they'll learn from this page
-- Why this topic is important
-- What prerequisites they might need (if any)
-
-You can write multiple paragraphs here to provide context and set expectations for the content that follows.
+This section will cover:
+- The advantages of QGIS over standard map viewers.
+- Types of data useful for visual investigation.
+- How to combine QGIS with other tools like Google Earth Pro.
 
 ---
 
@@ -73,7 +68,7 @@ You can write multiple paragraphs here to provide context and set expectations f
       <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
     </div>
     <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the first key feature or benefit. Explain what makes this important.</p>
+      <p style={{margin: 0}}>Access a wide range of map data sources including OSM and DEMs.</p>
     </div>
   </div>
   
@@ -88,22 +83,7 @@ You can write multiple paragraphs here to provide context and set expectations f
       <h4 style={{margin: 0}}>Links</h4>
     </div>
     <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the second key feature or benefit. Highlight what users will gain.</p>
-    </div>
-  </div>
-  
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Videos</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the third key feature or benefit. Show why this matters.</p>
+      <p style={{margin: 0}}>Download QGIS and find plugins for data extraction.</p>
     </div>
   </div>
 </div>
@@ -112,18 +92,23 @@ You can write multiple paragraphs here to provide context and set expectations f
 
 ## Main Content Section
 
-Start adding your main content here. You can organize it into multiple sections using headers.
+### Why QGIS?
 
-### Subsection 1
+QGIS allows you to aggregate map data from various sources, going beyond the limitations of single-platform viewers like Google Maps. While it is currently unclear how to determine exactly when satellite data was taken within QGIS itself, the variety of available data layers makes it indispensable.
 
-Add your detailed content, explanations, code examples, or any other information.
+### Useful Data Types
 
-### Subsection 2
+#### OSM Road & Building Maps
+OpenStreetMap (OSM) data provides vector layers for roads and buildings. Although sometimes lacking in fine detail, these maps offer a solid foundation when recreating a map or location in 3D.
 
-Continue with more content as needed.
+#### Digital Elevation Models (DEM)
+DEMs provide elevation data, allowing you to visualize terrain topography accurately. This is crucial for understanding the landscape of an investigation site.
+
+#### Open Street Maps Features
+Beyond roads and buildings, OSM data can also include information on trees, waterways, and other land use features, helping to populate your scene with relevant details.
 
 ---
 
 ## Summary
 
-Wrap up the page with a brief summary of what was covered and any next steps or related topics to explore.
+The combination of Google Earth Pro and QGIS is powerful. By leveraging QGIS to gather diverse datasets—from roads and buildings to terrain elevation—you can build a comprehensive base for your visual investigations.

@@ -2,23 +2,19 @@
 sidebar_position: 2
 ---
 
-# Template Page
+# Basic Case: Model Inspection
 
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
   <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
     <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
-    <span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>INTERMEDIATE</span>
-    <span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>ADVANCED</span>
-    <span style={{backgroundColor: '#f44336', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>EXPERT</span>
   </div>
   <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
     <span style={{fontSize: '16px'}}>📖</span>
-    <span>5 min read</span>
+    <span>10 min read</span>
   </div>
 </div>
 
 ---
-
 
 <div style={{
   position: 'relative',
@@ -48,14 +44,15 @@ sidebar_position: 2
 
 ## Introduction
 
-Welcome to this page! This is your introduction section where you can provide an overview of the topic.
+This case study focuses on the practical aspects of working with an existing 3D model in Blender for visual investigation. It is designed for users who have Blender installed and are familiar with the basic interface but need to know how to extract useful information from a provided scene.
 
-This section should give readers a clear understanding of:
-- What they'll learn from this page
-- Why this topic is important
-- What prerequisites they might need (if any)
+This section will cover:
+- **Navigating** a provided 3D scene.
+- **Measuring** distances and dimensions relevant to a case.
+- **Rendering** useful images for reports or analysis.
+- **Locating** object properties and metadata.
 
-You can write multiple paragraphs here to provide context and set expectations for the content that follows.
+**Note:** This tutorial does *not* cover modeling or creating objects from scratch.
 
 ---
 
@@ -73,7 +70,7 @@ You can write multiple paragraphs here to provide context and set expectations f
       <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
     </div>
     <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the first key feature or benefit. Explain what makes this important.</p>
+      <p style={{margin: 0}}>Download the sample investigation model here (Link TBD).</p>
     </div>
   </div>
   
@@ -88,22 +85,7 @@ You can write multiple paragraphs here to provide context and set expectations f
       <h4 style={{margin: 0}}>Links</h4>
     </div>
     <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the second key feature or benefit. Highlight what users will gain.</p>
-    </div>
-  </div>
-  
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Videos</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the third key feature or benefit. Show why this matters.</p>
+      <p style={{margin: 0}}>Blender Navigation Shortcuts cheat sheet.</p>
     </div>
   </div>
 </div>
@@ -112,18 +94,28 @@ You can write multiple paragraphs here to provide context and set expectations f
 
 ## Main Content Section
 
-Start adding your main content here. You can organize it into multiple sections using headers.
+### 1. Opening and Inspecting the Model
 
-### Subsection 1
+When you receive a 3D model for investigation, the first step is to open it and understand the scene scale and organization.
+- Use `File > Open` to load the `.blend` file.
+- Check the **Outliner** (top right) to see the list of objects in the scene.
+- Verify the unit system in **Scene Properties** (usually set to Metric/Meters).
 
-Add your detailed content, explanations, code examples, or any other information.
+### 2. Finding Dimensions and Information
 
-### Subsection 2
+Visual investigations often require verifying physical sizes.
+- **Object Dimensions:** Select an object and press `N` to open the Sidebar. Under the **Item** tab, you can see the bounding box dimensions (X, Y, Z).
+- **Measure Tool:** Use the Measure tool in the toolbar (left side) to click and drag ruler lines across the scene to measure specific distances between points.
 
-Continue with more content as needed.
+### 3. Rendering Useful Images
+
+To document your findings, you need to export clear images.
+- **Camera Setup:** Press `Numpad 0` to look through the camera. If no camera exists, add one with `Shift + A > Camera`.
+- **View Lock:** To easily position the camera, press `N`, go to **View**, and check **Camera to View**. Now, navigating the viewport moves the camera.
+- **Render:** Press `F12` to render the current view. Save the image via `Image > Save As`.
 
 ---
 
 ## Summary
 
-Wrap up the page with a brief summary of what was covered and any next steps or related topics to explore.
+By mastering these basic inspection techniques, you can effectively use Blender as a tool for verifying spatial data and generating visual evidence from existing 3D models, without needing to be a 3D modeler yourself.

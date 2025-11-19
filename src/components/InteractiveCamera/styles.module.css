@@ -1,0 +1,140 @@
+.container {
+  background-color: #1b1b1d;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  color: #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 20px;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+}
+
+.canvas {
+  width: 100%;
+  height: 400px;
+  background-color: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #252526;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.valueDisplay {
+  font-family: monospace;
+  background-color: #333;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #4ec9b0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #444;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4ec9b0;
+  cursor: pointer;
+  transition: background .15s ease-in-out;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #2b8572;
+}
+
+.select {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  padding: 8px;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #4ec9b0;
+}
+
+.infoPanel {
+  margin-top: 20px;
+  background-color: #252526;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.infoPanel h4 {
+  margin-top: 0;
+  color: #4ec9b0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.infoLabel {
+  color: #888;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-size: 1.1rem;
+  font-weight: bold;
+}

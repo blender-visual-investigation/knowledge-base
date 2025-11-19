@@ -85,7 +85,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/blender-visual-investigation/knowledge-base/tree/main/',
           sidebarCollapsible: true,
           sidebarCollapsed: true,
           showLastUpdateAuthor: true,
@@ -100,7 +100,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/blender-visual-investigation/knowledge-base/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -145,16 +145,16 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Learning Assistance',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'NotebookLM',
+                href: 'https://notebooklm.google.com/notebook/fb5da8b0-98c0-4a37-a957-7e45325fe62a',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'More Content',
             items: [
               {
                 label: 'YouTube',
@@ -175,7 +175,11 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/blender-visual-investigation/knowledge-base',
+              },
+              {
+                label: 'Code of Conduct',
+                href: 'https://www.contributor-covenant.org/version/3/0/code_of_conduct/',
               },
             ],
           },

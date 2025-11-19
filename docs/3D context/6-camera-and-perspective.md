@@ -1,15 +1,13 @@
 ---
-sidebar_position: 2
+sidebar_position: 6
 ---
 
-# Template Page
+# Camera & Perspective
 
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
   <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
     <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
     <span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>INTERMEDIATE</span>
-    <span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>ADVANCED</span>
-    <span style={{backgroundColor: '#f44336', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>EXPERT</span>
   </div>
   <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
     <span style={{fontSize: '16px'}}>📖</span>
@@ -18,7 +16,6 @@ sidebar_position: 2
 </div>
 
 ---
-
 
 <div style={{
   position: 'relative',
@@ -48,14 +45,12 @@ sidebar_position: 2
 
 ## Introduction
 
-Welcome to this page! This is your introduction section where you can provide an overview of the topic.
+This page focuses on the camera in 3D software. Understanding the virtual camera is crucial for creating realistic renders and accurately matching 3D scenes to real-world footage.
 
-This section should give readers a clear understanding of:
-- What they'll learn from this page
-- Why this topic is important
-- What prerequisites they might need (if any)
-
-You can write multiple paragraphs here to provide context and set expectations for the content that follows.
+This section will cover:
+- **Image Dimension**: The resolution and aspect ratio of the output.
+- **Sensor Size**: The physical size of the simulated camera sensor.
+- **Focal Length**: The distance between the lens and the sensor, affecting the field of view.
 
 ---
 
@@ -73,7 +68,7 @@ You can write multiple paragraphs here to provide context and set expectations f
       <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
     </div>
     <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the first key feature or benefit. Explain what makes this important.</p>
+      <p style={{margin: 0}}>Learn the fundamental parameters that define a 3D camera.</p>
     </div>
   </div>
   
@@ -88,22 +83,7 @@ You can write multiple paragraphs here to provide context and set expectations f
       <h4 style={{margin: 0}}>Links</h4>
     </div>
     <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the second key feature or benefit. Highlight what users will gain.</p>
-    </div>
-  </div>
-  
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Videos</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the third key feature or benefit. Show why this matters.</p>
+      <p style={{margin: 0}}>External resources on camera optics and 3D rendering.</p>
     </div>
   </div>
 </div>
@@ -112,18 +92,24 @@ You can write multiple paragraphs here to provide context and set expectations f
 
 ## Main Content Section
 
-Start adding your main content here. You can organize it into multiple sections using headers.
+### Image Dimension
 
-### Subsection 1
+The image dimension refers to the width and height of the rendered image in pixels. This determines the resolution and the aspect ratio of the final output.
 
-Add your detailed content, explanations, code examples, or any other information.
+### Sensor Size
 
-### Subsection 2
+In 3D software, the camera's sensor size simulates the physical dimensions of a real-world camera sensor (e.g., 35mm full-frame, APS-C). This value, combined with focal length, determines the field of view.
 
-Continue with more content as needed.
+### Focal Length
+
+Focal length is the distance between the lens and the image sensor when the subject is in focus, usually measured in millimeters (mm). A shorter focal length results in a wider field of view, while a longer focal length results in a narrower field of view (telephoto).
+
+import InteractiveCamera from '@site/src/components/InteractiveCamera';
+
+<InteractiveCamera />
 
 ---
 
 ## Summary
 
-Wrap up the page with a brief summary of what was covered and any next steps or related topics to explore.
+Mastering these camera settings—image dimension, sensor size, and focal length—is essential for predictable and realistic 3D work.
