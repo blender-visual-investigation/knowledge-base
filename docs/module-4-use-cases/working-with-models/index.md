@@ -41,7 +41,7 @@ This streamlined course covers only what you need:
 
 ## Prerequisites
 
-- **Blender installed** (see [Installation Guide](/docs/module-1-blender/1-2-introduction-to-blender/1-2-introduction-to-blender))
+- **Blender installed** (see [Installation Guide](../../module-1-blender/1-2-introduction-to-blender/1-2-introduction-to-blender.md))
 - **Basic computer skills** (file management, mouse/keyboard)
 - **No 3D experience required**
 
@@ -93,7 +93,7 @@ Each lesson includes:
     </div>
     <ul style={{margin: 0, paddingLeft: '20px', color: 'white'}}>
       <li><a href="https://www.blender.org/download/" style={{color: 'white'}}>Download Blender</a></li>
-      <li><a href="/docs/1.%20introduction/support" style={{color: 'white'}}>Get Support</a></li>
+      <li><a href="/knowledge-base/docs/introduction/support" style={{color: 'white'}}>Get Support</a></li>
       <li><a href="https://notebooklm.google.com/notebook/fb5da8b0-98c0-4a37-a957-7e45325fe62a" style={{color: 'white'}}>AI Learning Assistant</a></li>
     </ul>
   </div>

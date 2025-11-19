@@ -16,6 +16,12 @@ sidebar_position: 6
 
 ---
 
+## Ideas
+Using Blender as Powerpoint
+Presenting and manipulating in real time
+Animating
+Visualizing Data
+
 ## Introduction
 
 Learn to create professional-quality renders and exports for reports, presentations, and documentation.
@@ -281,7 +287,7 @@ Create a full set of renders for a case report.
     </div>
     <ul style={{margin: 0, paddingLeft: '20px', color: 'white'}}>
       <li><a href="https://docs.blender.org/manual/en/latest/render/index.html" style={{color: 'white'}}>Rendering Documentation</a></li>
-      <li><a href="/docs/module-4-use-cases/crime-scene-reconstruction" style={{color: 'white'}}>Crime Scene Reconstruction</a></li>
+      <li><a href="/knowledge-base/docs/module-4-use-cases/working-with-models/crime-scene-reconstruction" style={{color: 'white'}}>Crime Scene Reconstruction</a></li>
     </ul>
   </div>
 
@@ -313,9 +319,9 @@ Congratulations! You've completed the **Working with Models** course. You now ha
 ### Next Steps
 
 - **Practice:** Apply these skills to real case files
-- **Advanced Learning:** Explore [Crime Scene Reconstruction](../crime-scene-reconstruction) workflow
+- **Advanced Learning:** Explore [Crime Scene Reconstruction](./crime-scene-reconstruction.md) workflow
 - **Full Course:** Consider the complete [Modelers Track](/docs/intro) to learn modeling from scratch
 
 :::tip Keep Learning
-Join our community for ongoing support and advanced techniques. See [Support](/docs/1.%20introduction/support) for resources.
+Join our community for ongoing support and advanced techniques. See [Support](../../1. introduction/support.md) for resources.
 :::
