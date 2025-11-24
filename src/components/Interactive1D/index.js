@@ -16,7 +16,7 @@ export default function Interactive1D() {
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0a0a);
+    scene.background = new THREE.Color(0x111111);
     sceneRef.current = scene;
 
     // Camera - orthographic for true 2D view of 1D line
@@ -55,9 +55,8 @@ export default function Interactive1D() {
       const t = i / segmentCount;
       const x = -axisLength + (2 * axisLength * t);
       positions.push(x, 0, 0);
-
-      // Solid red color throughout
-      colors.push(0.94, 0.30, 0.24);
+      // #308ce7 (48,140,231) blue
+      colors.push(48/255, 140/255, 231/255);
     }
 
     axisGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
@@ -65,8 +64,10 @@ export default function Interactive1D() {
 
     const axisMaterial = new THREE.LineBasicMaterial({ 
       vertexColors: true,
-      linewidth: 3,
-      depthTest: false
+      linewidth: 2,
+      depthTest: false,
+      transparent: true,
+      opacity: 0.8
     });
     const axis = new THREE.Line(axisGeometry, axisMaterial);
     axis.renderOrder = 999;
@@ -115,14 +116,13 @@ export default function Interactive1D() {
     const originContext = originCanvas.getContext('2d');
     originCanvas.width = 128;
     originCanvas.height = 64;
-    originContext.fillStyle = '#1e90ff';
+    originContext.fillStyle = '#ff9f2c'; // orange
     originContext.fillRect(0, 10, 128, 44);
-    originContext.fillStyle = '#ffffff';
+    originContext.fillStyle = '#111111'; // black text
     originContext.font = 'Bold 24px Arial';
     originContext.textAlign = 'center';
     originContext.textBaseline = 'middle';
     originContext.fillText('Origin (0)', 64, 32);
-    
     const originTexture = new THREE.CanvasTexture(originCanvas);
     const originSpriteMaterial = new THREE.SpriteMaterial({ 
       map: originTexture,
@@ -136,10 +136,20 @@ export default function Interactive1D() {
     // Point sphere
     const pointGeometry = new THREE.SphereGeometry(0.4, 32, 32);
     const pointMaterial = new THREE.MeshBasicMaterial({ 
-      color: 0xff9f2c,
+      color: 0xff9f2c, // orange
       depthTest: false
     });
     const point = new THREE.Mesh(pointGeometry, pointMaterial);
+    // Add a glow/halo to the point
+    const haloGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+    const haloMaterial = new THREE.MeshBasicMaterial({
+      color: 0xff9f2c,
+      transparent: true,
+      opacity: 0.3,
+      depthTest: false
+    });
+    const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+    point.add(halo);
     point.renderOrder = 1000;
     scene.add(point);
     pointRef.current = point;
@@ -147,11 +157,11 @@ export default function Interactive1D() {
     // Helper line from origin to point
     const helperLineGeometry = new THREE.BufferGeometry();
     const helperLineMaterial = new THREE.LineDashedMaterial({
-      color: 0xef4c3c,
-      linewidth: 2,
-      dashSize: 0.3,
+      color: 0x2dc66b, // green
+      linewidth: 1,
+      dashSize: 0.2,
       gapSize: 0.2,
-      opacity: 0.6,
+      opacity: 0.4,
       transparent: true
     });
     const helperLine = new THREE.Line(helperLineGeometry, helperLineMaterial);
@@ -224,8 +234,8 @@ export default function Interactive1D() {
       <div className={styles.controls}>
         <div className={styles.sliderGroup}>
           <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#ef4c3c' }}>X-axis</span>
-            <span style={{ color: '#ef4c3c' }}>Coordinate: {position.toFixed(1)}</span>
+            <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
+            <span style={{ color: '#ff5252' }}>Coordinate: {position.toFixed(1)}</span>
           </label>
           <input
             type="range"

@@ -1,0 +1,8 @@
+{
+  "label": "Add-ons",
+  "position": 3,
+  "link": {"type": "doc", "id": "tools-addons-techniques/addons/index"},
+  "customProps": {
+    "hideFirstDoc": true
+  }
+}

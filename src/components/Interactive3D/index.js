@@ -18,7 +18,7 @@ export default function Interactive3D() {
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0a0a);
+    scene.background = new THREE.Color(0x111111);
     sceneRef.current = scene;
 
     // Camera
@@ -44,6 +44,7 @@ export default function Interactive3D() {
     controls.dampingFactor = 0.05;
     controls.minDistance = 10;
     controls.maxDistance = 50;
+    controls.enableZoom = false; // Disable zoom
     controlsRef.current = controls;
 
     // Lighting
@@ -55,11 +56,11 @@ export default function Interactive3D() {
     scene.add(directionalLight);
 
     // Grid helpers
-    const gridXY = new THREE.GridHelper(20, 20, 0x444444, 0x222222);
+    const gridXY = new THREE.GridHelper(20, 20, 0x333333, 0x222222);
     gridXY.rotation.x = Math.PI / 2;
     scene.add(gridXY);
 
-    const gridXZ = new THREE.GridHelper(20, 20, 0x444444, 0x222222);
+    const gridXZ = new THREE.GridHelper(20, 20, 0x333333, 0x222222);
     scene.add(gridXZ);
 
     // Axes
@@ -71,9 +72,11 @@ export default function Interactive3D() {
       new THREE.Vector3(axisLength, 0, 0)
     ]);
     const xAxisMaterial = new THREE.LineBasicMaterial({ 
-      color: 0xef4c3c, 
-      linewidth: 3,
-      depthTest: false
+      color: 0xff5252, 
+      linewidth: 2,
+      depthTest: false,
+      transparent: true,
+      opacity: 0.8
     });
     const xAxis = new THREE.Line(xAxisGeometry, xAxisMaterial);
     xAxis.renderOrder = 999;
@@ -85,9 +88,11 @@ export default function Interactive3D() {
       new THREE.Vector3(0, axisLength, 0)
     ]);
     const yAxisMaterial = new THREE.LineBasicMaterial({ 
-      color: 0x1e90ff, 
-      linewidth: 3,
-      depthTest: false
+      color: 0x308ce7, 
+      linewidth: 2,
+      depthTest: false,
+      transparent: true,
+      opacity: 0.8
     });
     const yAxis = new THREE.Line(yAxisGeometry, yAxisMaterial);
     yAxis.renderOrder = 999;
@@ -99,9 +104,11 @@ export default function Interactive3D() {
       new THREE.Vector3(0, 0, axisLength)
     ]);
     const zAxisMaterial = new THREE.LineBasicMaterial({ 
-      color: 0x2ecc71, 
-      linewidth: 3,
-      depthTest: false
+      color: 0x69f0ae, 
+      linewidth: 2,
+      depthTest: false,
+      transparent: true,
+      opacity: 0.8
     });
     const zAxis = new THREE.Line(zAxisGeometry, zAxisMaterial);
     zAxis.renderOrder = 999;
@@ -116,39 +123,66 @@ export default function Interactive3D() {
     // Point sphere
     const pointGeometry = new THREE.SphereGeometry(0.6, 32, 32);
     const pointMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0xff9f2c,
+      color: 0xff9f2c, // orange
       emissive: 0xff9f2c,
-      emissiveIntensity: 0.3,
+      emissiveIntensity: 0.2,
       depthTest: false
     });
     const point = new THREE.Mesh(pointGeometry, pointMaterial);
+    
+    // Add a glow/halo to the point
+    const haloGeometry = new THREE.SphereGeometry(1.0, 32, 32);
+    const haloMaterial = new THREE.MeshBasicMaterial({
+      color: 0xff9f2c,
+      transparent: true,
+      opacity: 0.2,
+      depthTest: false
+    });
+    const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+    point.add(halo);
+
     point.renderOrder = 1000;
     scene.add(point);
     pointRef.current = point;
+
+    // Volume box visualization
+    const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const boxMaterial = new THREE.MeshBasicMaterial({
+      color: 0x308ce7,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.DoubleSide,
+      depthTest: false
+    });
+    const volumeBox = new THREE.Mesh(boxGeometry, boxMaterial);
+    scene.add(volumeBox);
+    volumeBox.visible = false;
+    // Store for later update
+    pointRef.current.volumeBox = volumeBox;
 
     // Helper lines (will be updated based on position)
     const helperLineMaterial = new THREE.LineDashedMaterial({
       color: 0xffffff,
       linewidth: 1,
-      dashSize: 0.3,
+      dashSize: 0.2,
       gapSize: 0.2,
-      opacity: 0.5,
+      opacity: 0.3,
       transparent: true
     });
 
     const xHelperGeometry = new THREE.BufferGeometry();
     const xHelper = new THREE.Line(xHelperGeometry, helperLineMaterial.clone());
-    xHelper.material.color.setHex(0xef4c3c);
+    xHelper.material.color.setHex(0xff5252);
     scene.add(xHelper);
 
     const yHelperGeometry = new THREE.BufferGeometry();
     const yHelper = new THREE.Line(yHelperGeometry, helperLineMaterial.clone());
-    yHelper.material.color.setHex(0x1e90ff);
+    yHelper.material.color.setHex(0x308ce7);
     scene.add(yHelper);
 
     const zHelperGeometry = new THREE.BufferGeometry();
     const zHelper = new THREE.Line(zHelperGeometry, helperLineMaterial.clone());
-    zHelper.material.color.setHex(0x2ecc71);
+    zHelper.material.color.setHex(0x69f0ae);
     scene.add(zHelper);
 
     // Diagonal helper line (from origin directly to point)
@@ -195,6 +229,16 @@ export default function Interactive3D() {
     if (pointRef.current) {
       pointRef.current.position.set(position.x, position.y, position.z);
       
+      // Update volume box
+      if (pointRef.current.volumeBox) {
+        const width = Math.abs(position.x);
+        const height = Math.abs(position.y);
+        const depth = Math.abs(position.z);
+        pointRef.current.volumeBox.scale.set(Math.max(0.01, width), Math.max(0.01, height), Math.max(0.01, depth));
+        pointRef.current.volumeBox.position.set(position.x / 2, position.y / 2, position.z / 2);
+        pointRef.current.volumeBox.visible = (width > 0.1 && height > 0.1 && depth > 0.1);
+      }
+
       // Update helper lines
       if (helperLinesRef.current.length === 4) {
         // X helper (from origin to X projection)
@@ -269,8 +313,8 @@ export default function Interactive3D() {
       <div className={styles.controls}>
         <div className={styles.sliderGroup}>
           <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#ef4c3c' }}>X-axis</span>
-            <span style={{ color: '#ef4c3c' }}>Coordinate: {position.x.toFixed(1)}</span>
+            <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
+            <span style={{ color: '#ff5252' }}>Coordinate: {position.x.toFixed(1)}</span>
           </label>
           <input
             type="range"
@@ -285,8 +329,8 @@ export default function Interactive3D() {
 
         <div className={styles.sliderGroup}>
           <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#2ecc71' }}>Y-axis</span>
-            <span style={{ color: '#2ecc71' }}>Coordinate: {position.z.toFixed(1)}</span>
+            <span className={styles.axisLabel} style={{ color: '#69f0ae' }}>Y-axis</span>
+            <span style={{ color: '#69f0ae' }}>Coordinate: {position.z.toFixed(1)}</span>
           </label>
           <input
             type="range"
@@ -301,8 +345,8 @@ export default function Interactive3D() {
 
         <div className={styles.sliderGroup}>
           <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#1e90ff' }}>Z-axis</span>
-            <span style={{ color: '#1e90ff' }}>Coordinate: {position.y.toFixed(1)}</span>
+            <span className={styles.axisLabel} style={{ color: '#308ce7' }}>Z-axis</span>
+            <span style={{ color: '#308ce7' }}>Coordinate: {position.y.toFixed(1)}</span>
           </label>
           <input
             type="range"

@@ -1,0 +1,153 @@
+---
+id: looptools
+title: LoopTools
+sidebar_label: LoopTools
+category: Workflow Enhancement
+tags: ['Built-in', 'Modeling', 'Utility']
+download_link: https://docs.blender.org/manual/en/latest/addons/mesh/looptools.html
+description: A set of tools to aid with mesh modeling, including bridge, circle, curve, flatten, and more.
+author: Bart Crouch
+price: Free (Built-in)
+last_updated: 2023-11-01
+slug: /tools-addons-techniques/addons/looptools
+---
+
+# Loop Tools
+
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+  <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+    <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
+    <span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>MODELING</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
+    <span style={{fontSize: '16px'}}>📖</span>
+    <span>5 min read</span>
+  </div>
+</div>
+
+---
+
+<div style={{
+  position: 'relative',
+  paddingBottom: '56.25%',
+  height: 0,
+  overflow: 'hidden',
+  maxWidth: '100%',
+  marginBottom: '30px',
+  borderRadius: '8px',
+  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+}}>
+  <iframe
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      border: 0
+    }}
+    src="https://www.youtube.com/embed/o4LopQs2bBQ"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
+
+## Introduction
+
+The **Loop Tools add-on** is a powerful, free extension built into Blender, designed to significantly enhance mesh editing capabilities. It provides a dedicated suite of specialized tools that allow for fast, precise manipulation of vertices, edges, and faces, particularly when working with complex loops and curves. Crucially, all Loop Tools operations are accessible only when the target mesh is in **Edit Mode**.
+
+---
+
+## Key Features
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-shapes" style={{fontSize: '20px', color: '#333'}}></i>
+      <h4 style={{margin: 0, color: '#333'}}>Topology Structuring</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Enables the creation of clean, perfect circular shapes (<strong>Circle</strong>) and seamlessly connects complex, distant boundaries with generated mesh (<strong>Bridge</strong>).</p>
+    </div>
+  </div>
+  
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-ruler-combined" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Geometric Correction</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Provides precise controls for leveling geometry onto a single plane (<strong>Flatten</strong>) or ensuring selected vertices are uniformly spaced (<strong>Space</strong>).</p>
+    </div>
+  </div>
+  
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-bezier-curve" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Curvature Control</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Allows for calculated interpolation of vertices into smooth lines (<strong>Curve</strong>) or globally smoothing rough geometry while preserving boundaries (<strong>Relax</strong>).</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## Installation
+
+The Loop Tools add-on is included with Blender and must be enabled once in the preferences.
+
+**Step-by-step installation:**
+
+1.  Navigate to the **Edit** menu, then **Preferences**.
+2.  Select the **Add-ons** tab.
+3.  Search for **"Loop tools"** and check the box next to **Mesh: Loop Tools** to enable it.
+
+---
+
+## Usage
+
+Loop Tools are accessible in Edit Mode via the right-click context menu.
+
+**Accessing the Tools:**
+
+1.  Select the mesh and press **Tab** to enter **Edit Mode**.
+2.  Select the desired vertices, edges, or faces that you wish to modify.
+3.  **Right-click** anywhere in the 3D viewport to bring up the context menu, then navigate to the **LoopTools** submenu.
+    *   *(Alternatively, the tools are also available in the Sidebar (N-Panel) under the Edit tab.)*
+
+### Loop Tools Operations Overview
+
+| Tool | Function | Key Controls & Notes |
+| :--- | :--- | :--- |
+| **1. Bridge** | Fills gaps between two selected edges or loops, automatically generating mesh geometry to connect them. | Adjust **Strength** to control curvature (0 for flat bridge). Use **Twist** to adjust the connection pattern. Check **Reverse** if connections are misaligned. |
+| **2. Circle** | Deforms selected geometry (vertices/edges/faces) into a perfect circular shape. | Essential for cutting circular holes. Adjust **Radius**, **Angle**, and **Influence** for fine control. **Flatten** option determines if the circle is planar or follows surface curvature. |
+| **3. Curve** | Interpolates a curve along selected vertices, moving them into a uniform line or smooth curve between endpoints. | Adjusts vertices relative to endpoints or an intermediate point to create predictable curvature. **Boundaries** limits the effect to the selected vertices only. |
+| **4. Flatten** | Moves selected vertices onto a single plane. | **Best Fit** is the calculated average. **Normal** averages vertex normals for a flatter plane. **View** flattens the geometry relative to your current camera view (e.g., for top-down flattening). |
+| **5. G Stretch** | Matches selected vertices to a drawn Annotation (Grease Pencil) stroke. | Requires enabling Annotation mode before use. Useful for quickly aligning geometry along a defined path. |
+| **6. Loft** | Bridges multiple sequential loops or profiles. | Generates a continuous mesh surface connecting multiple selected profiles. Options for **Linear** (smoother) or **Cubic** (maintaining original positions) interpolation are available. |
+| **7. Relax** | Smooths the geometry by averaging the positions of selected vertices. | Reduces sharp edges and evens out curves. Use **Iterations** to control the degree of smoothing. Can be applied only to the **Selection** or across all parallel vertices. |
+| **8. Space** | Evenly distributes selected vertices along their current path. | Corrects irregular spacing in edge loops. Can be controlled by **Influence** and directionally locked (e.g., locking an axis so it is not affected). |
+
+---
+
+## Summary
+
+The Loop Tools add-on is a crucial utility that dramatically streamlines advanced modeling in Blender. By providing instant, controlled transformations like **Circle**, **Bridge**, and **Space**, it allows users to quickly achieve cleaner topology and execute complex geometric adjustments that would be time-consuming or difficult with default tools.

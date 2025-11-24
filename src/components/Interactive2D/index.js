@@ -10,6 +10,7 @@ export default function Interactive2D() {
   const rendererRef = useRef(null);
   const controlsRef = useRef(null);
   const helperLinesRef = useRef([]);
+  const planeRef = useRef(null);
   const coordinateLabelRef = useRef(null);
   
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -19,7 +20,7 @@ export default function Interactive2D() {
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0a0a);
+    scene.background = new THREE.Color(0x111111); // Sleek dark grey
     sceneRef.current = scene;
 
     // Camera - orthographic for true 2D view
@@ -46,9 +47,7 @@ export default function Interactive2D() {
     // Orbit Controls (limited to 2D)
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableRotate = false; // Disable rotation for 2D
-    controls.enableZoom = true;
-    controls.minZoom = 0.5;
-    controls.maxZoom = 2;
+    controls.enableZoom = false; // Disable zoom
     controlsRef.current = controls;
 
     // Lighting
@@ -58,7 +57,7 @@ export default function Interactive2D() {
     // Grid
     const gridSize = 20;
     const gridDivisions = 20;
-    const gridHelper = new THREE.GridHelper(gridSize, gridDivisions, 0x444444, 0x222222);
+    const gridHelper = new THREE.GridHelper(gridSize, gridDivisions, 0x333333, 0x222222);
     gridHelper.rotation.x = Math.PI / 2; // Rotate to XY plane
     scene.add(gridHelper);
 
@@ -71,9 +70,11 @@ export default function Interactive2D() {
       new THREE.Vector3(axisLength, 0, 0)
     ]);
     const xAxisMaterial = new THREE.LineBasicMaterial({ 
-      color: 0xef4c3c,
-      linewidth: 3,
-      depthTest: false
+      color: 0xff5252, // Softer red
+      linewidth: 2,
+      depthTest: false,
+      transparent: true,
+      opacity: 0.8
     });
     const xAxis = new THREE.Line(xAxisGeometry, xAxisMaterial);
     xAxis.renderOrder = 999;
@@ -85,9 +86,11 @@ export default function Interactive2D() {
       new THREE.Vector3(0, axisLength, 0)
     ]);
     const yAxisMaterial = new THREE.LineBasicMaterial({ 
-      color: 0x2ecc71,
-      linewidth: 3,
-      depthTest: false
+      color: 0x2dc66b, // Green
+      linewidth: 2,
+      depthTest: false,
+      transparent: true,
+      opacity: 0.8
     });
     const yAxis = new THREE.Line(yAxisGeometry, yAxisMaterial);
     yAxis.renderOrder = 999;
@@ -100,18 +103,44 @@ export default function Interactive2D() {
     scene.add(origin);
 
     // Point sphere
-    const pointGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const pointGeometry = new THREE.SphereGeometry(0.4, 32, 32);
     const pointMaterial = new THREE.MeshBasicMaterial({ 
-      color: 0xff9f2c,
+      color: 0xff9f2c, // orange
       depthTest: false
     });
     const point = new THREE.Mesh(pointGeometry, pointMaterial);
+    
+    // Add a glow/halo to the point
+    const haloGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+    const haloMaterial = new THREE.MeshBasicMaterial({
+      color: 0xff9f2c,
+      transparent: true,
+      opacity: 0.3,
+      depthTest: false
+    });
+    const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+    point.add(halo);
+
     point.renderOrder = 1000;
     scene.add(point);
     pointRef.current = point;
 
+    // Plane visualization
+    const planeGeometry = new THREE.PlaneGeometry(1, 1);
+    const planeMaterial = new THREE.MeshBasicMaterial({ 
+      color: 0x308ce7, // Primary blue
+      transparent: true,
+      opacity: 0.15,
+      side: THREE.DoubleSide,
+      depthTest: false
+    });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    scene.add(plane);
+    planeRef.current = plane;
+
     // Helper lines
     const helperLineMaterial = new THREE.LineDashedMaterial({
+
       color: 0xffffff,
       linewidth: 1,
       dashSize: 0.3,
@@ -218,6 +247,25 @@ export default function Interactive2D() {
     if (pointRef.current) {
       pointRef.current.position.set(position.x, position.y, 0);
       
+      // Update plane
+      if (planeRef.current) {
+        // Scale the plane to match the rectangle formed by origin and point
+        // We use Math.abs for scale to avoid negative scale issues (though Three.js handles them, it flips normals)
+        // But for a basic material double side it doesn't matter much.
+        // Position is halfway between origin and point.
+        
+        const width = Math.abs(position.x);
+        const height = Math.abs(position.y);
+        
+        // Avoid scale 0 warnings
+        planeRef.current.scale.set(Math.max(0.01, width), Math.max(0.01, height), 1);
+        planeRef.current.position.set(position.x / 2, position.y / 2, 0);
+        
+        // Optional: Change color based on quadrant? 
+        // Let's keep it simple blue for now, maybe slightly more opaque if active
+        planeRef.current.visible = (Math.abs(position.x) > 0.1 && Math.abs(position.y) > 0.1);
+      }
+
       // Update helper lines
       if (helperLinesRef.current.length === 3) {
         // X helper (from origin to X projection)
@@ -300,8 +348,8 @@ export default function Interactive2D() {
       <div className={styles.controls}>
         <div className={styles.sliderGroup}>
           <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#ef4c3c' }}>X-axis</span>
-            <span style={{ color: '#ef4c3c' }}>Coordinate: {position.x.toFixed(1)}</span>
+            <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
+            <span style={{ color: '#ff5252' }}>Coordinate: {position.x.toFixed(1)}</span>
           </label>
           <input
             type="range"
@@ -316,8 +364,8 @@ export default function Interactive2D() {
 
         <div className={styles.sliderGroup}>
           <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#2ecc71' }}>Y-axis</span>
-            <span style={{ color: '#2ecc71' }}>Coordinate: {position.y.toFixed(1)}</span>
+            <span className={styles.axisLabel} style={{ color: '#2dc66b' }}>Y-axis</span>
+            <span style={{ color: '#2dc66b' }}>Coordinate: {position.y.toFixed(1)}</span>
           </label>
           <input
             type="range"
@@ -332,15 +380,15 @@ export default function Interactive2D() {
       </div>
 
       <div className={styles.explanation}>
-        <h4>Understanding 2D Space:</h4>
+        <h4 style={{ color: '#2dc66b' }}>Understanding 2D Space:</h4>
         <ul>
-          <li><strong>Two Independent Axes:</strong> X (red, horizontal) and Y (green, vertical) are completely independent</li>
-          <li><strong>The Plane:</strong> The point can now move anywhere on a flat surface, not just along a line</li>
-          <li><strong>Coordinates:</strong> Need two numbers (X,Y) to describe the point's position</li>
-          <li><strong>Four Quadrants:</strong> Created by the positive/negative combinations of X and Y</li>
-          <li><strong>Red line:</strong> Shows X component (horizontal distance from origin)</li>
-          <li><strong>Green line:</strong> Shows Y component (vertical distance from origin)</li>
-          <li><strong>Scroll to zoom:</strong> Get a closer or wider view of the plane</li>
+          <li><strong style={{ color: '#2dc66b' }}>Two Independent Axes:</strong> X (red, horizontal) and Y (green, vertical) are completely independent</li>
+          <li><strong style={{ color: '#2dc66b' }}>The Plane:</strong> As you move the point in X and Y, you define a 2D plane (highlighted in blue)</li>
+          <li><strong style={{ color: '#2dc66b' }}>Coordinates:</strong> Need two numbers (X,Y) to describe the point's position</li>
+          <li><strong style={{ color: '#2dc66b' }}>Four Quadrants:</strong> Created by the positive/negative combinations of X and Y</li>
+          <li><strong style={{ color: '#2dc66b' }}>Red line:</strong> Shows X component (horizontal distance from origin)</li>
+          <li><strong style={{ color: '#2dc66b' }}>Green line:</strong> Shows Y component (vertical distance from origin)</li>
+          <li><strong style={{ color: '#2dc66b' }}>Scroll to zoom:</strong> Get a closer or wider view of the plane</li>
         </ul>
       </div>
     </div>

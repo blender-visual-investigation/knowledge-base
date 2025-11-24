@@ -1,0 +1,161 @@
+---
+title: Align Tools
+description: Provides a set of tools to align objects to each other in the 3D Viewport.
+sidebar_label: Align Tools
+slug: /tools-addons-techniques/addons/align-tools
+addon_url: https://docs.blender.org/manual/en/latest/addons/object/align_tools.html
+price: Free
+category: Workflow Enhancement
+tags: [object, alignment, utility, built-in]
+---
+
+# Align Tools
+
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+  <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+    <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
+    <span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>UTILITY</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
+    <span style={{fontSize: '16px'}}>📖</span>
+    <span>2 min read</span>
+  </div>
+</div>
+
+---
+
+<div style={{
+  position: 'relative',
+  paddingBottom: '56.25%',
+  height: 0,
+  overflow: 'hidden',
+  maxWidth: '100%',
+  marginBottom: '30px',
+  borderRadius: '8px',
+  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+}}>
+  <iframe
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      border: 0
+    }}
+    src="https://www.youtube.com/embed/XicAUZ3GAA8"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
+
+## Introduction
+
+The **Align Tools** add-on is a free, built-in utility for Blender. Its function is to provide rapid, precise alignment of objects based on a designated **Active Object**. Alignment operations cover location, rotation, and scale, simplifying scene composition and object placement.
+
+---
+
+## Key Features
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-arrows-up-down-left-right" style={{fontSize: '20px', color: '#333'}}></i>
+      <h4 style={{margin: 0, color: '#333'}}>Align Location</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Matches the position of selected objects to the active object along specified axes (X, Y, or Z). This is typically based on the object's origin/pivot point.</p>
+    </div>
+  </div>
+  
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-rotate" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Align Rotation</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Applies the rotation data of the active object to all selected objects.</p>
+    </div>
+  </div>
+  
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-expand" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Align Scale</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Resizes selected objects to match the scale of the active object.</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## Installation
+
+The Align Tools add-on is included with Blender and must be enabled before use.
+
+**Step-by-step installation:**
+
+1.  Open Blender.
+2.  Navigate to **Edit** in the top menu bar.
+3.  Select **Preferences**.
+4.  In the Preferences window, select the **Add-ons** tab.
+5.  Use the search bar and input **"align tools"**.
+6.  Locate the entry for **"Object: Align Tools"** and enable it by checking the box.
+7.  Close the Preferences window.
+
+---
+
+## Usage
+
+Once enabled, the tools are accessible in the 3D Viewport.
+
+**Accessing the Align Tools Menu:**
+
+1.  In the 3D Viewport, press the **`N`** key to open the **Sidebar** (N-Panel).
+2.  Locate and select the **Align Tools** tab within the Sidebar.
+
+
+**Core Alignment Procedure (Location, Rotation, or Scale):**
+
+1.  Select the objects you wish to align.
+2.  **Crucially,** the last object selected becomes the **Active Object**, which serves as the alignment target.
+3.  In the **Align Tools** panel, select the desired function:
+    * For position, click an **Align Location** button (e.g., Z-axis) to match the selected objects' position to the active object along that axis.
+    * For orientation, click **Align Rotation All**.
+    * For size, click **Align Scale**.
+
+
+**Advanced Alignment for Complex Placement:**
+
+The **Advanced Align** function allows alignment based on the object's bounding box instead of its origin. This is useful for placing objects directly on a surface.
+
+1.  Select the objects, ensuring the target surface (e.g., a plane) is the **Active Object**.
+2.  Click the **Advanced Align** button.
+3.  In the options panel that appears:
+    * Set the **Axis** (e.g., Z) to the direction you wish to align.
+    * Under **Align** or **Target**, change the method from `Pivot` to **`Minimum`** (to drop the object's lowest point to the plane).
+4.  Execute the alignment.
+
+---
+
+## Summary
+
+The Align Tools add-on is a functional, time-saving utility that is built-in to Blender. It enables rapid, precise alignment of object location, rotation, and scale based on a user-defined Active Object. The **Advanced Align** feature further extends control, allowing alignment based on the object's minimum or maximum points for streamlined placement of complex geometry onto surfaces.

@@ -1,0 +1,5 @@
+{
+  "name": "Poly vs NURBS Interactive",
+  "description": "An interactive educational tool to visualize the differences between Polygonal and NURBS modeling techniques.",
+  "requestFramePermissions": []
+}

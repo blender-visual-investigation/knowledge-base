@@ -1,0 +1,24 @@
+[
+  {
+    "title": "QGIS",
+    "description": "Open-source GIS application used to analyze and extract map data for investigations.",
+    "sidebar_label": "QGIS",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/tools/qgis",
+    "download_link": "https://qgis.org/en/site/",
+    "price": "Free",
+    "category": "Geospatial",
+    "tags": ["GIS", "maps", "terrain", "analysis"],
+    "fileName": "qgis.md"
+  },
+  {
+    "title": "fSpy",
+    "description": "Open-source app for still image camera matching; imports directly into Blender via importer addon.",
+    "sidebar_label": "fSpy",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/tools/fspy",
+    "download_link": "https://fspy.io/",
+    "price": "Free",
+    "category": "Camera Matching",
+    "tags": ["camera", "matching", "perspective", "import"],
+    "fileName": "fspy.md"
+  }
+]

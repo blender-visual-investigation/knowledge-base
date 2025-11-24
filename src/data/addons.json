@@ -1,0 +1,181 @@
+[
+  {
+    "title": "Align Tools",
+    "description": "Provides a set of tools to align objects to each other in the 3D Viewport.",
+    "sidebar_label": "Align Tools",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/align-tools",
+    "addon_url": "https://docs.blender.org/manual/en/latest/addons/object/align_tools.html",
+    "price": "Free",
+    "category": "Workflow Enhancement",
+    "tags": [
+      "object",
+      "alignment",
+      "utility",
+      "built-in"
+    ],
+    "fileName": "align-tools.mdx"
+  },
+  {
+    "id": "blendergis",
+    "title": "BlenderGIS",
+    "sidebar_label": "BlenderGIS",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/blendergis",
+    "category": "Geospatial",
+    "tags": [
+      "GIS",
+      "Maps",
+      "Terrain",
+      "Import"
+    ],
+    "download_link": "https://github.com/domlysz/BlenderGIS",
+    "description": "Import and manage geographic data (maps, terrain, satellite imagery) directly in Blender.",
+    "author": "domlysz",
+    "price": "Free",
+    "last_updated": "2023-05-15T00:00:00.000Z",
+    "fileName": "blendergis.mdx"
+  },
+  {
+    "title": "Dolly Zoom",
+    "description": "Creates a dolly zoom camera effect (Hitchcock zoom) by animating the camera's position and focal length simultaneously.",
+    "sidebar_label": "Dolly Zoom",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/dolly-zoom",
+    "addon_url": "https://github.com/blender/blender-addons/tree/main/camera_dolly_zoom",
+    "price": "Free",
+    "category": "Camera Matching",
+    "tags": [
+      "camera",
+      "animation",
+      "effect"
+    ],
+    "fileName": "dolly-zoom.mdx"
+  },
+  {
+    "title": "F2",
+    "description": "Extends the functionality of the 'Make Edge/Face' key (F). It allows you to create faces from a single vertex selection or an edge selection, retaining UVs and more.",
+    "sidebar_label": "F2",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/f2",
+    "addon_url": "https://docs.blender.org/manual/en/latest/addons/mesh/f2.html",
+    "price": "Free",
+    "category": "Workflow Enhancement",
+    "tags": [
+      "modeling",
+      "mesh",
+      "topology",
+      "built-in"
+    ],
+    "fileName": "f2.mdx"
+  },
+  {
+    "title": "fSpy",
+    "description": "The official importer for fSpy project files. fSpy is an open source app for still image camera matching.",
+    "sidebar_label": "fSpy",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/fspy",
+    "addon_url": "https://fspy.io/",
+    "price": "Free",
+    "category": "Camera Matching",
+    "tags": [
+      "camera",
+      "matching",
+      "perspective",
+      "import"
+    ],
+    "fileName": "fspy.mdx"
+  },
+  {
+    "id": "looptools",
+    "title": "LoopTools",
+    "sidebar_label": "LoopTools",
+    "category": "Workflow Enhancement",
+    "tags": [
+      "Built-in",
+      "Modeling",
+      "Utility"
+    ],
+    "download_link": "https://docs.blender.org/manual/en/latest/addons/mesh/looptools.html",
+    "description": "A set of tools to aid with mesh modeling, including bridge, circle, curve, flatten, and more.",
+    "author": "Bart Crouch",
+    "price": "Free (Built-in)",
+    "last_updated": "2023-11-01T00:00:00.000Z",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/looptools",
+    "fileName": "looptools.mdx"
+  },
+  {
+    "title": "MeasureIt",
+    "description": "Tools for measuring distances, angles, and areas in the 3D Viewport. Useful for architectural and technical modeling.",
+    "sidebar_label": "MeasureIt",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/measureit",
+    "addon_url": "https://docs.blender.org/manual/en/latest/addons/3d_view/measureit.html",
+    "price": "Free",
+    "category": "Measurement & Analysis",
+    "tags": [
+      "measurement",
+      "precision",
+      "architecture",
+      "built-in"
+    ],
+    "fileName": "measureit.mdx"
+  },
+  {
+    "title": "Photogrammetry Import/Export",
+    "description": "Tools for importing and exporting photogrammetry data, such as cameras and point clouds, from various software (Meshroom, Metashape, etc.).",
+    "sidebar_label": "Photogrammetry I/O",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/photogrammetry-import-export",
+    "addon_url": "https://github.com/SBCV/Blender-Addon-Photogrammetry-Importer",
+    "price": "Free",
+    "category": "Photogrammetry & Scanning",
+    "tags": [
+      "photogrammetry",
+      "import",
+      "point-cloud",
+      "cameras"
+    ],
+    "fileName": "photogrammetry-import-export.mdx"
+  },
+  {
+    "title": "PolyChase",
+    "description": "A camera chase/follow tool for creating smooth camera movements or walkthroughs.",
+    "sidebar_label": "PolyChase",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/polychase",
+    "addon_url": null,
+    "price": "Free",
+    "category": "Camera Matching",
+    "tags": [
+      "camera",
+      "animation",
+      "walkthrough"
+    ],
+    "fileName": "polychase.mdx"
+  },
+  {
+    "title": "Sun Position",
+    "description": "Allows you to position the sun and environment texture based on real-world time and location coordinates.",
+    "sidebar_label": "Sun Position",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/sun-position",
+    "addon_url": "https://docs.blender.org/manual/en/latest/addons/lighting/sun_position.html",
+    "price": "Free",
+    "category": "Geospatial",
+    "tags": [
+      "lighting",
+      "sun",
+      "environment",
+      "built-in"
+    ],
+    "fileName": "sun-position.mdx"
+  },
+  {
+    "title": "VR Scene Inspection",
+    "description": "Enables Virtual Reality support in the Blender Viewport, allowing you to inspect your scene using a VR headset.",
+    "sidebar_label": "VR Scene Inspection",
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/vr-scene-inspection",
+    "addon_url": "https://docs.blender.org/manual/en/latest/addons/3d_view/vr_scene_inspection.html",
+    "price": "Free",
+    "category": "Visualization",
+    "tags": [
+      "vr",
+      "virtual-reality",
+      "inspection",
+      "built-in"
+    ],
+    "fileName": "vr-scene-inspection.mdx"
+  }
+]

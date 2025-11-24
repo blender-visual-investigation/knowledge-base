@@ -1,0 +1,169 @@
+.tableContainer {
+  margin-top: 20px;
+  overflow-x: auto;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 0.5px solid var(--ifm-color-emphasis-200);
+}
+
+.filterContainer {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  background: var(--ifm-background-surface-color);
+  padding: 16px;
+  border-radius: 8px;
+  border: 0.5px solid var(--ifm-color-emphasis-200);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 200px;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.searchInput:focus {
+  border-color: #8DF917;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(141, 249, 23, 0.25);
+}
+
+.dropdownContainer {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filterSelect {
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  flex: 1;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filterSelect:focus {
+  border-color: #8DF917;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(141, 249, 23, 0.25);
+}
+
+.addonTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.addonTable th,
+.addonTable td {
+  padding: 16px;
+  border-bottom: 0.5px solid var(--ifm-color-emphasis-200);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.addonTable th {
+  background-color: var(--ifm-color-emphasis-100);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.addonTable th:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.addonTable tr:last-child td {
+  border-bottom: none;
+}
+
+.addonTable tr:hover td {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.tag {
+  display: inline;
+  font-size: 13px;
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  border-radius: 0;
+  transition: color 0.2s;
+}
+
+.tag:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}
+
+.tag::after {
+  content: ", ";
+  color: var(--ifm-color-emphasis-400);
+  margin-right: 4px;
+  text-decoration: none;
+}
+
+.tag:last-child::after {
+  content: none;
+}
+
+.downloadLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.downloadLink:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  color: white;
+}
+
+.downloadLink:active {
+  transform: translateY(0);
+}
+
+.categoryBadge {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.priceFree {
+  color: var(--ifm-color-success);
+  font-weight: bold;
+}
+
+.pricePaid {
+  color: var(--ifm-font-color-base);
+}

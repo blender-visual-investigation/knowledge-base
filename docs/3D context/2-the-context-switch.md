@@ -1,150 +1,130 @@
 ---
-title: The Computer Graphics Context
-description: Description DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription
+title: From Math to Mesh
+description: Understand how Blender translates the mathematical principles we just learned into the digital worlds you will build.
+sidebar_position: 3
 
 ---
 
+# From Math to Mesh
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+  <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+    <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
 
-# The Computer Graphics context
-
-In this section, we will explore the transition from mathematical concepts to their application in computer graphics and 3D modeling. Understanding this context switch is crucial for leveraging the power of tools like Blender and other 3D software.
-
-## The Role of Computer Graphics
-
-Computer graphics is the field of visual computing, where one utilizes computers both to generate visual images synthetically and to integrate or alter visual and spatial information sampled from the real world. It bridges the gap between abstract mathematical concepts and their tangible visual representations.
-
-
-## 3D Modeling
-
-3D modeling is the process of creating a mathematical representation of a three-dimensional object. This is the foundation of all 3D graphics and is used in various fields, including animation, gaming, and simulation.
-
-
-Excellent question — and one that gets to the heart of how **mathematical concepts** become **practical tools** in 3D computer graphics.
-
-Here’s a clear explanation you could even include as a *teaching note or sidebar* in your handout:
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
+    <span style={{fontSize: '16px'}}>📖</span>
+    <span>6 min read</span>
+  </div>
+</div>
 
 ---
 
-### 🧠 **Why the Terminology Changes (Point → Vertex, Line → Edge, etc.)**
+<div style={{
+  position: 'relative',
+  paddingBottom: '56.25%',
+  height: 0,
+  overflow: 'hidden',
+  maxWidth: '100%',
+  marginBottom: '30px',
+  borderRadius: '8px',
+  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+}}>
+  <iframe
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      border: 0
+    }}
+    src="https://www.youtube.com/embed/CKRIjej1nMI"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
 
-In pure **geometry or mathematics**, we talk about:
+## Introduction
 
-* **Points** — locations in space
-* **Lines** — infinite paths connecting points
-* **Planes** — flat surfaces extending infinitely
-* **Solids** — volumes enclosed by surfaces
-
-But in **3D modeling** and **computer graphics**, we need these ideas to become **finite, manipulable data structures** — something the computer can store, render, and edit.
-That’s why the terminology changes slightly to match their **digital function**.
-
----
-
-#### **From “Point” → “Vertex”**
-
-* A **point** is an abstract mathematical location — it doesn’t exist physically or have any data attached.
-* A **vertex** (plural: *vertices*) is a **point with data** in a 3D model:
-
-  * It has coordinates (x, y, z).
-  * It can store **extra information**, like color, normals, or weights.
-  * It’s part of a **mesh structure**, connected to other vertices.
-
-**In short:**
-
-> A *vertex* is a “point with purpose” — it’s used to build and define 3D shapes.
-
----
-
-#### **From “Line” → “Edge”**
-
-* A **line** in geometry is **infinite** in both directions.
-* A **line segment** is finite — defined by two endpoints.
-* In 3D modeling, we use **edges**, which are *always finite* and connect two vertices.
-
-**In short:**
-
-> An *edge* is the digital version of a line segment — a direct connection between two vertices.
+We've established the mathematical foundations—coordinate systems, vectors, spatial relationships. Now we step into the software itself and face a crucial context switch: Blender doesn't just draw lines; it processes data.
+Understanding how abstract geometry becomes concrete computer graphics is essential. To reconstruct scenes accurately and speak Blender's language, you need to know why we say "vertex" instead of "point" and how transformations actually work.
 
 ---
 
-#### **From “Plane” → “Face” (or “Polygon”)**
+## Key Features
 
-* A **plane** in math extends infinitely.
-* A **face** (or **polygon**) in modeling is **finite and enclosed**, bounded by edges.
-* It represents the *visible surface* of a 3D object.
-
-**In short:**
-
-> A *face* is a manageable, renderable piece of a surface.
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
+  <div style={{
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-book" style={{fontSize: '20px', color: '#333'}}></i>
+      <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Concepts and reading to bridge math and mesh.</p>
+    </div>
+  </div>
+  
+  <div style={{
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-link" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Links</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Examples of pipelines and terminology shifts.</p>
+    </div>
+  </div>
+  
+  <div style={{
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Videos</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Short demos: Vertex→Edge→Face workflows.</p>
+    </div>
+  </div>
+</div>
 
 ---
 
-#### **From “Solid” → “Mesh”**
+## The Terminology Shift
+Pure geometry is theoretical and infinite. Blender must convert this into finite, calculable data structures that computers can process and render. Our mathematical vocabulary shifts to reflect this practical reality.
+Vertex (not Point)
+In math, a point is simply a location in space. In Blender, a vertex is a "point with purpose." It has coordinates (X, Y, Z), can store additional data (like color), and exists as part of a connected structure.
+Edge (not Line)
+A mathematical line is often infinite. A Blender edge is strictly finite—it connects exactly two vertices, forming the wireframe of your model.
+Face (not Plane)
+A plane extends infinitely in two dimensions. A face (or polygon) is a finite surface enclosed by edges. This is the visible "skin" of your model—the part that renders and reflects light.
+Mesh (not Solid)
+In mathematics, a solid is a continuous, filled volume. In Blender, a mesh is a hollow shell. Even a cube that appears solid is mathematically just a surface representing a volume. This distinction matters for rendering, physics simulations, and UV mapping.
+This shift reflects a fundamental difference: geometry is abstract; computer graphics is concrete and data-driven.
 
-* A **solid** in geometry is a continuous 3D object.
-* In computer graphics, objects are made of **meshes** — networks of vertices, edges, and faces that *approximate* the surface of a solid.
-* The mesh is not truly “solid” inside — it’s a **hollow shell** that visually represents a volume.
+## Transformations: Manipulating Objects in Space
+Once you have a mesh, you interact with it through three fundamental transformations—the essential ways to change an object's relationship to the coordinate system.
 
-**In short:**
+### Location (Translation)
+This is the object's position in space: its X, Y, Z coordinates. In reconstruction work, you don't eyeball placement. You input precise metric coordinates to position objects exactly where they belong in the real world. Precision is everything when reconstructing a scene.
+### Rotation
+This defines the object's orientation around any axis. Real-world objects are rarely perfectly aligned with the grid. Rotation lets you match the chaotic angles and orientations of actual scenes. An overturned chair, a tilted camera, a car's heading—all require precise rotation values.
+### Scale
+This determines the object's size. A 2-meter car must remain 2 meters in your reconstruction—not stretched to 4 meters because it "looks right." Scale must reflect real-world accuracy.
+Important: When you scale an object in Blender, always apply the scale afterward (Ctrl + A > Scale) to make the new size the object's true definition. Otherwise, textures, UV maps, and physics simulations can behave unexpectedly later.
 
-> A *mesh* is a structured framework that defines a 3D shape’s surface.
+Together, these three transformations—location, rotation, and scale—allow you to position and orient any object in 3D space with mathematical precision. Mastering them is the foundation of accurate reconstruction work.
 
----
+import InteractiveTransform3D from '@site/src/components/InteractiveTransform3D/index.js';
 
-### ✳️ **Summary of Why the Shift Happens**
-
-| Mathematical Term | Blender / 3D Modeling Term | Reason for the Change                                |
-| ----------------- | -------------------------- | ---------------------------------------------------- |
-| **Point**         | **Vertex**                 | Adds data and structure (part of a mesh)             |
-| **Line**          | **Edge**                   | Finite, connects two vertices                        |
-| **Plane**         | **Face / Polygon**         | Finite, enclosed surface                             |
-| **Solid**         | **Mesh**                   | Digital structure made of vertices, edges, and faces |
-
----
-
-**In essence:**
-The terminology changes because **3D software deals with finite, editable geometry**, not idealized mathematical forms.
-This helps distinguish between *infinite, theoretical shapes* and *practical, computer-defined structures*.
-
----
-
-Would you like me to add this as a **“Concept Spotlight” page or sidebar** to the handout (with clean headings and layout for print)?
-
-
-
-
-### Types of 3D Models:
-
-- **Polygonal Models**: Made up of vertices, edges, and faces.
-- **NURBS Models**: Use curves to define surfaces.
-- **Sculpted Models**: Created using digital sculpting techniques.
-
-## Dimensions in Computer Graphics
-
-| Dimension | Description | In Blender |
-|-----------|-------------|------------|
-| 0D (Zero Dimension) | Define as a point — no length, width, or height. It represents a location, not an object. | This will later become a vertex. |
-| 1D (First Dimension) | Connecting two points creates a line. Has only length. You can visualize it as the path between two vertices. | When two vertices are connected, they form an edge. |
-| 2D (Second Dimension) | A flat surface defined by multiple connected lines — a plane. Has length and width. | When edges enclose an area, they form a face (or polygon). |
-| 3D (Third Dimension) | Add depth — now you can form solids (like cubes, spheres, and more complex meshes). Every 3D model in Blender is built from combinations of these 0D, 1D, 2D elements. | The complete shape is called a mesh, composed of vertices, edges, and faces. |
-| 4D (Fourth Dimension – Conceptual) | Briefly introduce it as a way to think about transformations or time in animation, or even higher-dimensional math. Blender doesn’t model 4D shapes directly, but animators often think of time as the “fourth dimension.” | N/A |
-
-## Why This Matters
-
-Understanding the context switch from mathematical principles to computer graphics and modeling allows you to:
-
-- Create accurate and visually appealing 3D models.
-- Optimize workflows for rendering and animation.
-- Bridge the gap between theoretical knowledge and practical application.
-
-By mastering these concepts, you can unlock the full potential of 3D software and bring your creative visions to life.
-
-
-## Excersize
-Create a single vertex (Add → Mesh → Single Vert → Add Single Vert).
-
-Connect two vertices into an edge.
-
-Add two more to make a face (fill with F).
-
-Extrude the face into the third dimension to form a cube.
-This makes the transition from abstract to practical crystal clear.
+<InteractiveTransform3D />

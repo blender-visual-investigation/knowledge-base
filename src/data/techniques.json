@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Photogrammetry",
+    "description": "Creating accurate 3D models from multiple photographs using structure from motion algorithms.",
+    "sidebar_label": "Photogrammetry",
+    "slug": "/docs/tools-addons-techniques/techniques/photogrammetry",
+    "category": "Data Capture & Alignment",
+    "tags": ["3D reconstruction", "photography", "point cloud", "SfM"],
+    "fileName": "photogrammetry.md"
+  },
+  {
+    "title": "Camera Matching",
+    "description": "Techniques for matching virtual cameras to real-world photographs and footage for accurate scene recreation.",
+    "sidebar_label": "Camera Matching",
+    "slug": "/docs/tools-addons-techniques/techniques/camera-matching",
+    "category": "Data Capture & Alignment",
+    "tags": ["camera", "perspective", "alignment", "focal length"],
+    "fileName": "camera-matching.md"
+  },
+  {
+    "title": "Camera Tracking",
+    "description": "Tracking camera movement in video footage to recreate motion paths in 3D space.",
+    "sidebar_label": "Camera Tracking",
+    "slug": "/docs/tools-addons-techniques/techniques/camera-tracking",
+    "category": "Data Capture & Alignment",
+    "tags": ["tracking", "motion", "video", "path"],
+    "fileName": "camera-tracking.md"
+  },
+  {
+    "title": "Image-Based Modeling",
+    "description": "Creating 3D models directly from 2D images without traditional modeling techniques.",
+    "sidebar_label": "Image-Based Modeling",
+    "slug": "/docs/tools-addons-techniques/techniques/image-based-modeling",
+    "category": "Data Capture & Alignment",
+    "tags": ["image processing", "modeling", "2D to 3D"],
+    "fileName": "image-based-modeling.md"
+  },
+  {
+    "title": "Depth Map Modeling",
+    "description": "Using depth information from images or sensors to create accurate 3D geometry.",
+    "sidebar_label": "Depth Map Modeling",
+    "slug": "/docs/tools-addons-techniques/techniques/depth-map-modeling",
+    "category": "Data Capture & Alignment",
+    "tags": ["depth", "sensors", "geometry", "LiDAR"],
+    "fileName": "depth-map-modeling.md"
+  },
+  {
+    "title": "Gaussian Splatting",
+    "description": "Modern 3D reconstruction technique using Gaussian functions for photorealistic rendering.",
+    "sidebar_label": "Gaussian Splatting",
+    "slug": "/docs/tools-addons-techniques/techniques/gaussian-splatting",
+    "category": "Emerging Technology",
+    "tags": ["neural rendering", "photorealistic", "Gaussian", "novel view synthesis"],
+    "fileName": "gaussian-splatting.md"
+  },
+  {
+    "title": "Boolean Modeling",
+    "description": "Using boolean operations (union, intersection, difference) to create complex shapes from primitives.",
+    "sidebar_label": "Boolean Modeling",
+    "slug": "/docs/tools-addons-techniques/techniques/boolean-modeling",
+    "category": "Modeling",
+    "tags": ["boolean operations", "primitives", "constructive solid geometry"],
+    "fileName": "boolean-modeling.md"
+  },
+  {
+    "title": "Modular Modeling",
+    "description": "Building complex scenes by assembling reusable modular components and assets.",
+    "sidebar_label": "Modular Modeling",
+    "slug": "/docs/tools-addons-techniques/techniques/modular-modeling",
+    "category": "Modeling",
+    "tags": ["modular", "reusable", "assembly", "components"],
+    "fileName": "modular-modeling.md"
+  },
+  {
+    "title": "Precision Modeling",
+    "description": "Creating highly accurate models with precise measurements and dimensions for forensic applications.",
+    "sidebar_label": "Precision Modeling",
+    "slug": "/docs/tools-addons-techniques/techniques/precision-modeling",
+    "category": "Measurement & Accuracy",
+    "tags": ["precision", "measurements", "forensic", "accuracy"],
+    "fileName": "precision-modeling.md"
+  },
+  {
+    "title": "Procedural Modeling",
+    "description": "Using algorithms and rules to generate complex geometry and textures procedurally.",
+    "sidebar_label": "Procedural Modeling",
+    "slug": "/docs/tools-addons-techniques/techniques/procedural-modeling",
+    "category": "Modeling",
+    "tags": ["procedural", "algorithms", "generation", "rules"],
+    "fileName": "procedural-modeling.md"
+  },
+  {
+    "title": "AI Mesh Generation",
+    "description": "Using artificial intelligence to automatically generate and optimize 3D meshes from various inputs.",
+    "sidebar_label": "AI Mesh Generation",
+    "slug": "/docs/tools-addons-techniques/techniques/ai-mesh-generation",
+    "category": "Emerging Technology",
+    "tags": ["AI", "machine learning", "mesh", "automation"],
+    "fileName": "ai-mesh-generation.md"
+  },
+  {
+    "title": "Retopology & Mesh Optimization",
+    "description": "Improving mesh topology and optimizing geometry for better performance and animation.",
+    "sidebar_label": "Retopology & Mesh Optimization",
+    "slug": "/docs/tools-addons-techniques/techniques/retopology-mesh-optimization",
+    "category": "Analysis & Optimization",
+    "tags": ["retopology", "optimization", "topology", "performance"],
+    "fileName": "retopology-mesh-optimization.md"
+  },
+  {
+    "title": "Establishing Scale & Dimension",
+    "description": "Setting up accurate scale and dimensions in 3D scenes for realistic measurements and analysis.",
+    "sidebar_label": "Establishing Scale & Dimension",
+    "slug": "/docs/tools-addons-techniques/techniques/establishing-scale-dimension",
+    "category": "Measurement & Accuracy",
+    "tags": ["scale", "dimensions", "measurements", "calibration"],
+    "fileName": "establishing-scale-dimension.md"
+  },
+  {
+    "title": "Rigging & Animation",
+    "description": "Creating rigs and animations for 3D models to simulate movement and interactions.",
+    "sidebar_label": "Rigging & Animation",
+    "slug": "/docs/tools-addons-techniques/techniques/rigging-animation",
+    "category": "Specialized Tools",
+    "tags": ["rigging", "animation", "kinematics", "motion"],
+    "fileName": "rigging-animation.md"
+  },
+  {
+    "title": "Terrain & Landscape Generation",
+    "description": "Creating realistic terrain and landscapes for environmental context in investigations.",
+    "sidebar_label": "Terrain & Landscape Generation",
+    "slug": "/docs/tools-addons-techniques/techniques/terrain-landscape-generation",
+    "category": "Modeling",
+    "tags": ["terrain", "landscape", "environment", "heightmap"],
+    "fileName": "terrain-landscape-generation.md"
+  }
+]

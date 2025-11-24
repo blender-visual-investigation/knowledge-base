@@ -1,8 +1,11 @@
 ---
-sidebar_position: 6
+title: Camera & Perspective
+description: Before we click a single button, we must understand the environment we are stepping into. Blender is built upon geometric principles, concepts of dimension, direction, and origin. This guide is not a math lecture; it is a philosophical primer designed to give you an intuition for 3D space. Understanding the "language" Blender speaks, will help you understand why Blender works the way it does. 
+sidebar_position: 8
+
+
 ---
 
-# Camera & Perspective
 
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
   <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
@@ -58,7 +61,6 @@ This section will cover:
 
 <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
   <div style={{
-    border: '1px solid #e0e0e0',
     borderRadius: '8px',
     overflow: 'hidden',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
@@ -73,7 +75,6 @@ This section will cover:
   </div>
   
   <div style={{
-    border: '1px solid #e0e0e0',
     borderRadius: '8px',
     overflow: 'hidden',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)'

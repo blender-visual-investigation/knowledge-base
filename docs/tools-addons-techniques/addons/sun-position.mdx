@@ -1,0 +1,101 @@
+---
+title: Sun Position
+description: Allows you to position the sun and environment texture based on real-world time and location coordinates.
+sidebar_label: Sun Position
+slug: /tools-addons-techniques/addons/sun-position
+addon_url: https://docs.blender.org/manual/en/latest/addons/lighting/sun_position.html
+price: Free
+category: Geospatial
+tags: [lighting, sun, environment, built-in]
+---
+
+# Sun Position
+
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+  <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+    <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
+    <span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>LIGHTING</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
+    <span style={{fontSize: '16px'}}>📖</span>
+    <span>3 min read</span>
+  </div>
+</div>
+
+---
+
+## Introduction
+
+The Sun Position addon allows you to simulate real-world lighting conditions. You can set the time of day, date, and geographic location (latitude/longitude) to position the sun accurately. This is critical for forensic reconstruction where lighting conditions must match a specific time and place.
+
+---
+
+## Key Features
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-clock" style={{fontSize: '20px', color: '#333'}}></i>
+      <h4 style={{margin: 0, color: '#333'}}>Time & Date</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Set the exact time and date to simulate the sun's position for any moment in history.</p>
+    </div>
+  </div>
+  
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-location-dot" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>Geolocation</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Input Latitude and Longitude coordinates to place your scene anywhere on Earth.</p>
+    </div>
+  </div>
+  
+  <div style={{
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+  }}>
+    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
+      <i className="fa-solid fa-sun" style={{fontSize: '20px'}}></i>
+      <h4 style={{margin: 0}}>HDR Sync</h4>
+    </div>
+    <div style={{padding: '20px'}}>
+      <p style={{margin: 0}}>Synchronize the sun object with an Environment Texture (HDRI) for realistic lighting.</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## Installation & Usage
+
+### Installation
+This addon is included with Blender.
+
+1. Go to **Edit > Preferences > Add-ons**.
+2. Search for **Sun Position**.
+3. Enable the checkbox.
+
+### Usage
+Go to the **World Properties** tab in the Properties Editor. Scroll down to find the **Sun Position** panel. You can assign a Sun object and a Sky Texture, then adjust the time and location settings.
+
+---
+
+## Summary
+
+For any project requiring accurate outdoor lighting, the Sun Position addon is indispensable. It removes the guesswork from lighting setup and ensures physical accuracy.
+
