@@ -1,6 +1,3 @@
-## Introduction
-## Key Features
-## Main Content Section
 ---
 title: Modeling Phases
 description: A structured approach to modeling projects — from reference and blocking to finalization and validation.

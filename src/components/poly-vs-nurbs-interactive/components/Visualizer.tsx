@@ -35,7 +35,7 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
     svg.selectAll("*").remove(); // Clear previous render
 
     const { width, height } = dimensions;
-    
+
     // Grid Background
     const defs = svg.append("defs");
     const pattern = defs.append("pattern")
@@ -69,6 +69,10 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
       .attr("stroke-dasharray", "5,5")
       .attr("class", "control-cage");
 
+    // Label and abbreviation for points
+    const pointLabel = mode === ModelingMode.POLYGONAL ? 'Vertices (V)' : 'Control Points (CP)';
+    const pointShort = mode === ModelingMode.POLYGONAL ? 'V' : 'CP';
+
     // Draw Main Curve/Mesh
     let pathData = "";
     let mainColor = "";
@@ -93,8 +97,8 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
       
       pathData = polyGenerator(subdividedPoints) || "";
       mainColor = "#ef4444"; // Red for Poly
-      
-      // Render vertices for Poly mode to emphasize the "facets"
+
+      // Render all vertices for Poly mode to emphasize the "facets"
       svg.selectAll(".poly-vertex")
         .data(subdividedPoints)
         .enter()
@@ -104,6 +108,26 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
         .attr("r", 2)
         .attr("fill", mainColor)
         .attr("opacity", 0.6);
+
+      // Render fictional (new) vertices: those not present in the original points
+      if (resolution > 0) {
+        // Get original point positions as a set for quick lookup
+        const origSet = new Set(points.map(p => `${p.x},${p.y}`));
+        subdividedPoints.forEach((pt) => {
+          const key = `${pt.x},${pt.y}`;
+          if (!origSet.has(key)) {
+            svg.append("circle")
+              .attr("cx", pt.x)
+              .attr("cy", pt.y)
+              .attr("r", 4)
+              .attr("fill", "#6366f1")
+              .attr("opacity", 0.35)
+              .attr("stroke", "#6366f1")
+              .attr("stroke-width", 1.2)
+              .attr("class", "fictional-vertex");
+          }
+        });
+      }
     }
 
     // The actual curve path
@@ -149,27 +173,32 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
       
     controls.call(drag as any);
 
-    // Labels for control points
+    // Labels for points (V for vertices, CP for control points)
     svg.selectAll(".cp-label")
       .data(points)
       .enter()
       .append("text")
       .attr("x", d => d.x + 12)
       .attr("y", d => d.y - 12)
-      .text((d, i) => `CP${i}`)
+      .text((d, i) => `${pointShort}${i}`)
       .attr("font-size", "10px")
       .attr("fill", "#64748b");
 
   }, [points, mode, resolution, dimensions, setPoints]);
 
+  // Label and abbreviation for points
+  const pointLabel = mode === ModelingMode.POLYGONAL ? 'Vertices (V)' : 'Control Points (CP)';
+
   return (
-    <div className="w-full h-full bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden relative">
-      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-2 rounded border border-slate-200 text-xs text-slate-600 z-10 pointer-events-none">
-        Drag the <b>Control Points (CP)</b> to deform the {mode === ModelingMode.NURBS ? 'curve' : 'mesh'}.
+    <div style={{ width: 600, height: 400, background: 'transparent', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 16, left: 16, background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(2px)', padding: 8, borderRadius: 6, border: '1px solid #e2e8f0', fontSize: 12, color: '#334155', zIndex: 10, pointerEvents: 'none' }}>
+        Drag the <b>{pointLabel}</b> to deform the {mode === ModelingMode.NURBS ? 'curve' : 'mesh'}.
       </div>
-      <svg 
-        ref={svgRef} 
-        className="w-full h-full block touch-none"
+      <svg
+        ref={svgRef}
+        width={600}
+        height={400}
+        style={{ display: 'block', width: 600, height: 400, touchAction: 'none' }}
       />
     </div>
   );

@@ -1,0 +1,8 @@
+{
+  "label": "Modeling Paradigms & Workflows",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Understanding polygonal and NURBS modeling paradigms, subdivision surfaces, and the various workflows available in Blender."
+  }
+}

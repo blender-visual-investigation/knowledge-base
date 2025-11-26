@@ -1,4 +1,4 @@
-id: techniques-database-mdx
+---
 title: Techniques Database
 sidebar_label: Techniques Database
 sidebar_position: 1

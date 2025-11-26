@@ -308,55 +308,57 @@ export default function Interactive3D() {
         Use the sliders to move the point in 3D space. Drag to rotate your view around the coordinate system.
       </p>
 
-      <div ref={mountRef} className={styles.canvas}></div>
+      <div className={styles.viewportWrapper}>
+        <div ref={mountRef} className={styles.canvas}></div>
 
-      <div className={styles.controls}>
-        <div className={styles.sliderGroup}>
-          <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
-            <span style={{ color: '#ff5252' }}>Coordinate: {position.x.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            step="0.5"
-            value={position.x}
-            onChange={(e) => handleSliderChange('x', e.target.value)}
-            className={`${styles.slider} ${styles.sliderX}`}
-          />
-        </div>
+        <div className={styles.controls}>
+          <div className={styles.sliderGroup}>
+            <label className={styles.sliderLabel}>
+              <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
+              <span style={{ color: '#ff5252' }}>Coordinate: {position.x.toFixed(1)}</span>
+            </label>
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.5"
+              value={position.x}
+              onChange={(e) => handleSliderChange('x', e.target.value)}
+              className={`${styles.slider} ${styles.sliderX}`}
+            />
+          </div>
 
-        <div className={styles.sliderGroup}>
-          <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#69f0ae' }}>Y-axis</span>
-            <span style={{ color: '#69f0ae' }}>Coordinate: {position.z.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            step="0.5"
-            value={position.z}
-            onChange={(e) => handleSliderChange('z', e.target.value)}
-            className={`${styles.slider} ${styles.sliderZ}`}
-          />
-        </div>
+          <div className={styles.sliderGroup}>
+            <label className={styles.sliderLabel}>
+              <span className={styles.axisLabel} style={{ color: '#69f0ae' }}>Y-axis</span>
+              <span style={{ color: '#69f0ae' }}>Coordinate: {position.z.toFixed(1)}</span>
+            </label>
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.5"
+              value={position.z}
+              onChange={(e) => handleSliderChange('z', e.target.value)}
+              className={`${styles.slider} ${styles.sliderZ}`}
+            />
+          </div>
 
-        <div className={styles.sliderGroup}>
-          <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#308ce7' }}>Z-axis</span>
-            <span style={{ color: '#308ce7' }}>Coordinate: {position.y.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            step="0.5"
-            value={position.y}
-            onChange={(e) => handleSliderChange('y', e.target.value)}
-            className={`${styles.slider} ${styles.sliderY}`}
-          />
+          <div className={styles.sliderGroup}>
+            <label className={styles.sliderLabel}>
+              <span className={styles.axisLabel} style={{ color: '#308ce7' }}>Z-axis</span>
+              <span style={{ color: '#308ce7' }}>Coordinate: {position.y.toFixed(1)}</span>
+            </label>
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.5"
+              value={position.y}
+              onChange={(e) => handleSliderChange('y', e.target.value)}
+              className={`${styles.slider} ${styles.sliderY}`}
+            />
+          </div>
         </div>
       </div>
 

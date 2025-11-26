@@ -229,23 +229,25 @@ export default function Interactive1D() {
         Use the slider to move the point along the line. The point can only move left (negative) or right (positive) relative to the origin.
       </p>
 
-      <div ref={mountRef} className={styles.canvas}></div>
+      <div className={styles.viewportWrapper}>
+        <div ref={mountRef} className={styles.canvas}></div>
 
-      <div className={styles.controls}>
-        <div className={styles.sliderGroup}>
-          <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
-            <span style={{ color: '#ff5252' }}>Coordinate: {position.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            step="0.5"
-            value={position}
-            onChange={(e) => handleSliderChange(e.target.value)}
-            className={styles.slider}
-          />
+        <div className={styles.controls}>
+          <div className={styles.sliderGroup}>
+            <label className={styles.sliderLabel}>
+              <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
+              <span style={{ color: '#ff5252' }}>Coordinate: {position.toFixed(1)}</span>
+            </label>
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.5"
+              value={position}
+              onChange={(e) => handleSliderChange(e.target.value)}
+              className={styles.slider}
+            />
+          </div>
         </div>
       </div>
 

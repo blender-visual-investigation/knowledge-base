@@ -343,39 +343,41 @@ export default function Interactive2D() {
         Use the sliders to move the point anywhere on the 2D plane. The point can move in two independent directions: X (horizontal) and Y (vertical).
       </p>
 
-      <div ref={mountRef} className={styles.canvas}></div>
+      <div className={styles.viewportWrapper}>
+        <div ref={mountRef} className={styles.canvas}></div>
 
-      <div className={styles.controls}>
-        <div className={styles.sliderGroup}>
-          <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
-            <span style={{ color: '#ff5252' }}>Coordinate: {position.x.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            step="0.5"
-            value={position.x}
-            onChange={(e) => handleSliderChange('x', e.target.value)}
-            className={`${styles.slider} ${styles.sliderX}`}
-          />
-        </div>
+        <div className={styles.controls}>
+          <div className={styles.sliderGroup}>
+            <label className={styles.sliderLabel}>
+              <span className={styles.axisLabel} style={{ color: '#ff5252' }}>X-axis</span>
+              <span style={{ color: '#ff5252' }}>Coordinate: {position.x.toFixed(1)}</span>
+            </label>
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.5"
+              value={position.x}
+              onChange={(e) => handleSliderChange('x', e.target.value)}
+              className={`${styles.slider} ${styles.sliderX}`}
+            />
+          </div>
 
-        <div className={styles.sliderGroup}>
-          <label className={styles.sliderLabel}>
-            <span className={styles.axisLabel} style={{ color: '#2dc66b' }}>Y-axis</span>
-            <span style={{ color: '#2dc66b' }}>Coordinate: {position.y.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            step="0.5"
-            value={position.y}
-            onChange={(e) => handleSliderChange('y', e.target.value)}
-            className={`${styles.slider} ${styles.sliderY}`}
-          />
+          <div className={styles.sliderGroup}>
+            <label className={styles.sliderLabel}>
+              <span className={styles.axisLabel} style={{ color: '#2dc66b' }}>Y-axis</span>
+              <span style={{ color: '#2dc66b' }}>Coordinate: {position.y.toFixed(1)}</span>
+            </label>
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.5"
+              value={position.y}
+              onChange={(e) => handleSliderChange('y', e.target.value)}
+              className={`${styles.slider} ${styles.sliderY}`}
+            />
+          </div>
         </div>
       </div>
 

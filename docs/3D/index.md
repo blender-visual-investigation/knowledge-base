@@ -25,7 +25,7 @@ This section explains the practical phases of creating, analysing, and sharing 3
 
 <div class="phase-grid">
 	<div class="phase-card">
-		<h4>Phase 1 — The Environment</h4>
+		<h4>The Environment</h4>
 		<p class="phase-sub">Where are we?</p>
 		<ul>
 			<li>The Logic of Space (mathematical foundations)</li>
@@ -33,17 +33,17 @@ This section explains the practical phases of creating, analysing, and sharing 3
 	</div>
 
 	<div class="phase-card">
-		<h4>Phase 2 — The Approach</h4>
-		<p class="phase-sub">How do we create?</p>
+		<h4>The Approach</h4>
+		<p class="phase-sub">How do we create and/or manipulate?</p>
 		<ul>
-			<li>Modeling Methods (Polygonal, Sculpting, Procedural, CAD)</li>
+			<li>Modeling Paradigms and workflows (Polygonal, Nurbs, Direct Modeling, etc.)</li>
 			<li>Destructive vs Non-Destructive Modeling (strategy and trade-offs)</li>
 			<li>Modeling Phases (blockout → refine → detail)</li>
 		</ul>
 	</div>
 
 	<div class="phase-card">
-		<h4>Phase 3 — The Scene or Object</h4>
+		<h4>The Scene or Object</h4>
 		<p class="phase-sub">What are we interacting with?</p>
 		<ul>
 			<li>From Math to Mesh (turning measurements into geometry)</li>
@@ -52,15 +52,15 @@ This section explains the practical phases of creating, analysing, and sharing 3
 	</div>
 
 	<div class="phase-card">
-		<h4>Phase 4 — Viewing</h4>
-		<p class="phase-sub">How do we see what we created</p>
+		<h4>Viewing</h4>
+		<p class="phase-sub">How do we see what we have</p>
 		<ul>
 			<li>Camera & Perspective (how we view and capture the scene)</li>
 		</ul>
 	</div>
 
 	<div class="phase-card">
-		<h4>Phase 5 — Data</h4>
+		<h4>Data</h4>
 		<p class="phase-sub">How do we store & share it?</p>
 		<ul>
 			<li>File formats, export considerations, and archiving</li>
