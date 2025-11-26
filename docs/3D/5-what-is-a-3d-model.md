@@ -1,7 +1,7 @@
 ---
 title: Anatomy of a 3D Model
 description: Understanding the core attributes that define mesh quality — geometry, topology, poly-count, normals, and manifold integrity.
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Anatomy of a 3D Model
@@ -21,7 +21,7 @@ sidebar_position: 4
 
 ## Introduction
 
-In the previous sections, we learned that a 3D model is a cloud of data points (vertices) connected by edges to form faces. But simply connecting dots isn't enough — **how** you connect them matters.
+In the previous sections, we've ended with a cube that we can move, scale and rotate, and we learned that this 3D model is basically a cloud of data points (vertices) connected by edges to form faces. But simply connecting dots isn't enough — **how** you connect them matters.
 
 Just like a physical building has structural integrity and material properties, a digital model has attributes that determine whether it's functional or broken. You might successfully create a shape that *looks* like a car, but if the topology is messy, you won't be able to dent it for a crash simulation. If the geometry is non-manifold, it won't 3D print. If the poly-count is too high, your scene will crash.
 
@@ -330,6 +330,6 @@ These concepts are foundational not just for "modeling well," but for conducting
 
 Now that you understand what makes a mesh work, explore:
 
-- [Modeling Paradigms & Workflows](./4-modeling-paradigms-workflows/) — Different approaches to creating geometry
 - [Camera & Perspective](./6-camera-and-perspective.md) — How we view and capture 3D scenes
-- [File Formats](./5-file-types.md) — Exporting and sharing your work
+- [File Formats](./7-file-types.md) — Exporting and sharing your work
+- [The Case for Polygonal Modeling](../modeling/1-case-for-polygonal.md) — Why we focus on polygonal workflows

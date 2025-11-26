@@ -511,3 +511,19 @@ article .card__footer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Sidebar divider - adds a horizontal line above the item */
+.sidebar-divider-above {
+  margin-top: 16px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--ifm-toc-border-color) !important;
+}
+
+.sidebar-divider-above::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}

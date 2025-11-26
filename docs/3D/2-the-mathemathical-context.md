@@ -2,7 +2,6 @@
 title: The Logic of Space
 description: Before we click a single button, we must understand the environment we are stepping into. Blender is built upon geometric principles, concepts of dimension, direction, and origin. This guide is not a math lecture; it is a philosophical primer designed to give you an intuition for 3D space. Understanding the "language" Blender speaks, will help you understand why Blender works the way it does. 
 sidebar_position: 2
-
 ---
 
 
@@ -48,7 +47,7 @@ sidebar_position: 2
 
 ## Introduction
 
-This short guide covers the fundamental 3D concepts that Blender is built on. You don't strictly need them to start using Blender, but understanding them might deepen your intuition about what you're actually doing when you are working in Blender and prepare you for more advanced topics like, for example, geometry nodes and procedural modeling. We'll explore coordinate systems, axes, and spatial relationships in an accessible way, focusing on building understanding rather than memorization.
+This short guide covers fundamental 3D concepts. You don't strictly need them to start using Blender, but understanding them might deepen your intuition about what you're actually doing when you are working in Blender and prepare you for more advanced topics like, for example, geometry nodes and procedural modeling. We'll explore coordinate systems, axes, and spatial relationships in an accessible way, focusing on building understanding rather than memorization.
 
 ---
 
@@ -104,12 +103,10 @@ This short guide covers the fundamental 3D concepts that Blender is built on. Yo
 
 ## Geometry: The Language of Blender
 
-
-
-
 Blender is fundamentally a tool for working with geometry. The word itself comes from Greek: geo (earth) and metron (measurement)—literally "earth measurement." In practice, geometry is how we measure, represent, and manipulate space using coordinate systems to translate physical objects into digital models.
-Everything in Blender operates within this geometric framework. The default cube you see when opening Blender, every vertex, edge, and face you create, and every transformation you perform (moving, rotating, scaling) all follow geometric rules. Physics simulations, rigging, animation—these advanced features are built on top of this geometric foundation. Understanding geometry gives you intuition for what's happening at every level of Blender.
-Let's start at the beginning: with a single point.
+Everything in Blender operates within a geometric framework. The default cube you see when opening Blender, every vertex, edge, and face you create, and every transformation you perform (moving, rotating, scaling) all follow geometric rules. Physics simulations, rigging, animation—these advanced features are built on top of this geometric foundation. Understanding geometry gives you intuition for what's happening at every level of Blender.
+
+But let's start at the beginning: with a single point.
 
 ## Dimensions, what's the point?
 ### 0D: Position

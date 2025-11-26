@@ -1,8 +1,7 @@
 ---
-title: File formats
+title: File Formats
 description: Overview of common 3D file formats and how they apply to visual investigation and Blender workflows.
-sidebar_position: 9
-
+sidebar_position: 7
 ---
 
 #

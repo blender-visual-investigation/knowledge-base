@@ -1,7 +1,7 @@
 ---
 title: Destructive vs Non-Destructive Modeling
 description: Understand the difference between destructive and non-destructive modeling workflows in Blender.
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 #

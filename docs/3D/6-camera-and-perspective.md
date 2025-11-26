@@ -1,9 +1,7 @@
 ---
 title: Camera & Perspective
-description: Before we click a single button, we must understand the environment we are stepping into. Blender is built upon geometric principles, concepts of dimension, direction, and origin. This guide is not a math lecture; it is a philosophical primer designed to give you an intuition for 3D space. Understanding the "language" Blender speaks, will help you understand why Blender works the way it does. 
-sidebar_position: 8
-
-
+description: Understanding how cameras work in 3D space and the principles of perspective for visual investigation.
+sidebar_position: 6
 ---
 
 

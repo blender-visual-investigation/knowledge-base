@@ -1,8 +1,7 @@
 ---
 title: From Math to Mesh
 description: Understand how Blender translates the mathematical principles we just learned into the digital worlds you will build.
-sidebar_position: 3
-
+sidebar_position: 4
 ---
 
 # From Math to Mesh
@@ -47,8 +46,7 @@ sidebar_position: 3
 
 ## Introduction
 
-We've established the mathematical foundations—coordinate systems, vectors, spatial relationships. Now we step into the software itself and face a crucial context switch: Blender doesn't just draw lines; it processes data.
-Understanding how abstract geometry becomes concrete computer graphics is essential. To reconstruct scenes accurately and speak Blender's language, you need to know why we say "vertex" instead of "point" and how transformations actually work.
+We've established what 3D space is from first principles, and we've seen that the polygonal paradigm is Blenders' primary strength. Now we need to bridge that abstract mathematical space with the concrete data structures that is used in said paradigm. The mathematical vocabulary we learned must shift to reflect this practical reality. A point becomes a vertex, a line becomes an edge, a plane becomes a face, and together they form a mesh. This terminology reflects not just a name change, it reflects the fundamental shift from pure geometry to computational geometry.
 
 ---
 
@@ -101,30 +99,41 @@ Understanding how abstract geometry becomes concrete computer graphics is essent
 ---
 
 ## The Terminology Shift
-Pure geometry is theoretical and infinite. Blender must convert this into finite, calculable data structures that computers can process and render. Our mathematical vocabulary shifts to reflect this practical reality.
-Vertex (not Point)
-In math, a point is simply a location in space. In Blender, a vertex is a "point with purpose." It has coordinates (X, Y, Z), can store additional data (like color), and exists as part of a connected structure.
-Edge (not Line)
-A mathematical line is often infinite. A Blender edge is strictly finite—it connects exactly two vertices, forming the wireframe of your model.
-Face (not Plane)
-A plane extends infinitely in two dimensions. A face (or polygon) is a finite surface enclosed by edges. This is the visible "skin" of your model—the part that renders and reflects light.
-Mesh (not Solid)
+
+In mathematics, we work with abstract concepts. In Blender, we work with concrete data. Understanding this distinction is crucial.
+
+**Vertex (not Point)**
+In math, a point is simply a location in space. In Blender, a vertex is a "point with purpose." It has coordinates (X, Y, Z), can store additional data (like color), and exists as part of a connected structure. Vertices are always plural in practice—a mesh is built from many vertices working together.
+
+**Edge (not Line)**
+A mathematical line is often infinite or abstract. A Blender edge is strictly finite—it connects exactly two vertices, forming the wireframe of your model. Edges define the topology and connectivity of your mesh.
+
+**Face (not Plane)**
+A plane extends infinitely in two dimensions. A face is a finite, flat surface enclosed by edges. "Face" is Blender's term for what geometry calls a polygon—any flat shape with straight edges and vertices. This is the visible "skin" of your model—the part that renders and reflects light. In Blender, faces are typically triangles or quads (four-sided polygons).
+
+**Mesh (not Solid)**
 In mathematics, a solid is a continuous, filled volume. In Blender, a mesh is a hollow shell. Even a cube that appears solid is mathematically just a surface representing a volume. This distinction matters for rendering, physics simulations, and UV mapping.
-This shift reflects a fundamental difference: geometry is abstract; computer graphics is concrete and data-driven.
+
+This shift from abstract to concrete reflects a fundamental difference: geometry is mathematical theory; computer graphics is data-driven and calculable.
 
 ## Transformations: Manipulating Objects in Space
-Once you have a mesh, you interact with it through three fundamental transformations—the essential ways to change an object's relationship to the coordinate system.
 
-### Location (Translation)
-This is the object's position in space: its X, Y, Z coordinates. In reconstruction work, you don't eyeball placement. You input precise metric coordinates to position objects exactly where they belong in the real world. Precision is everything when reconstructing a scene.
-### Rotation
-This defines the object's orientation around any axis. Real-world objects are rarely perfectly aligned with the grid. Rotation lets you match the chaotic angles and orientations of actual scenes. An overturned chair, a tilted camera, a car's heading—all require precise rotation values.
-### Scale
-This determines the object's size. A 2-meter car must remain 2 meters in your reconstruction—not stretched to 4 meters because it "looks right." Scale must reflect real-world accuracy.
-Important: When you scale an object in Blender, always apply the scale afterward (Ctrl + A > Scale) to make the new size the object's true definition. Otherwise, textures, UV maps, and physics simulations can behave unexpectedly later.
+Once you have a mesh, you interact with it through three fundamental transformations—the essential ways to change an object's relationship to the 3D coordinate system.
+
+**Location (Translation)**
+This is the object's position in space: its X, Y, Z coordinates. In reconstruction work, we aspire to be as accurate as possible. Whenever possible, use precise metric coordinates to position objects exactly where they belong in the real world. Eyeballing placement is possible, but should always be based on reference data—surveyed locations, measured distances, or visual alignment with known points. A building component should be placed at its actual surveyed location, not approximated without evidence.
+
+**Rotation**
+This defines the object's orientation around any axis. Real-world objects are rarely perfectly aligned with the grid. Rotation lets you match the actual angles and orientations of real scenes. An overturned artifact, a tilted structure, a camera's heading—all require precise rotation values to accurately represent what you observed.
+
+**Scale**
+This determines the object's size. A 2-meter wall must remain 2 meters in your reconstruction—not stretched because it "looks right." Scale must reflect real-world accuracy. Important: When you scale an object in Blender, always apply the scale afterward (Ctrl + A > Scale) to make the new size the object's true definition. Otherwise, textures, UV maps, and physics simulations can behave unexpectedly later.
 
 Together, these three transformations—location, rotation, and scale—allow you to position and orient any object in 3D space with mathematical precision. Mastering them is the foundation of accurate reconstruction work.
+
 
 import InteractiveTransform3D from '@site/src/components/InteractiveTransform3D/index.js';
 
 <InteractiveTransform3D />
+
+Move, rotate, and scale the orange cube in 3D space. Drag to orbit the view. Axes: X (red), Y (green), Z (blue).

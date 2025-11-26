@@ -1,8 +1,9 @@
 {
   "label": "Template Pages",
-  "position": 4,
+  "position": 9,
+  "className": "sidebar-divider-above",
   "link": {
     "type": "generated-index",
-    "description": "Ready-to-use page templates for your documentation. Lorem impsum dolor sit amet, consectetur adipiscing elit. lorem impsum dolor sit amet."
+    "description": "Ready-to-use page templates for your documentation."
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: Modeling Phases
 description: A structured approach to modeling projects — from reference and blocking to finalization and validation.
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>

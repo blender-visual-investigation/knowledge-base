@@ -1,6 +1,6 @@
 {
   "label": "Data",
-  "position": 3,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "Learn data management, gathering, and collaboration techniques for visual investigation."

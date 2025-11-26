@@ -1,7 +1,7 @@
 ---
 title: Managing Mixed Techniques & Complexity
 description: "Understanding how to deliberately combine workflows and manage the complexity of mixed techniques."
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Managing Mixed Techniques & Complexity

@@ -19,7 +19,9 @@ sidebar_position: 1
 
 ---
 
-This section explains the practical phases of creating, analysing, and sharing 3D reconstructions for visual investigation. Use the links below to jump to detailed articles in each area.
+This section explains the practical phases of creating, analysing, and sharing 3D reconstructions for visual investigation. Use the links below to jump to detailed articles in each area. This guide is mostly 3D software agnostic, focussing on concepts that apply across the 3D board. 
+
+What source material do we have? -> What do we want as an end result? 
 
 ## Phases at a glance
 
@@ -72,14 +74,20 @@ This section explains the practical phases of creating, analysing, and sharing 3
 
 ## Quick links
 
-- [The Logic of Space](./1-the-mathemathical-context.md)
+- [The Logic of Space](./2-the-mathemathical-context.md)
+- [The Two Core Paradigms](./3-core-paradigms.md)
+- [From Math to Mesh](./4-from-math-to-mesh.md)
+- [Anatomy of a 3D Model](./5-what-is-a-3d-model.md)
 - [Camera & Perspective](./6-camera-and-perspective.md)
-- [From Math to Mesh](./3-what-is-a-3d-model.md)
-- [Anatomy of a 3D Model](./4-types-of-modeling.md)
-- [Modeling Methods](./4-types-of-modeling.md#modeling-methods-overview)
-- [Destructive vs Non-Destructive Modeling](./7-destructive-vs-non-destructive.md)
-- [Modeling Phases](./8-modeling-phases.md)
-- [File formats](./5-file-types.md)
+- [File Formats](./7-file-types.md)
+
+### Modeling Practice
+
+- [The Case for Polygonal Modeling](../modeling/1-case-for-polygonal.md)
+- [Modeling Workflows](../modeling/2-modeling-workflows.md)
+- [Managing Mixed Techniques](../modeling/3-managing-complexity.md)
+- [Destructive vs Non-Destructive Modeling](../modeling/4-destructive-vs-non-destructive.md)
+- [Modeling Phases](../modeling/5-modeling-phases.md)
 
 ## How to use this section
 
