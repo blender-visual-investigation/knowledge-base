@@ -39,9 +39,9 @@ This comprehensive tutorial demonstrates a complete visual investigation workflo
 Before starting this case study, you should be familiar with:
 
 - ✅ Basic Blender navigation (see [First Steps](/docs/blender/working-with-blender/first-steps))
-- ✅ Camera positioning (see [Camera & Views](/docs/use-cases/working-with-models/camera-and-views))
-- ✅ Import/export workflows (see [Importing Models](/docs/use-cases/working-with-models/importing-models))
-- ✅ Measurement tools (see [Measurements](/docs/use-cases/working-with-models/measurements))
+- ✅ Camera positioning (see [Camera & Views](/docs/use-cases/the-analyst/camera-and-views))
+- ✅ Import/export workflows (see [Importing Models](/docs/use-cases/the-analyst/importing-models))
+- ✅ Measurement tools (see [Measurements](/docs/use-cases/the-analyst/measurements))
 
 ## Data Sources
 
