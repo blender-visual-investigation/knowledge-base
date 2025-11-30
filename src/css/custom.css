@@ -1,3 +1,56 @@
+/* Give only the header row of all tables a different background color */
+table thead th {
+  background: #0e1523 !important;
+}
+/* Make table font size one step smaller */
+table, th, td {
+  font-size: 0.95em !important;
+}
+/* Site-wide: rounded corners for all tables, with visible borders in corners and solid background */
+table {
+  border-radius: 12px !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1px solid var(--ifm-table-border-color, #333) !important;
+  background: #18191a !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Remove borders from edge cells to prevent doubling with table border */
+table tr:first-child th,
+table tr:first-child td {
+  border-top: none !important;
+}
+table tr:last-child th,
+table tr:last-child td {
+  border-bottom: none !important;
+}
+table th:first-child,
+table td:first-child {
+  border-left: none !important;
+}
+table th:last-child,
+table td:last-child {
+  border-right: none !important;
+}
+
+/* Wrap tables in a scrollable container when content overflows */
+.markdown > table,
+article table {
+  display: block;
+  overflow-x: auto;
+  width: fit-content !important;
+  max-width: 100%;
+}
+th, td {
+  border-radius: 0 !important;
+  border: none !important;
+  background: #18191a !important;
+}
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -21,6 +74,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-background-color: #f3f4f6;
   --ifm-font-color-base: #101828;
+  --ifm-hr-border-color: rgba(0, 0, 0, 0.08);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -36,6 +90,15 @@
   --ifm-background-color: #070a11;
   --ifm-font-color-base: #d1d5db;
   --ifm-heading-color: #ffffff;
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.015);
+}
+
+/* Dark mode horizontal rule: thin line with clear visibility */
+[data-theme='dark'] hr,
+[data-theme='dark'] .markdown hr {
+  border: none !important;
+  height: 1px !important;
+  background-color: rgba(255, 255, 255, 0.25) !important; /* 25% white */
 }
 
 /* Ensure Overpass is applied globally */

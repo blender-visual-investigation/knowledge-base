@@ -33,7 +33,7 @@ This section provides an overview of the major workflows. Click any card to expl
   </div>
   <div className="workflow-card-content">
     <h4>Subdivision Surfaces</h4>
-    <p>Model a low-poly cage and let algorithms calculate smooth surfaces. The bridge between polygonal control and organic curves.</p>
+    <p>Model a low-poly cage and let algorithms calculate smooth surfaces. The bridge between polygonal control and organic curves. The smoothing relies on specific topology rules (quad based modeling)</p>
   </div>
   <i className="fa-solid fa-arrow-right workflow-card-arrow"></i>
 </a>
@@ -55,7 +55,18 @@ This section provides an overview of the major workflows. Click any card to expl
   </div>
   <div className="workflow-card-content">
     <h4>Kitbashing</h4>
-    <p>Composing complex forms by combining pre-existing geometric libraries. Speed-focused concepting.</p>
+    <p>Composing complex forms by combining pre-existing geometric shapes. Mostly used for Speed-focused concepting.</p>
+  </div>
+  <i className="fa-solid fa-arrow-right workflow-card-arrow"></i>
+</a>
+
+<a href="/knowledge-base/docs/module-3-tools-addons-techniques/techniques/boolean-modeling" className="workflow-card">
+  <div className="workflow-card-icon">
+    <i className="fa-solid fa-layer-group"></i>
+  </div>
+  <div className="workflow-card-content">
+    <h4>Boolean Operations</h4>
+    <p>Define geometry by adding, subtracting or intersecting overlapping volumes (meshes) rather than manipulating vertices. A fast, logic-driven workflow for hard-surface forms that often requires subsequent cleanup to fix topology.</p>
   </div>
   <i className="fa-solid fa-arrow-right workflow-card-arrow"></i>
 </a>
@@ -77,24 +88,13 @@ This section provides an overview of the major workflows. Click any card to expl
   <i className="fa-solid fa-arrow-right workflow-card-arrow"></i>
 </a>
 
-<a href="/knowledge-base/docs/module-3-tools-addons-techniques/techniques/boolean-modeling" className="workflow-card">
-  <div className="workflow-card-icon">
-    <i className="fa-solid fa-layer-group"></i>
-  </div>
-  <div className="workflow-card-content">
-    <h4>Boolean Operations</h4>
-    <p>Combine objects using set logic—union, difference, intersection. Non-destructive but topology-heavy.</p>
-  </div>
-  <i className="fa-solid fa-arrow-right workflow-card-arrow"></i>
-</a>
-
 <a href="/knowledge-base/docs/module-3-tools-addons-techniques/techniques/simulation-physics" className="workflow-card">
   <div className="workflow-card-icon">
     <i className="fa-solid fa-wind"></i>
   </div>
   <div className="workflow-card-content">
     <h4>Simulation</h4>
-    <p>Use physics solvers to deform geometry. Generates complex organic forms impossible to model by hand.</p>
+    <p>Physics-based deformation for soft bodies and destruction. Simulates forces to create organic folds or high-energy distortions, generating meshes that authentically resemble the chaotic results of crashes or explosions.</p>
   </div>
   <i className="fa-solid fa-arrow-right workflow-card-arrow"></i>
 </a>

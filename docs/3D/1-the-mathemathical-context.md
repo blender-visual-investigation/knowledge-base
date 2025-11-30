@@ -6,7 +6,7 @@ sidebar_position: 2
 
 
 # The Logic of Space
-#
+
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
   <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
     <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
@@ -51,51 +51,37 @@ This short guide covers fundamental 3D concepts. You don't strictly need them to
 
 ---
 
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
 ## Key Features
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-book" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Foundational geometry concepts for visual investigation.</p>
-    </div>
-  </div>
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Resources" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-book"
+  >
+    <p style={{margin: 0}}>Foundational geometry concepts for visual investigation.</p>
+  </FeatureCard>
   
-  <div style={{
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-link" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Links</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>External readings and references on coordinate systems.</p>
-    </div>
-  </div>
+  <FeatureCard 
+    title="Links" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-link"
+  >
+    <p style={{margin: 0}}>External readings and references on coordinate systems.</p>
+  </FeatureCard>
   
-  <div style={{
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Videos</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Curated video walkthroughs on spatial reasoning and axes.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Videos" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-play"
+  >
+    <p style={{margin: 0}}>Curated video walkthroughs on spatial reasoning and axes.</p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 
@@ -121,7 +107,7 @@ In 1D space, an object gains two properties beyond location:
 Size (Length): A scalar value defining how far the object extends.
 Orientation (Facing Sign): A binary value (+ or −) indicating which direction the object points. Rotation is impossible in 1D—an object cannot change heading without leaving the line entirely.
 The fundamental 1D object is the line segment: two 0D points with a measurable distance between them. It has length and a direction, but nothing more. Position remains simply positive or negative relative to the origin.
-Now let's break the line and move sideways.
+Now let's break the line and move in a different direction.
 
 import Interactive1D from '@site/src/components/Interactive1D';
 
@@ -154,7 +140,27 @@ X-axis (Red): Left/right movement
 Y-axis (Green): Forward/backward movement
 Z-axis (Blue): Up/down movement
 
+Note that Blender adds a flip to the axis, some programs use Y as the axis that goes up and down, which makes sense if we consider we are coming from 2D. Blender (and some other programs, don't see the 2D plane from a side perspective but from a top down perspective, which makes the Z axis going up and down)
+
 This is called a Z-up coordinate system, standard in most 3D applications.
 
 ### Beyond 3D: Time and Animation
 While Blender is technically a 3D program, when you animate or reconstruct, you're working in four dimensions: X, Y, Z, and time (T). Track a moving object, and you're simultaneously defining its position (X,Y,Z), rotation (three rotational axes), scale (three scale axes), and timing—that's effectively 10 dimensions of data. Blender is as much a 4D temporal environment as it is a 3D spatial one.
+
+---
+
+## Summary
+
+Understanding the logic of space—from dimensionless points to full 3D volumes—provides the foundation for everything you'll do in Blender. These geometric principles aren't just abstract math; they're the language that Blender speaks.
+
+**Key Takeaways:**
+- Geometry is the mathematical framework underlying all 3D work
+- Dimensions build progressively: 0D (point) → 1D (line) → 2D (plane) → 3D (volume)
+- Blender uses a Z-up coordinate system with color-coded axes (X: red, Y: green, Z: blue)
+- Animation adds time as a fourth dimension, making Blender a 4D temporal environment
+- Understanding these concepts deepens your intuition for 3D reconstruction work
+
+**Further Resources:**
+- [From Math to Mesh](/docs/3D/4-from-math-to-mesh) - How these concepts translate to Blender's vocabulary
+- [Core Paradigms](/docs/3D/3-core-paradigms) - Different ways to represent geometry
+- [Blender Documentation: 3D Viewport](https://docs.blender.org/manual/en/latest/editors/3dview/index.html)

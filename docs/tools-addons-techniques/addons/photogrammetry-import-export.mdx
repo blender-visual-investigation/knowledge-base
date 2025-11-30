@@ -13,8 +13,7 @@ tags: [photogrammetry, import, point-cloud, cameras]
 
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
   <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
-    <span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>INTERMEDIATE</span>
-    <span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>IMPORT-EXPORT</span>
+  <span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>ADVANCED</span>
   </div>
   <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
     <span style={{fontSize: '16px'}}>📖</span>
@@ -26,69 +25,107 @@ tags: [photogrammetry, import, point-cloud, cameras]
 
 ## Introduction
 
-This refers to a class of addons (like the popular **Photogrammetry Importer**) that allow you to bring data from photogrammetry software into Blender. This includes camera positions, sparse point clouds, and dense meshes. It is essential for integrating 3D scans into your workflow.
+The **Photogrammetry Importer/Exporter** add-on is exceptionally powerful because it supports importing reconstruction results from a wide range of Structure-from-Motion (SfM) and Multi-View Stereo (MVS) libraries. It brings solved cameras, sparse/dense point clouds, and meshes directly into Blender while preserving scale and orientation.
+
+Supported libraries and formats:
+
+- **Colmap:** Model folders (BIN and TXT), workspaces, NVM, PLY
+- **Meshroom:** MG, JSON, SfM, PLY
+- **MVE:** MVE workspaces (requires Pillow to read image sizes)
+- **Open3D:** JSON, LOG, PLY (requires Pillow)
+- **OpenSfM:** JSON
+- **OpenMVG:** JSON, NVM, PLY (requires Pillow for point color computation)
+- **Regard3D:** OpenMVG JSON
+- **VisualSFM:** NVM (requires Pillow)
+
+Common point cloud formats:
+
+- **PLY, PCD, LAS, LAZ, ASC, PTS, CSV** (requires `pyntcloud` for parsing; LAS/LAZ parsing requires `laspy` and `lazrs`)
+
+These broad format supports mean you can move results from many photogrammetry pipelines straight into Blender without conversions.
 
 ---
 
 ## Key Features
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-camera-retro" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Camera Import</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Import solved camera positions and orientations from software like Meshroom, Metashape, and Colmap.</p>
-    </div>
-  </div>
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Camera Import" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-camera-retro"
+  >
+    <p style={{margin: 0}}>Import solved camera positions and orientations from Colmap, Meshroom, OpenMVG/OpenSfM, VisualSFM, and more.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-cloud" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Point Clouds</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Visualize sparse point clouds to understand the structure of the scan before meshing.</p>
-    </div>
-  </div>
+  <FeatureCard 
+    title="Point Clouds" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-cloud"
+  >
+    <p style={{margin: 0}}>Visualize and manage sparse/dense point clouds (PLY/PCD/LAS/LAZ/ASC/PTS/CSV) directly in Blender.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-eye" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Visualization</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Tools to adjust the display size of points and camera frustums for better visibility.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Visualization" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-eye"
+  >
+    <p style={{margin: 0}}>Tools to adjust point size, color, and camera frustums; quick layer visibility controls for efficient scene inspection.</p>
+  </FeatureCard>
+
+  <FeatureCard 
+    title="Addon Link" 
+    headerColor="#8e44ad"
+    icon="fa-solid fa-link"
+  >
+    <p style={{margin: 0}}>
+      GitHub: <a href="https://github.com/SBCV/Blender-Addon-Photogrammetry-Importer" target="_blank" rel="noopener noreferrer">SBCV/Blender-Addon-Photogrammetry-Importer</a>
+    </p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 
 ## Installation & Usage
 
 ### Installation
-1. Download the appropriate addon (e.g., [Photogrammetry Importer](https://github.com/SBCV/Blender-Addon-Photogrammetry-Importer)).
-2. Install via **Edit > Preferences > Add-ons**.
+
+1. **Remove any previous version** of the addon:
+  - In Blender: Edit → Preferences → Add-ons, search for "Import-Export: Photogrammetry Import Export Addon", click **Remove**.
+  - Close Blender, then reopen before proceeding.
+
+2. **Download the addon** (Blender 2.80+):
+  - Option A (Release): Download `photogrammetry_importer.zip` from the addon’s Releases page.
+  - Option B (Latest): Clone or download the repository, then create `photogrammetry_importer.zip` containing the `photogrammetry_importer/` folder structure.
+
+  Final zip structure:
+   
+  `photogrammetry_importer.zip`
+  └─ `photogrammetry_importer/`
+    ├─ blender_utility
+    ├─ ext
+    ├─ file_handler
+    ├─ ...
+    └─ `__init__.py`
+
+  Convenience scripts in the repo can build the zip: `create_blender_addon_zip.sh` (Linux) or `create_blender_addon_zip.bat` (Windows).
+
+3. **Install and activate**:
+  - Edit → Preferences → Add-ons → **Install...**
+  - Select `photogrammetry_importer.zip` → **Install Add-on**
+  - Check the box to activate: "Import-Export: Photogrammetry Import Export Addon".
+
+4. **Optional dependencies** (recommended for full format support):
+  - Install via the addon GUI: "Download and Install Optional Dependencies" (requires Blender 2.83.5+). This installs `pillow`, `pyntcloud`, `laspy`, `lazrs` as needed.
+  - If issues occur, consider a fresh Blender install or install packages manually per the addon docs.
 
 ### Usage
-Use **File > Import** and select the format corresponding to your photogrammetry software (e.g., `.sfm`, `.xml`, `.abc`).
+
+Use **File → Import** and select the importer matching your source tool (e.g., Colmap TXT/BIN, Meshroom JSON/SfM, OpenMVG/OpenSfM JSON, VisualSFM NVM). The addon will create cameras, point clouds, and meshes in the correct scene coordinates. Adjust point display and camera frustums in the addon panel for better visualization.
 
 ---
 

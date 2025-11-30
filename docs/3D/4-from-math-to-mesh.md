@@ -50,51 +50,43 @@ We've established what 3D space is from first principles, and we've seen that th
 
 ---
 
-## Key Features
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-book" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Concepts and reading to bridge math and mesh.</p>
-    </div>
-  </div>
+<FeatureCardGrid>
+  <FeatureCard 
+    title="What You'll Learn" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-book"
+  >
+    <ul style={{margin: 0, paddingLeft: '20px'}}>
+      <li>Vertex, Edge, Face, Mesh terminology</li>
+      <li>Location, Rotation, Scale transforms</li>
+      <li>Applying transformations correctly</li>
+    </ul>
+  </FeatureCard>
   
-  <div style={{
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-link" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Links</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Examples of pipelines and terminology shifts.</p>
-    </div>
-  </div>
+  <FeatureCard 
+    title="Key Concepts" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-arrows-up-down-left-right"
+  >
+    <ul style={{margin: 0, paddingLeft: '20px'}}>
+      <li>Math → Blender vocabulary shift</li>
+      <li>The three fundamental transforms</li>
+      <li>Precision in reconstruction work</li>
+    </ul>
+  </FeatureCard>
   
-  <div style={{
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Videos</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Short demos: Vertex→Edge→Face workflows.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Interactive Demo" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-cube"
+  >
+    <p style={{margin: 0}}>Practice transformations with the interactive 3D widget at the bottom of this page.</p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 
@@ -137,3 +129,21 @@ import InteractiveTransform3D from '@site/src/components/InteractiveTransform3D/
 <InteractiveTransform3D />
 
 Move, rotate, and scale the orange cube in 3D space. Drag to orbit the view. Axes: X (red), Y (green), Z (blue).
+
+---
+
+## Summary
+
+The shift from abstract mathematical concepts to Blender's concrete data structures is fundamental to working effectively in 3D. Understanding this terminology—and the precision required in reconstruction work—sets the foundation for accurate visual investigation.
+
+**Key Takeaways:**
+- Points become vertices, lines become edges, planes become faces, and together they form meshes
+- Meshes are hollow shells, not solid volumes—this matters for rendering and physics
+- Location, Rotation, and Scale are the three fundamental transformations
+- Always apply scale (Ctrl + A) after scaling to avoid unexpected behavior
+- Precision matters: use exact coordinates and measurements, not approximations
+
+**Further Resources:**
+- [Anatomy of a 3D Model](/docs/3D/3-what-is-a-3d-model) - Deep dive into mesh structure and quality
+- [The Logic of Space](/docs/3D/1-the-mathemathical-context) - The mathematical foundations
+- [Blender Documentation: Object Transforms](https://docs.blender.org/manual/en/latest/scene_layout/object/editing/transform/index.html)

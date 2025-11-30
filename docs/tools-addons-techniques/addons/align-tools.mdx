@@ -56,54 +56,37 @@ The **Align Tools** add-on is a free, built-in utility for Blender. Its function
 
 ---
 
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
 ## Key Features
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-arrows-up-down-left-right" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Align Location</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Matches the position of selected objects to the active object along specified axes (X, Y, or Z). This is typically based on the object's origin/pivot point.</p>
-    </div>
-  </div>
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Align Location" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-arrows-up-down-left-right"
+  >
+    <p style={{margin: 0}}>Matches the position of selected objects to the active object along specified axes (X, Y, or Z). This is typically based on the object's origin/pivot point.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-rotate" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Align Rotation</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Applies the rotation data of the active object to all selected objects.</p>
-    </div>
-  </div>
+  <FeatureCard 
+    title="Align Rotation" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-rotate"
+  >
+    <p style={{margin: 0}}>Applies the rotation data of the active object to all selected objects.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-expand" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Align Scale</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Resizes selected objects to match the scale of the active object.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Align Scale" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-expand"
+  >
+    <p style={{margin: 0}}>Resizes selected objects to match the scale of the active object.</p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 

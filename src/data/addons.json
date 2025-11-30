@@ -1,5 +1,10 @@
 [
   {
+    "sidebar_position": 20,
+    "slug": "/knowledge-base/docs/tools-addons-techniques/addons/3d-print-toolbox",
+    "fileName": "3d-print-toolbox.mdx"
+  },
+  {
     "title": "Align Tools",
     "description": "Provides a set of tools to align objects to each other in the 3D Viewport.",
     "sidebar_label": "Align Tools",

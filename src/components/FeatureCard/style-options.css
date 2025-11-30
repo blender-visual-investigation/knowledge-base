@@ -1,0 +1,338 @@
+/* ===================================
+   OPTION 1: MODERN GLASSMORPHISM
+   =================================== */
+
+.card_option1 {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  border-top: 3px solid var(--header-color);
+  overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card_option1:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.cardHeader_option1 {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--header-color) 0%, var(--header-color) 100%);
+}
+
+.cardTitle_option1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cardBody_option1 {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+
+/* ===================================
+   OPTION 2: GRADIENT ACCENTS
+   =================================== */
+
+.card_option2 {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card_option2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--header-color), transparent);
+}
+
+.card_option2:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader_option2 {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, var(--header-color) 0%, var(--header-color-light) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cardHeader_option2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
+}
+
+.cardIcon_option2 {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+
+.cardTitle_option2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.cardBody_option2 {
+  padding: 24px;
+  background: white;
+}
+
+
+/* ===================================
+   OPTION 3: MATERIAL DESIGN 3
+   =================================== */
+
+.card_option3 {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+.card_option3:hover {
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.16),
+    0 4px 8px rgba(0, 0, 0, 0.12);
+  transform: scale(1.03);
+}
+
+.cardHeader_option3 {
+  padding: 24px 24px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(180deg, var(--header-color) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.cardIcon_option3 {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle_option3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.cardBody_option3 {
+  padding: 0 24px 24px;
+}
+
+.cardBody_option3 p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #5f6368;
+}
+
+
+/* ===================================
+   OPTION 4: MINIMAL MODERN
+   =================================== */
+
+.card_option4 {
+  border: none;
+  border-left: 4px solid var(--header-color);
+  border-radius: 0 12px 12px 0;
+  overflow: hidden;
+  box-shadow: 
+    0 2px 12px rgba(0, 0, 0, 0.06),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.card_option4:hover {
+  transform: translateX(4px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+  border-left-width: 6px;
+}
+
+.cardHeader_option4 {
+  padding: 24px 24px 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+}
+
+.cardIcon_option4 {
+  font-size: 1.5rem;
+  color: var(--header-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle_option4 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.cardBody_option4 {
+  padding: 12px 24px 24px;
+}
+
+.cardBody_option4 p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+
+/* ===================================
+   OPTION 5: PREMIUM GRADIENT BORDER
+   =================================== */
+
+.card_option5 {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  transition: all 0.35s ease;
+}
+
+.card_option5::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--header-color), var(--header-color-dark, #333));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+}
+
+.card_option5:hover::before {
+  opacity: 1;
+}
+
+.card_option5:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card_option5_inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader_option5 {
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--header-color);
+  position: relative;
+}
+
+.cardIcon_option5 {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardTitle_option5 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cardBody_option5 {
+  padding: 24px;
+  background: linear-gradient(180deg, white 0%, #fafafa 100%);
+}
+
+.cardBody_option5 p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #444;
+}

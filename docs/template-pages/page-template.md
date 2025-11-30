@@ -19,6 +19,12 @@ sidebar_position: 2
 
 ---
 
+{/* 
+  VIDEO OPTIONS:
+  
+  Option 1: Single Video Embed
+  Use this for pages with just one video.
+*/}
 
 <div style={{
   position: 'relative',
@@ -39,12 +45,29 @@ sidebar_position: 2
       height: '100%',
       border: 0
     }}
-    src="https://www.youtube.com/embed/CKRIjej1nMI"
+    src="https://www.youtube.com/embed/VIDEO_ID_HERE"
     title="YouTube video player"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen>
   </iframe>
 </div>
+
+{/* 
+  Option 2: Video Carousel
+  Use this for pages with multiple videos. Import the component and provide an array of video objects.
+  Each video needs an 'id' (YouTube video ID) and 'title'.
+  
+  Example usage:
+
+import VideoCarousel from '@site/src/components/VideoCarousel';
+
+<VideoCarousel videos={[
+  { id: 'VIDEO_ID_1', title: 'First Video Title' },
+  { id: 'VIDEO_ID_2', title: 'Second Video Title' },
+  { id: 'VIDEO_ID_3', title: 'Third Video Title' }
+]} />
+
+*/}
 
 ## Introduction
 
@@ -59,54 +82,35 @@ You can write multiple paragraphs here to provide context and set expectations f
 
 ---
 
-## Key Features
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-book" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the first key feature or benefit. Explain what makes this important.</p>
-    </div>
-  </div>
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Resources" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-book"
+  >
+    <p style={{margin: 0}}>Description of the first key feature or benefit. Explain what makes this important.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-link" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Links</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the second key feature or benefit. Highlight what users will gain.</p>
-    </div>
-  </div>
+  <FeatureCard 
+    title="Links" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-link"
+  >
+    <p style={{margin: 0}}>Description of the second key feature or benefit. Highlight what users will gain.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-play" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Videos</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Description of the third key feature or benefit. Show why this matters.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Videos" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-play"
+  >
+    <p style={{margin: 0}}>Description of the third key feature or benefit. Show why this matters.</p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 
@@ -126,4 +130,60 @@ Continue with more content as needed.
 
 ## Summary
 
-Wrap up the page with a brief summary of what was covered and any next steps or related topics to explore.
+Wrap up the page with a brief summary of what was covered. This should be a concise paragraph that reinforces the main concepts and highlights the practical value of the topic for visual investigation work.
+
+**Key Takeaways:**
+- First important point or lesson from this page
+- Second key concept or skill learned
+- Third practical application or benefit
+- Fourth takeaway (optional, add or remove as needed)
+
+---
+
+## Documentation for Methodology
+
+{/* 
+  METHODOLOGY FOLDOUT:
+  Include this section for tools, techniques, and addons pages.
+  See methodology-snippets.md for detailed instructions on writing this content.
+  Remove this section for conceptual/overview pages that don't involve specific tools or techniques.
+*/}
+
+Understanding the technique is only half the work—documenting it properly is what makes your investigation defensible and reproducible.
+
+<details>
+<summary><strong>What to document when using [TECHNIQUE/TOOL NAME]</strong></summary>
+
+### In Your Method Section
+
+[1-3 sentences describing how to document this technique in a formal methodology. Be specific about what parameters, settings, or decisions should be mentioned.]
+
+### In Your Decision Log
+
+Record the following when using this technique:
+- [Key decision point 1]
+- [Key decision point 2]
+- [Key decision point 3]
+- Date performed
+
+### Verification
+
+[1-2 sentences explaining how to verify this technique was applied correctly or how to test its accuracy]
+
+### Common Limitations
+
+[1-3 sentences about constraints or limitations this technique introduces to your investigation]
+
+### Example Methodology Statement
+
+> "[A concrete, realistic example of 2-4 sentences showing exactly how someone would describe using this technique in a formal methodology document. Use realistic but generic parameters like [X], [version], [number] to show where specific values would go.]"
+
+</details>
+
+---
+
+**Further Resources:**
+- [Official Documentation](https://example.com/docs)
+- [Related Tool/Addon Page](https://example.com/tool)
+- [Tutorial Video](https://example.com/video)
+- [Community Forum](https://example.com/forum)

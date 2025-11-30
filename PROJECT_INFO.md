@@ -4,7 +4,7 @@
 
 **Project Name:** Blender for Visual Investigation - Knowledge Base
 
-**Purpose:** A comprehensive educational knowledge base for learning Blender from first principles with a focus on visual investigation, forensics, crime scene reconstruction, and evidence visualization.
+**Purpose:** A comprehensive educational knowledge base for learning Blender from first principles with a focus on visual investigation, forensics, crime scene reconstruction, and evidence visualization. The knowledge base emphasizes rigorous methodology and documentation practices that transform Blender from a visualization tool into a defensible investigative instrument.
 
 **Repository:** https://github.com/blender-visual-investigation/knowledge-base
 
@@ -40,6 +40,15 @@ The knowledge base serves two distinct user groups:
    - Target: Legal professionals, managers, analysts who need to review/present 3D evidence
    - Located in Use Cases as "The Analyst" standalone practical course
 
+### Methodology Framework
+
+The knowledge base emphasizes rigorous methodology aligned with:
+- **Berkeley Protocol on Digital Open Source Investigations** - International standards for digital evidence
+- **Academic research methodology** - Qualitative/quantitative/mixed methods approaches
+- **Forensic chain of custody** - Evidence documentation and preservation standards
+
+Every tool, technique, and addon page includes methodology documentation guidance to ensure reconstructions are defensible and reproducible.
+
 ---
 
 ## Content Structure (Current State)
@@ -69,11 +78,14 @@ Core conceptual foundation for understanding 3D space and modeling.
   - `3-modeling-workflows.md` - Workflow cards (10 techniques)
   - `4-managing-complexity.md` - Mixed technique strategies
 - `5-file-types.md` - File format guide
-- `6-camera-and-perspective.md` - Camera and viewing
+- `6-camera-and-perspective.md` - **Comprehensive camera fundamentals** (25 min read)
+  - Focal length, sensor size, aperture, depth of field
+  - Camera matching tools (fSpy, Dolly Zoom, camera tracking)
+  - Lens distortion, motion blur, investigative scenarios
 - `7-destructive-vs-non-destructive.md` - Modeling strategies
 - `8-modeling-phases.md` - Blockout → Refine → Detail
 
-**Status:** ✅ Structure complete, content ~80% written
+**Status:** ✅ Structure complete, content ~85% written
 
 #### **Blender** (`docs/blender/`)
 Software-specific training organized into focused areas.
@@ -89,22 +101,31 @@ Software-specific training organized into focused areas.
 **Status:** ⏳ Structure established, content 40-60% complete
 
 #### **Data** (`docs/data/`)
-Data management for investigation workflows.
+Data management and methodology for investigation workflows.
 
-- Methodology
-- Analyzing Data
-- Organizing Data
-- Collaboration
+- **Methodology** - Comprehensive methodology framework (~20 min read)
+  - Berkeley Protocol alignment
+  - Four-component methodology: Approach, Sources, Process, Limitations
+  - Decision logging, source documentation templates
+  - Example methodology statements for different project types
+- **Organizing Data** - File management strategies (~20 min read)
+  - Multiple folder structure strategies (evidence status, workflow stage, source type)
+  - **3D Project Architecture** - Asset-Shot separation, WIP vs Published protocol
+  - Naming conventions, version control, backup strategies
+  - Real-world workflow examples
+- **Analyzing Data** - Data analysis techniques
+- **Collaboration** - Team workflows
 
-**Status:** ⏳ Structure established (4 files), content in progress
+**Status:** ✅ Methodology and Organizing Data comprehensive, other files in progress
 
 #### **Tools, Add-ons & Techniques** (`docs/tools-addons-techniques/`)
 Reference library with searchable databases.
 
 - **Addons** (`addons/`)
   - `index.mdx` - Addon Database with sortable/filterable table
-  - 11 individual addon pages (.mdx format)
+  - 12 individual addon pages (.mdx format)
   - Categories: Workflow Enhancement, Camera Matching, Geospatial, Measurement, Photogrammetry, Visualization
+  - **fSpy** and **Dolly Zoom** include methodology documentation sections
   
 - **Techniques** (`techniques/`)
   - `index.mdx` - Techniques Database with sortable/filterable table
@@ -120,9 +141,10 @@ Reference library with searchable databases.
 
 - **Tools** (`tools/`)
   - `index.mdx` - Tools Database
-  - fSpy, QGIS documentation
+  - **fSpy** - Comprehensive guide with methodology documentation
+  - QGIS documentation
 
-**Status:** ⏳ Database infrastructure complete, individual pages 30-50% content
+**Status:** ⏳ Database infrastructure complete, methodology snippets being added to individual pages
 
 #### **Use Cases & Tutorials** (`docs/use-cases/`)
 Real-world application workflows.
@@ -142,7 +164,21 @@ Real-world application workflows.
 **Status:** ⏳ Analyst track ~70% complete, Gori case structure complete, Basic inspection ~10%
 
 #### **Template Pages** (`docs/template-pages/`)
-- Page template with video embed, feature cards, badges
+Reusable templates for consistent page creation.
+
+- **Page Template** - Complete template with:
+  - Difficulty badges (Beginner/Intermediate/Advanced/Expert)
+  - Reading time estimates
+  - Single video embed OR VideoCarousel component
+  - FeatureCardGrid with FeatureCards
+  - Methodology documentation foldout placeholder
+  - Summary with key takeaways and further resources
+  
+- **Methodology Snippets Guide** - LLM-readable instructions for adding methodology documentation to pages
+  - Structured format for consistent methodology sections
+  - Templates for Method Section, Decision Log, Verification, Limitations
+  - Example methodology statements
+  - Guidance on when to apply (tools, techniques, addons) vs. when to skip (UI navigation, conceptual)
 
 **Status:** ✅ Complete
 
@@ -181,9 +217,11 @@ Real-world application workflows.
 - `TechniqueTable/` - Sortable, filterable technique database with search
 - `ToolTable/` - Sortable, filterable tool database with search
 
-**UI Components (2 components):**
+**UI Components (4 components):**
 - `ScrollProgressBar/` - Page reading progress indicator
 - `HomepageFeatures/` - Landing page feature cards
+- `FeatureCard/` & `FeatureCardGrid/` - Reusable card components for page headers
+- `VideoCarousel/` - Multi-video carousel with navigation arrows and dot indicators
 
 ### Data Infrastructure (`src/data/`)
 - `addons.json` - 11 curated addons with metadata, categories, tags
@@ -323,13 +361,14 @@ bvi_knowledge/
 | Module | Structure | Content | Priority |
 |--------|-----------|---------|----------|
 | Introduction | ✅ Complete | ✅ Complete | — |
-| 3D Context | ✅ Complete | ⏳ 80% | High |
+| 3D Context | ✅ Complete | ⏳ 85% | High |
 | Blender | ✅ Complete | ⏳ 50% | High |
-| Data | ✅ Complete | ⏳ 40% | Medium |
-| Tools/Addons/Techniques | ✅ Complete | ⏳ 35% | Medium |
+| Data | ✅ Complete | ⏳ 70% | Medium |
+| Tools/Addons/Techniques | ✅ Complete | ⏳ 40% | Medium |
 | Use Cases | ✅ Complete | ⏳ 55% | High |
 | Interactive Components | ✅ Complete | ✅ Complete | — |
 | Database Infrastructure | ✅ Complete | ✅ Complete | — |
+| Template System | ✅ Complete | ✅ Complete | — |
 
 ---
 
@@ -342,6 +381,38 @@ bvi_knowledge/
 - **YouTube:** @blendervisualinvestigation
 - **Sketchfab:** Portfolio and 3D model showcase
 - **GitHub:** Open-source repository
+
+---
+
+## Recent Updates (November 2025)
+
+### Methodology Framework
+- Comprehensive methodology documentation added to Data module
+- Berkeley Protocol alignment for international standards compliance
+- Methodology snippets guide for consistent documentation across pages
+- fSpy and Dolly Zoom pages now include methodology documentation sections
+
+### Data Organization
+- Complete rewrite of Organizing Data page with strategy-focused approach
+- 3D Project Architecture section (Asset-Shot separation, WIP vs Published)
+- Multiple folder structure strategies rather than prescriptive rules
+- Real-world workflow examples
+
+### Camera & Perspective
+- Comprehensive 25-minute camera fundamentals guide
+- Covers focal length, sensor size, aperture, depth of field
+- Camera matching tools integration (fSpy, Dolly Zoom, tracking software)
+- Investigative scenarios and common mistakes
+
+### New Components
+- VideoCarousel component for multi-video pages
+- FeatureCard and FeatureCardGrid components
+- Methodology documentation foldout template
+
+### Template System
+- Enhanced page template with video carousel option
+- Methodology snippets guide (LLM-readable instructions)
+- Consistent structure for tools, techniques, and addon pages
 
 ---
 
@@ -361,5 +432,5 @@ bvi_knowledge/
 
 ---
 
-**Last Updated:** November 26, 2025
-**Version:** 2.0.0
+**Last Updated:** November 30, 2025
+**Version:** 2.1.0

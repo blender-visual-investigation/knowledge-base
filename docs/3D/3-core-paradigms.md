@@ -1,6 +1,6 @@
 ---
 title: Core Paradigms
-description: "Understanding polygonal and NURBS modeling paradigms and subdivision surfaces."
+description: "Understanding 3D paradigms."
 sidebar_position: 3
 ---
 
@@ -47,43 +47,103 @@ import PolyVsNurbsInteractive from '@site/src/components/poly-vs-nurbs-interacti
 </div>
 
 ## Introduction
-Now that we've established what 3D space is from first principles, we need to understand how data populates that space. There are several distinct paradigms for representing 3D geometry — polygonal, NURBS, volumetrics, and point clouds — each built on fundamentally different mathematical principles. Each interprets 3D space differently, and moving between paradigms requires deliberate conversion rather than seamless compatibility.
+Now that we've established what 3D space is from first principles, we can turn to the question of how data actually occupies that space. In 3D work, geometry is not a single, universal thing — it is expressed through a small number of fundamentally different representation paradigms. The core four are polygonal surfaces, NURBS surfaces, volumetric/implicit fields, and solid modeling, with point clouds forming a fifth, auxiliary category used primarily in reconstruction and measurement.
 
-Blender is fundamentally a polygonal modeling tool. This is its core strength, though other paradigms are accessible. In a visual investigative context, you're likely to encounter point clouds from LiDAR or photoscans, volumetric data from scientific sources, and traditional polygonal geometry all in the same project. Understanding these distinctions prevents treating incompatible data as if it follows the same rules.
+Each paradigm encodes geometry using its own mathematical logic: polygons through discrete vertices and faces, NURBS through continuous analytic surfaces, solids through boundary-defined volumes, and volumetrics through fields of density or distance. Point clouds differ again, describing samples of space without defining surfaces at all.
 
-In the following sections, we'll discuss volumetrics, point clouds, and NURBS first, before concluding with polygonal modeling — the paradigm at the heart of Blender's design.
+Because each paradigm conceptualizes geometry differently, moving between them is never seamless; it always requires conversion, interpretation, or approximation. Understanding these paradigms and their strengths, limitations, and conversion costs is essential for choosing the right workflows in Blender and for managing evidence in visual investigation.
+
+---
+
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
+<FeatureCardGrid>
+  <FeatureCard 
+    title="What You'll Learn" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-book"
+  >
+    <ul style={{margin: 0, paddingLeft: '20px'}}>
+      <li>The five core geometry paradigms</li>
+      <li>Polygonal vs NURBS comparison</li>
+      <li>When to use each approach</li>
+    </ul>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Key Concepts" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-cubes"
+  >
+    <ul style={{margin: 0, paddingLeft: '20px'}}>
+      <li>Volumetrics and point clouds</li>
+      <li>Subdivision surfaces (SubD)</li>
+      <li>Conversion between paradigms</li>
+    </ul>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Why It Matters" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-magnifying-glass"
+  >
+    <p style={{margin: 0}}>Understanding paradigms prevents treating incompatible data types as interchangeable—a common source of error in investigation.</p>
+  </FeatureCard>
+</FeatureCardGrid>
+
+---
+
+Blender is fundamentally a polygonal modeling tool. This is its core strength and the paradigm around which its tools, workflows, and modifiers are designed. While Blender can interface with other paradigms — importing point clouds, rendering volumetric data, or offering minimal NURBS support — these are secondary capabilities rather than native modeling systems.
+
+In visual investigation, however, you can encounter multiple paradigms in the same project:
+
+point clouds from LiDAR, photogrammetry, or SfM workflows,
+
+volumetric datasets from scientific or forensic sources,
+
+and polygonal geometry created manually or derived from reconstruction.
+
+Each paradigm behaves according to its own mathematical rules. Confusing them — or attempting to treat them as interchangeable — is one of the fastest ways to lose precision, waste time, or produce geometry that cannot be verified or exported. Knowing what type of data you are looking at is as important as knowing what you intend to do with it.
+
+In the following sections, we will examine volumetrics, point clouds, and NURBS first — the paradigms you are most likely to encounter but least likely to edit directly in Blender. We will then conclude with polygonal modeling, the paradigm at the heart of Blender’s design and the one in which you will conduct the majority of your investigative reconstruction work.
 
 ## Volumetrics
 
-Volumetric data fills 3D space with information rather than defining surfaces. Imagine dividing your 3D space into millions of tiny boxes stacked on top of each other—each box contains a value like density or distance to a surface. This is how volumetric data populates space.
+Volumetric data populates 3D space by filling it, not by outlining it.
+Instead of defining surfaces, a volumetric representation divides space into countless tiny cells (voxels). Each voxel stores a value — such as density, color, temperature, or distance to the nearest surface. When combined, these values describe a field that occupies the entire region of interest.
 
-Volumetrics excel at representing phenomena hard to capture with surfaces: smoke, fog, liquids, or complex shapes. They're fast for spatial calculations and handle complicated geometry well. However, they require discretization into a grid, so resolution becomes a tradeoff between accuracy and memory. Visualizing volumetrics requires conversion to another format, usually meshes.
-
-You'll encounter volumetric data in scientific and medical contexts: CT scans, weather simulations, or specialized scanning equipment. In Blender, volumetrics can be imported and rendered but not robustly edited. Your typical workflow is: import to visualize, then convert to a mesh if you need to modify it.
+Volumetrics excel at capturing shapes and phenomena that surface-based representations struggle with: smoke, fog, fluids, organic interiors, or highly irregular forms. The tradeoff is resolution: higher fidelity demands finer voxel grids, which rapidly increases memory and computation requirements. Blender can import and visualize such data, but its editing capabilities are limited. Volumetrics thus serve primarily as data sources or intermediate representations in Blender-based visual investigation, rather than as editable modeling environments.
 
 ## Point Clouds
 
-A point cloud is a collection of individual points floating in 3D space. Each point has coordinates (x, y, z) and often additional data like color or intensity. That's it—no surfaces, no connections.
+A point cloud is a set of discrete points floating in 3D space.
+Each point stores spatial coordinates (x, y, z) and sometimes extra information such as color, reflectance, or intensity. Crucially, that is all it contains: no surfaces, no edges, no faces, and no notion of how one point relates to another.
 
-Point clouds are generated by real-world scanners: LiDAR captures laser bounces, photogrammetry reconstructs 3D from photographs, and depth sensors produce point data. Their strength is directness—they're unprocessed measurement data representing what a scanner actually captured. This makes them valuable for visualization and analysis.
+Point clouds typically originate from real-world measurement systems.
+LiDAR records the return time of laser pulses, photogrammetry reconstructs points by triangulating image features, and depth sensors emit structured light or infrared patterns to infer distance. The strength of point clouds is their directness: they represent raw observational data with minimal interpretation. For visual investigation, this makes them an important source of spatial evidence.
 
-However, individual points don't define surfaces or solid shapes. Converting to a mesh is non-trivial, and point clouds have no topology—no notion of "inside" or "outside." Real scanner data is also often noisy with gaps and stray points.
+However, points alone do not define shape.
+A point cloud has no topology, no interior or exterior, and no continuous surface. Converting a cloud into a mesh requires estimation — algorithms infer where a surface ought to be based on point distribution. Real scanner data also contains noise, missing patches, outliers, and uneven density, which complicate reconstruction.
 
-In Blender, you can display point clouds but not edit them robustly. Most work involves visualization or converting to a mesh for further modeling.
+Blender can display point clouds efficiently, but its ability to edit them is limited. In most workflows, you will use point clouds for visual inspection or as a reference, and then perform one of two actions:
+
+Convert the cloud to a mesh for modeling or measurement, or Model on top of it using polygonal tools while treating the cloud as a guide.
+
+Point clouds are therefore best understood as measurement data, not as a modeling paradigm — a starting point from which more explicit geometry can be derived.
 
 ## NURBS
 
-NURBS (Non-Uniform Rational B-Splines) defines smooth shapes using control points and mathematical equations. Think of it like a flexible rubber sheet held in place by pins—move the pins and the sheet deforms smoothly.
+NURBS (Non-Uniform Rational B-Splines) define smooth shapes using control points and mathematical equations. You can think of a NURBS surface as a flexible sheet held in place by pins: move a pin, and the entire sheet deforms smoothly and continuously. This makes NURBS exceptionally good at representing curvature with mathematical precision.
 
-NURBS dominates CAD and industrial design software like Rhino and SolidWorks. It's central to parametric modeling, where relationships between objects are rule-based: change one dimension and the entire model updates automatically. This makes NURBS powerful for design iteration.
+NURBS dominate CAD and industrial design environments such as Rhino, SolidWorks, and CATIA. In these systems, NURBS are integrated into a parametric modeling workflow: dimensions, constraints, and relationships govern how parts update. Change one measurement, and the entire object recalculates itself. This rule-driven approach is invaluable for engineering and iterative design.
 
-NURBS excels at mathematical precision and smooth, continuous surfaces. It struggles with sharp details, complex topology, or irregular organic forms. The mathematical complexity also means operations can produce unexpected results.
+Where NURBS excel is smooth, continuous, precision surfaces: aircraft skins, car exteriors, product housings, and architectural components. They are less well-suited to sharp details, intricate branching topology, or irregular organic forms. The underlying mathematics can also make operations brittle — trimming, joining, or blending surfaces can produce unexpected artifacts or failures.
 
-You'll encounter NURBS in engineering, architecture, or product design files. Blender supports NURBS but it's not where its strength lies. Most workflows convert NURBS to polygonal meshes for work in Blender.
+In visual investigation, you may encounter NURBS when working with engineering, architectural, or manufacturing files. Blender can import and display NURBS curves and surfaces, but its NURBS toolset is minimal, and its overall workflow is not designed around surface-patch modeling. For almost any practical task inside Blender, NURBS are converted to polygonal meshes, where Blender’s modeling tools are strongest and most predictable.
 
-:::caution
-Even though NURBS is primarily used in engineering and product development, it is a common misconception that Blender does not allow to be used for similar applications. It is possible to create highly accurate models in Blender that can be used for 3D printing and similar precision-requiring workflows.
-:::
+Although NURBS is central to engineering and product-design pipelines, it is a misconception that Blender cannot be used for precision work. Blender’s polygonal tools, combined with accurate reference scaling and snapping, allow for the creation of highly accurate models suitable for 3D printing and other tolerance-sensitive workflows.
 
 ## Polygonal vs. NURBS: The Modeling Decision
 
@@ -91,7 +151,9 @@ When building 3D geometry from scratch, the practical choice narrows to two para
 
 <PolyVsNurbsInteractive />
 
-If we play around with the element above, a critical tradeoff emerges. NURBS surfaces achieve smooth curves with significantly fewer control points than polygonal modeling requires. Polygons approximate smoothness through subdivision—a recursive technique dividing faces to create finer geometry—but this increases face count exponentially, making the mesh computationally heavier. This explains why NURBS excels at smooth, precision-defined surfaces, while polygonal subdivision offers you direct control over mesh density and structure.
+<div style={{marginBottom: '30px'}}></div>
+
+>If we play around with the element above and switch between modeling modes in the right N-Panel, the critical tradeoff emerges. NURBS surfaces achieve smooth curves with significantly fewer control points than polygonal modeling requires. Polygons approximate smoothness through subdivision. This is a recursive technique dividing faces to create finer geometry. However, this increases face count exponentially, making the mesh computationally heavier. This explains why NURBS excels at smooth, precision-defined surfaces, while polygonal subdivision offers you direct control over mesh density and structure.
 
 ### The "Smoothness" Solution: Subdivision Surfaces (SubD)
 
@@ -103,3 +165,22 @@ You must maintain "all-quad" or "mostly-quad" topology (four-sided faces) to ens
 
 ## Conclusion
 Blender is built for the polygonal paradigm, and that will be our focus. But this doesn't mean we cannot include data from other paradigms—we can import, visualize, and convert between them as needed.
+
+---
+
+## Summary
+
+Understanding the different geometry paradigms helps you make informed decisions about data handling and workflow choices in visual investigation.
+
+**Key Takeaways:**
+- Five paradigms exist: Polygonal, NURBS, Volumetric, Solid, and Point Clouds
+- Blender is optimized for polygonal modeling—its primary strength
+- Point clouds are raw measurement data, not editable geometry
+- NURBS excel at smooth, precision surfaces but require conversion for Blender work
+- Subdivision surfaces bridge the gap between polygonal and smooth modeling
+- Converting between paradigms always involves interpretation or approximation
+
+**Further Resources:**
+- [From Math to Mesh](/docs/3D/4-from-math-to-mesh) - Polygonal terminology and concepts
+- [Anatomy of a 3D Model](/docs/3D/3-what-is-a-3d-model) - Understanding mesh structure
+- [Blender Documentation: Mesh Editing](https://docs.blender.org/manual/en/latest/modeling/meshes/index.html)

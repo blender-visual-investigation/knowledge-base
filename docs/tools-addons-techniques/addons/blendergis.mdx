@@ -15,4 +15,122 @@ fileName: blendergis.mdx
 
 # BlenderGIS
 
-...existing content...
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+	<div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+		<span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
+		<span style={{backgroundColor: '#2196f3', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>INTERMEDIATE</span>
+		<span style={{backgroundColor: '#ff9800', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>ADVANCED</span>
+	</div>
+	<div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
+		<span style={{fontSize: '16px'}}>📖</span>
+		<span>5 min read</span>
+	</div>
+</div>
+
+---
+
+
+<div style={{
+	position: 'relative',
+	paddingBottom: '56.25%',
+	height: 0,
+	overflow: 'hidden',
+	maxWidth: '100%',
+	marginBottom: '30px',
+	borderRadius: '8px',
+	boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+}}>
+	<iframe
+		style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+		src="https://www.youtube.com/embed/0I1yHfB_3ac"
+		title="BlenderGIS Overview"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowFullScreen>
+	</iframe>
+</div>
+
+## Introduction
+
+BlenderGIS is a free, open-source add-on that brings real-world geographic data into Blender. It lets you import terrain (DEMs), satellite imagery, and vector layers (roads, buildings) with correct georeferencing. The result is rapid, analysis-ready context for visualization, planning, and reconstruction.
+
+What you’ll get here:
+- How BlenderGIS pulls data exported from GIS tools (e.g., QGIS) into Blender with correct coordinates and scale.
+- Core features for terrain generation, imagery draping, and footprint/road import.
+- Practical usage focused on the add-on’s panels and workflows inside Blender.
+
+---
+
+## Key Features
+
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
+<FeatureCardGrid>
+	<FeatureCard 
+		title="Data Import" 
+		headerColor="#6dfb72"
+		textColor="#333"
+		icon="fa-solid fa-map"
+	>
+		<p style={{margin: 0}}>Import DEMs, rasters (GeoTIFF), and vectors (Shapefile/GeoPackage) with georeferencing preserved. Works seamlessly with data exported from QGIS.</p>
+	</FeatureCard>
+  
+	<FeatureCard 
+		title="CRS & Georeferencing" 
+		headerColor="#1C75BC"
+		icon="fa-solid fa-ruler-combined"
+	>
+		<p style={{margin: 0}}>Read and apply Coordinate Reference Systems (CRS) to place data accurately. Handles reprojection so datasets align correctly in the scene.</p>
+	</FeatureCard>
+  
+	<FeatureCard 
+		title="Terrain & Context" 
+		headerColor="#EF4C3C"
+		icon="fa-solid fa-layer-group"
+	>
+		<p style={{margin: 0}}>Generate terrain meshes from DEMs, drape satellite imagery, and import footprints/roads to build site context. Optional simplification and tiling for large areas.</p>
+	</FeatureCard>
+
+	<FeatureCard 
+		title="Footprints to Mesh" 
+		headerColor="#8e44ad"
+		icon="fa-solid fa-building"
+	>
+		<p style={{margin: 0}}>Extrude building footprints with heights/attributes into 3D massing models for quick urban context.</p>
+	</FeatureCard>
+</FeatureCardGrid>
+
+---
+
+## Main Content Section
+
+### Usage: BlenderGIS Workflows (Inside Blender)
+
+Focus: how to use the add-on’s panels and operators to bring in data already prepared/exported from GIS tools.
+
+1. **Enable BlenderGIS:** Install/enable via Preferences > Add-ons > search "BlenderGIS".
+2. **Set Scene CRS:** In BlenderGIS panel, choose the scene CRS to match your data export (e.g., EPSG:3857 or EPSG:4326).
+3. **Import DEM (Terrain):** Use Import > Raster/DEM to load elevation data (GeoTIFF). Convert to mesh and adjust resolution/simplification depending on area size.
+4. **Drape Imagery:** Import raster imagery and project it over terrain. Ensure CRS matches; use reprojection tools if needed.
+5. **Import Vectors:** Load roads, footprints, or parcels from Shapefile/GeoPackage. Verify layer CRS; BlenderGIS will place them correctly.
+6. **Extrude Buildings:** Use footprint attributes (e.g., height) to extrude massing models. Group or tag layers for easy visibility control.
+7. **Align & Scale:** Use georeferencing tools to align mixed datasets. If needed, reproject layers to the common scene CRS.
+8. **Performance Tips:** Tile large DEMs, decimate meshes, and use lower-res textures for interactive work; swap to high-res for final renders.
+
+Troubleshooting:
+- Mismatched CRS leads to offset layers—verify each dataset’s EPSG before import.
+- Very large areas benefit from tiling and level-of-detail (LOD) strategies.
+
+### Subsection 1
+
+Step-by-step example: importing terrain and aligning imagery.
+
+### Subsection 2
+
+Advanced topics: CRS conversions, performance tuning, large-area tiling.
+
+---
+
+## Summary
+
+BlenderGIS bridges GIS and 3D content creation, letting you bring real-world context into Blender efficiently for analysis and visualization.

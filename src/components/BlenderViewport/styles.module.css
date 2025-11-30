@@ -1,0 +1,321 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 600px;
+  background-color: #1d1d1d;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #111;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 16px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.logoIcon {
+  width: 16px;
+  height: 16px;
+  background-color: #e77e22;
+  mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>') no-repeat center;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>') no-repeat center;
+}
+
+.tabs {
+  display: flex;
+  height: 100%;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: #888;
+  cursor: pointer;
+  border-right: 1px solid #222;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tab:hover {
+  background-color: #3d3d3d;
+  color: #ccc;
+}
+
+.tab.active {
+  background-color: #3d3d3d;
+  color: #e0e0e0;
+  border-bottom: 2px solid #e77e22;
+}
+
+/* Main Content Area */
+.mainArea {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.viewport {
+  flex: 1;
+  position: relative;
+  background-color: #1d1d1d;
+  overflow: hidden;
+}
+
+.viewportHeader {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+  font-size: 11px;
+  color: #888;
+  pointer-events: none;
+}
+
+.viewportControls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.viewControl {
+  font-size: 11px;
+  color: #ccc;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: #2d2d2d;
+  border-left: 1px solid #111;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  padding: 8px 12px;
+  background-color: #333;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #222;
+}
+
+.sidebarContent {
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.panel {
+  margin-bottom: 16px;
+}
+
+.panelTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #e77e22;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.panelTitle::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 10px;
+  background-color: #e77e22;
+  margin-right: 6px;
+  border-radius: 1px;
+}
+
+.propertyGroup {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.propertyLabel {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.vectorInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+
+.numberInput {
+  background-color: #1d1d1d;
+  border: 1px solid #444;
+  border-radius: 3px;
+  color: #e0e0e0;
+  font-size: 11px;
+  padding: 4px 4px 4px 10px; /* Left padding for indicator */
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.numberInput:focus {
+  border-color: #e77e22;
+  outline: none;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.axisIndicator {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  bottom: 1px;
+  width: 4px;
+  border-radius: 2px 0 0 2px;
+  z-index: 2;
+}
+
+.axisX { background-color: #ff5252; }
+.axisY { background-color: #69f0ae; } /* Blender Y is Green? Wait, usually Y is Green in Blender, Z is Blue. But Three.js is Y-up (Green). Blender is Z-up (Blue). Let's stick to Blender colors: X Red, Y Green, Z Blue. */
+.axisZ { background-color: #308ce7; }
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: #ccc;
+}
+
+.statValue {
+  font-weight: 600;
+}
+
+/* Footer / Timeline */
+.footer {
+  height: 32px;
+  background-color: #222;
+  border-top: 1px solid #111;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.playbackControls {
+  display: flex;
+  gap: 8px;
+  margin-right: 16px;
+}
+
+.controlBtn {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+.controlBtn:hover {
+  color: #fff;
+}
+
+.timeline {
+  flex: 1;
+  height: 16px;
+  background-color: #111;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.timelineTrack {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #e77e22;
+  opacity: 0.3;
+}
+
+.timelineScrubber {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #e77e22;
+  transform: translateX(-50%);
+}
+
+.timelineTicks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+  font-size: 9px;
+  color: #555;
+  margin-top: 2px;
+  pointer-events: none;
+}
+
+.frameCounter {
+  margin-left: 16px;
+  font-size: 11px;
+  color: #888;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .mainArea {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid #111;
+  }
+  
+  .vectorInput {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

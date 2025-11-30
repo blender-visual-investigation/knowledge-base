@@ -56,54 +56,37 @@ The **F2 add-on** is a free, built-in tool designed to significantly accelerate 
 
 ---
 
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
 ## Key Features
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-repeat" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Repetitious Filling</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Allows an entire sequence of faces to be created and filled along an edge boundary by selecting a single initial edge and repeatedly pressing the <strong>F</strong> key.</p>
-    </div>
-  </div>
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Repetitious Filling" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-repeat"
+  >
+    <p style={{margin: 0}}>Allows an entire sequence of faces to be created and filled along an edge boundary by selecting a single initial edge and repeatedly pressing the <strong>F</strong> key.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-circle-dot" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Single Vertex Input</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Enables face creation starting from only one selected <strong>vertex</strong>. New vertices and faces are generated and filled in sequence with repetitive use of the <strong>F</strong> key.</p>
-    </div>
-  </div>
+  <FeatureCard 
+    title="Single Vertex Input" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-circle-dot"
+  >
+    <p style={{margin: 0}}>Enables face creation starting from only one selected <strong>vertex</strong>. New vertices and faces are generated and filled in sequence with repetitive use of the <strong>F</strong> key.</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-arrow-pointer" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Directional Sensitivity</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>The tool respects the <strong>mouse cursor's position</strong>. By hovering the cursor to the left or right of the selected edge or vertex, the user dictates the direction of the new face fill.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Directional Sensitivity" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-arrow-pointer"
+  >
+    <p style={{margin: 0}}>The tool respects the <strong>mouse cursor's position</strong>. By hovering the cursor to the left or right of the selected edge or vertex, the user dictates the direction of the new face fill.</p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 

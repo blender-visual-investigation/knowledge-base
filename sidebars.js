@@ -35,7 +35,7 @@ function getSidebarItemForDir(dirName) {
     };
     // Add className if specified (for dividers)
     if (categoryConfig.className) {
-      item.className = categoryConfig.className;
+      /** @type {any} */ (item).className = categoryConfig.className;
     }
     return item;
   }

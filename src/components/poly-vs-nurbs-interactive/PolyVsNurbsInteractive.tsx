@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Visualizer from './components/Visualizer';
 import { chaikinSubdivide } from './utils/geometry';
 import { ModelingMode, Point } from './types';
+import BlenderViewport from '../BlenderViewport';
 
 /**
  * PolyVsNurbsInteractive: A reusable, self-contained React component for embedding.
@@ -11,35 +12,66 @@ const PolyVsNurbsInteractive: React.FC = () => {
   const [mode, setMode] = useState<ModelingMode>(ModelingMode.POLYGONAL);
   const [resolution, setResolution] = useState<number>(0);
   const [points, setPoints] = useState<Point[]>([
-    { id: 'p1', x: 100, y: 300 },
-    { id: 'p2', x: 200, y: 100 },
-    { id: 'p3', x: 400, y: 100 },
-    { id: 'p4', x: 500, y: 300 },
+    { id: 'p1', x: 150, y: 280 },
+    { id: 'p2', x: 250, y: 120 },
+    { id: 'p3', x: 400, y: 120 },
+    { id: 'p4', x: 500, y: 280 },
   ]);
 
-  // Calculate face (edge) count for current subdivision level (polygonal mode)
+  // Calculate face (edge) count and vertices for current subdivision level (polygonal mode)
+  let vertCount = points.length;
+  let edgeCount = Math.max(0, points.length - 1);
   let faceCount = 0;
+  
   if (mode === ModelingMode.POLYGONAL) {
     const subdivided = chaikinSubdivide(points, resolution);
-    faceCount = Math.max(0, subdivided.length - 1); // edges between points
+    vertCount = subdivided.length;
+    edgeCount = Math.max(0, subdivided.length - 1);
+    faceCount = edgeCount; // In 2D, edges act as "faces"
+  } else {
+    // NURBS: control points, mathematical curve (infinite resolution)
+    vertCount = points.length;
+    edgeCount = 0; // Mathematical curve, no discrete edges
+    faceCount = 0;
   }
 
-  return (
-    <div style={{ background: '#f8fafc', borderRadius: 12, padding: 24, boxShadow: '0 2px 8px rgba(0,0,0,0.04)', maxWidth: 800, margin: '32px auto' }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center', marginBottom: 20 }}>
-        <div style={{ background: '#e0e7ef', borderRadius: 8, padding: 4, display: 'flex', gap: 2 }}>
+  // Stats for the BlenderViewport
+  const stats = {
+    verts: vertCount,
+    edges: edgeCount,
+    faces: faceCount,
+    tris: mode === ModelingMode.NURBS ? 0 : edgeCount // In 2D representation
+  };
+
+  const resetPoints = () => {
+    setPoints([
+      { id: 'p1', x: 150, y: 280 },
+      { id: 'p2', x: 250, y: 120 },
+      { id: 'p3', x: 400, y: 120 },
+      { id: 'p4', x: 500, y: 280 },
+    ]);
+    setResolution(0);
+  };
+
+  const sidebarContent = (
+    <div>
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#e77e22', marginBottom: 8, display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: 3, height: 10, backgroundColor: '#e77e22', marginRight: 6, borderRadius: 1 }}></span>
+          Modeling Mode
+        </div>
+        <div style={{ display: 'flex', gap: 4, background: '#1d1d1d', padding: 2, borderRadius: 4, border: '1px solid #444' }}>
           <button
             onClick={() => setMode(ModelingMode.POLYGONAL)}
             style={{
-              background: mode === ModelingMode.POLYGONAL ? '#fff' : 'transparent',
-              color: mode === ModelingMode.POLYGONAL ? '#6366f1' : '#64748b',
+              flex: 1,
+              background: mode === ModelingMode.POLYGONAL ? '#3d3d3d' : 'transparent',
+              color: mode === ModelingMode.POLYGONAL ? '#fff' : '#888',
               border: 'none',
-              borderRadius: 6,
-              padding: '6px 18px',
-              fontWeight: 600,
+              padding: '4px 8px',
+              fontSize: 11,
               cursor: 'pointer',
-              boxShadow: mode === ModelingMode.POLYGONAL ? '0 1px 4px rgba(99,102,241,0.08)' : 'none',
-              transition: 'all 0.15s',
+              borderRadius: 2
             }}
           >
             Polygonal
@@ -47,85 +79,87 @@ const PolyVsNurbsInteractive: React.FC = () => {
           <button
             onClick={() => setMode(ModelingMode.NURBS)}
             style={{
-              background: mode === ModelingMode.NURBS ? '#fff' : 'transparent',
-              color: mode === ModelingMode.NURBS ? '#2563eb' : '#64748b',
+              flex: 1,
+              background: mode === ModelingMode.NURBS ? '#3d3d3d' : 'transparent',
+              color: mode === ModelingMode.NURBS ? '#fff' : '#888',
               border: 'none',
-              borderRadius: 6,
-              padding: '6px 18px',
-              fontWeight: 600,
+              padding: '4px 8px',
+              fontSize: 11,
               cursor: 'pointer',
-              boxShadow: mode === ModelingMode.NURBS ? '0 1px 4px rgba(37,99,235,0.08)' : 'none',
-              transition: 'all 0.15s',
+              borderRadius: 2
             }}
           >
             NURBS
           </button>
         </div>
-        <div style={{ flex: 1, minWidth: 180 }}>
-          {mode === ModelingMode.POLYGONAL ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <label htmlFor="res-slider" style={{ fontSize: 12, color: '#475569', fontWeight: 500 }}>
-                Subdivision Levels: {resolution}
-              </label>
+      </div>
+
+      {mode === ModelingMode.POLYGONAL ? (
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: '#e77e22', marginBottom: 8, display: 'flex', alignItems: 'center' }}>
+            <span style={{ display: 'inline-block', width: 3, height: 10, backgroundColor: '#e77e22', marginRight: 6, borderRadius: 1 }}></span>
+            Subdivision
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '70px 1fr', gap: 8, alignItems: 'center', marginBottom: 8 }}>
+            <label style={{ fontSize: 11, color: '#aaa' }}>Levels</label>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <input
-                id="res-slider"
                 type="range"
                 min="0"
                 max="5"
                 step="1"
                 value={resolution}
                 onChange={e => setResolution(parseInt(e.target.value))}
-                style={{ width: '100%', accentColor: '#6366f1' }}
+                style={{ flex: 1, accentColor: '#e77e22' }}
               />
-              <span style={{ fontSize: 13, color: '#334155', fontWeight: 500, marginTop: 4 }}>
-                Faces: <b>{faceCount}</b>
-              </span>
+              <span style={{ fontSize: 11, color: '#e0e0e0', width: 12, textAlign: 'right' }}>{resolution}</span>
             </div>
-          ) : (
-            <div style={{ opacity: 0.5, pointerEvents: 'none' }}>
-              <label style={{ fontSize: 12, color: '#475569', fontWeight: 500 }}>
-                Mathematical Precision: ∞
-              </label>
-              <div style={{ width: '100%', height: 8, background: '#dbeafe', borderRadius: 4, marginTop: 2 }}>
-                <div style={{ width: '100%', height: 8, background: '#2563eb', borderRadius: 4 }} />
-              </div>
-            </div>
-          )}
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#ccc' }}>
+            <span>Edges:</span>
+            <span style={{ fontWeight: 600 }}>{edgeCount}</span>
+          </div>
         </div>
+      ) : (
+        <div style={{ marginBottom: 16, opacity: 0.5 }}>
+           <div style={{ fontSize: 11, fontWeight: 600, color: '#e77e22', marginBottom: 8, display: 'flex', alignItems: 'center' }}>
+            <span style={{ display: 'inline-block', width: 3, height: 10, backgroundColor: '#e77e22', marginRight: 6, borderRadius: 1 }}></span>
+            Precision
+          </div>
+          <div style={{ fontSize: 11, color: '#aaa' }}>Infinite (Mathematical)</div>
+        </div>
+      )}
+
+      <div style={{ marginTop: 24, borderTop: '1px solid #333', paddingTop: 16 }}>
         <button
-          onClick={() => {
-            setPoints([
-              { id: 'p1', x: 100, y: 300 },
-              { id: 'p2', x: 200, y: 100 },
-              { id: 'p3', x: 400, y: 100 },
-              { id: 'p4', x: 500, y: 300 },
-            ]);
-            setResolution(0);
+          onClick={resetPoints}
+          style={{
+            width: '100%',
+            background: '#2d2d2d',
+            border: '1px solid #444',
+            color: '#ccc',
+            padding: '6px',
+            fontSize: 11,
+            cursor: 'pointer',
+            borderRadius: 3
           }}
-          style={{ fontSize: 12, color: '#64748b', background: 'none', border: 'none', textDecoration: 'underline', cursor: 'pointer', marginLeft: 8 }}
         >
-          Reset
+          Reset Points
         </button>
       </div>
-      <div
-        style={{
-          width: 600,
-          height: 400,
-          background: '#fff',
-          borderRadius: 10,
-          border: '1px solid #e2e8f0',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.03)',
-          padding: 8,
-          overflow: 'visible',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Visualizer mode={mode} resolution={resolution} points={points} setPoints={setPoints} />
-      </div>
     </div>
+  );
+
+  return (
+    <BlenderViewport 
+      extraSidebarContent={sidebarContent} 
+      stats={stats}
+      activeTab="Curve (2D)"
+      disableTransform={true}
+      nurbsMode={mode === ModelingMode.NURBS}
+    >
+      <Visualizer mode={mode} resolution={resolution} points={points} setPoints={setPoints} />
+    </BlenderViewport>
   );
 };
 

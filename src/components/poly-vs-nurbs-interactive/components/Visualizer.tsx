@@ -46,8 +46,15 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
     pattern.append("path")
       .attr("d", "M 40 0 L 0 0 0 40")
       .attr("fill", "none")
-      .attr("stroke", "#e2e8f0")
+      .attr("stroke", "#333333") // Dark grid lines
       .attr("stroke-width", 1);
+    
+    // Background fill
+    svg.append("rect")
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("fill", "#1d1d1d"); // Dark background
+      
     svg.append("rect")
       .attr("width", "100%")
       .attr("height", "100%")
@@ -64,7 +71,7 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
       .datum(points)
       .attr("d", lineGenerator)
       .attr("fill", "none")
-      .attr("stroke", "#94a3b8")
+      .attr("stroke", "#555555") // Darker cage
       .attr("stroke-width", 1)
       .attr("stroke-dasharray", "5,5")
       .attr("class", "control-cage");
@@ -85,7 +92,7 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
         .curve(d3.curveBasis); // B-Spline approximation
       
       pathData = curveGenerator(points) || "";
-      mainColor = "#3b82f6"; // Blue for NURBS
+      mainColor = "#308ce7"; // Blue for NURBS
     } else {
       // POLYGONAL: Use Chaikin subdivision to show smoothing levels
       const subdividedPoints = chaikinSubdivide(points, resolution);
@@ -96,7 +103,7 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
         .curve(d3.curveLinear); // Straight lines
       
       pathData = polyGenerator(subdividedPoints) || "";
-      mainColor = "#ef4444"; // Red for Poly
+      mainColor = "#ff5252"; // Red for Poly
 
       // Render all vertices for Poly mode to emphasize the "facets"
       svg.selectAll(".poly-vertex")
@@ -105,9 +112,9 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
         .append("circle")
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
-        .attr("r", 2)
+        .attr("r", 3)
         .attr("fill", mainColor)
-        .attr("opacity", 0.6);
+        .attr("opacity", 0.8);
 
       // Render fictional (new) vertices: those not present in the original points
       if (resolution > 0) {
@@ -121,7 +128,7 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
               .attr("cy", pt.y)
               .attr("r", 4)
               .attr("fill", "#6366f1")
-              .attr("opacity", 0.35)
+              .attr("opacity", 0.5)
               .attr("stroke", "#6366f1")
               .attr("stroke-width", 1.2)
               .attr("class", "fictional-vertex");
@@ -167,8 +174,8 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
       .attr("cx", d => d.x)
       .attr("cy", d => d.y)
       .attr("r", 8)
-      .attr("fill", "#fff")
-      .attr("stroke", "#0f172a")
+      .attr("fill", "#e77e22") // Orange
+      .attr("stroke", "#ffffff")
       .attr("stroke-width", 2);
       
     controls.call(drag as any);
@@ -181,8 +188,9 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
       .attr("x", d => d.x + 12)
       .attr("y", d => d.y - 12)
       .text((d, i) => `${pointShort}${i}`)
-      .attr("font-size", "10px")
-      .attr("fill", "#64748b");
+      .attr("font-size", "12px")
+      .attr("fill", "#aaaaaa")
+      .attr("font-weight", "bold");
 
   }, [points, mode, resolution, dimensions, setPoints]);
 
@@ -190,15 +198,15 @@ const Visualizer: React.FC<VisualizerProps> = ({ mode, resolution, points, setPo
   const pointLabel = mode === ModelingMode.POLYGONAL ? 'Vertices (V)' : 'Control Points (CP)';
 
   return (
-    <div style={{ width: 600, height: 400, background: 'transparent', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 16, left: 16, background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(2px)', padding: 8, borderRadius: 6, border: '1px solid #e2e8f0', fontSize: 12, color: '#334155', zIndex: 10, pointerEvents: 'none' }}>
+    <div style={{ width: '100%', height: '100%', background: 'transparent', position: 'relative' }}>
+      <div style={{ position: 'absolute', bottom: 16, left: 16, background: 'rgba(29, 29, 29, 0.9)', backdropFilter: 'blur(2px)', padding: 8, borderRadius: 6, border: '1px solid #444', fontSize: 12, color: '#ccc', zIndex: 10, pointerEvents: 'none' }}>
         Drag the <b>{pointLabel}</b> to deform the {mode === ModelingMode.NURBS ? 'curve' : 'mesh'}.
       </div>
       <svg
         ref={svgRef}
-        width={600}
-        height={400}
-        style={{ display: 'block', width: 600, height: 400, touchAction: 'none' }}
+        width="100%"
+        height="100%"
+        style={{ display: 'block', width: '100%', height: '100%', touchAction: 'none' }}
       />
     </div>
   );

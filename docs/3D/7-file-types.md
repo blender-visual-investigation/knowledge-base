@@ -4,7 +4,8 @@ description: Overview of common 3D file formats and how they apply to visual inv
 sidebar_position: 7
 ---
 
-#
+# File Formats
+
 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
 	<div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
 		<span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
@@ -105,5 +106,24 @@ The OBJ format is used for its simplicity and near-guaranteed compatibility:
 As a polygon-based application, Blender is perfectly positioned to leverage these formats. The core of visual investigation modeling remains the polygonal mesh (vertices, edges, faces) because it is the most flexible structure for iterative refinement and analysis. All of the file formats listed above are essentially containers for polygonal data.
 
 While CAD/NURBS formats offer absolute mathematical precision, they are typically difficult to edit directly and must be converted to an editable polygonal mesh upon import into Blender, where the bulk of the investigative work (alignment, measurement, verification) takes place.
+
+---
+
+## Summary
+
+Choosing the right file format ensures your investigative models can be shared, verified, and archived effectively. Each format serves a specific purpose in the visual investigation workflow.
+
+**Key Takeaways:**
+- **FBX** is the industry standard for complex scenes with animation, cameras, and rigging
+- **OBJ** provides universal compatibility for static geometry and long-term archival
+- **glTF/GLB** is optimal for web-based visualization and modern asset delivery
+- **STL** is limited to geometry-only (useful for 3D printing physical models)
+- **.blend** preserves everything but requires Blender to open
+- All formats are essentially containers for polygonal mesh data
+
+**Further Resources:**
+- [Blender File Import/Export Documentation](https://docs.blender.org/manual/en/latest/files/import_export.html)
+- [glTF Overview](https://www.khronos.org/gltf/) - The Khronos Group's modern 3D format
+- [Working with Models](/docs/use-cases/working-with-models) - Practical guidance on model workflows
 
 

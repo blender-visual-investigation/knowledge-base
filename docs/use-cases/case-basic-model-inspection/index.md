@@ -56,39 +56,29 @@ This section will cover:
 
 ---
 
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
 ## Key Features
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-book" style={{fontSize: '20px', color: '#333'}}></i>
-      <h4 style={{margin: 0, color: '#333'}}>Resources</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Download the sample investigation model here (Link TBD).</p>
-    </div>
-  </div>
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Resources" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-book"
+  >
+    <p style={{margin: 0}}>Download the sample investigation model here (Link TBD).</p>
+  </FeatureCard>
   
-  <div style={{
-    border: '1px solid #e0e0e0',
-    borderRadius: '8px',
-    overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }}>
-    <div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-      <i className="fa-solid fa-link" style={{fontSize: '20px'}}></i>
-      <h4 style={{margin: 0}}>Links</h4>
-    </div>
-    <div style={{padding: '20px'}}>
-      <p style={{margin: 0}}>Blender Navigation Shortcuts cheat sheet.</p>
-    </div>
-  </div>
-</div>
+  <FeatureCard 
+    title="Links" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-link"
+  >
+    <p style={{margin: 0}}>Blender Navigation Shortcuts cheat sheet.</p>
+  </FeatureCard>
+</FeatureCardGrid>
 
 ---
 

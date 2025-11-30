@@ -11,7 +11,7 @@ sidebar_position: 3
 	</div>
 	<div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
 		<span style={{fontSize: '16px'}}>📖</span>
-		<span>4 min read</span>
+		<span>6 min read</span>
 	</div>
 </div>
 
@@ -50,50 +50,35 @@ sidebar_position: 3
 
 ## Key Features
 
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-	<div style={{
-		border: '1px solid #e0e0e0',
-		borderRadius: '8px',
-		overflow: 'hidden',
-		boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-	}}>
-		<div style={{backgroundColor: '#8DF917', padding: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-			<i className="fa-solid fa-ruler" style={{fontSize: '20px', color: '#333'}}></i>
-			<h4 style={{margin: 0, color: '#333'}}>Perspective Calibration</h4>
-		</div>
-		<div style={{padding: '20px'}}>
-			<p style={{margin: 0}}>Align 3D coordinate axes to the image using Vanishing Points (VPs) and ensure scene geometry follows the correct perspective relationships.</p>
-		</div>
-	</div>
-	<div style={{
-		border: '1px solid #e0e0e0',
-		borderRadius: '8px',
-		overflow: 'hidden',
-		boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-	}}>
-		<div style={{backgroundColor: '#1C75BC', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-			<i className="fa-solid fa-dot-circle" style={{fontSize: '20px'}}></i>
-			<h4 style={{margin: 0}}>Principal Point Detection</h4>
-		</div>
-		<div style={{padding: '20px'}}>
-			<p style={{margin: 0}}>Identify and set the Principal Point to correct for image cropping or off-center cameras; this is crucial for accurate axis alignment.</p>
-		</div>
-	</div>
-	<div style={{
-		border: '1px solid #e0e0e0',
-		borderRadius: '8px',
-		overflow: 'hidden',
-		boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-	}}>
-		<div style={{backgroundColor: '#EF4C3C', padding: '15px', color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}>
-			<i className="fa-solid fa-ruler-combined" style={{fontSize: '20px'}}></i>
-			<h4 style={{margin: 0}}>Real-World Scaling</h4>
-		</div>
-		<div style={{padding: '20px'}}>
-			<p style={{margin: 0}}>Anchor the scene with an origin and set a reference distance to scale the 3D model to real-world units.</p>
-		</div>
-	</div>
-</div>
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
+<FeatureCardGrid>
+	<FeatureCard 
+		title="Perspective Calibration" 
+		headerColor="#6dfb72"
+		textColor="#333"
+		icon="fa-solid fa-ruler"
+	>
+		<p style={{margin: 0}}>Align 3D coordinate axes to the image using Vanishing Points (VPs) and ensure scene geometry follows the correct perspective relationships.</p>
+	</FeatureCard>
+
+	<FeatureCard 
+		title="Principal Point Detection" 
+		headerColor="#1C75BC"
+		icon="fa-solid fa-dot-circle"
+	>
+		<p style={{margin: 0}}>Identify and set the Principal Point to correct for image cropping or off-center cameras; this is crucial for accurate axis alignment.</p>
+	</FeatureCard>
+
+	<FeatureCard 
+		title="Real-World Scaling" 
+		headerColor="#EF4C3C"
+		icon="fa-solid fa-ruler-combined"
+	>
+		<p style={{margin: 0}}>Anchor the scene with an origin and set a reference distance to scale the 3D model to real-world units.</p>
+	</FeatureCard>
+</FeatureCardGrid>
 
 ---
 ### Links and Downloads
@@ -175,6 +160,43 @@ The initial Field of View (FOV) is usually wrong, causing distortion. This must 
 
 fSpy is a powerful tool for visual investigation when used correctly. The core of the workflow involves three key steps: correctly establishing the **Vanishing Points**, precisely setting the **Principal Point** (especially for cropped images), and iteratively correcting the **Focal Length** in Blender using reference shapes. The resulting scene is a properly scaled 3D environment ready for accurate reconstruction and analysis.
 
+---
 
+## Documentation for Methodology
+
+Understanding how to use fSpy is only half the work—documenting your camera matching process properly is what makes your investigation defensible and reproducible.
+
+<details>
+<summary><strong>What to document when using fSpy</strong></summary>
+
+### In Your Method Section
+
+When describing camera calibration in your methodology, specify the software version used (fSpy and the Blender importer add-on), the number of vanishing points identified, which reference lines were used for alignment (e.g., "vertical building edges," "floor tile grid"), and how focal length was verified. Include the final camera parameters: focal length, sensor dimensions, and principal point position.
+
+### In Your Decision Log
+
+Record the following when using fSpy:
+- Source image filename, resolution, and origin (where you obtained it)
+- Number of vanishing points used (1-point, 2-point, or 3-point perspective)
+- Which real-world features were used for VP alignment (be specific: "north wall window frames," not just "windows")
+- Whether the principal point was auto-calculated or manually adjusted, and why
+- Reference object used for focal length verification in Blender (e.g., "circular lamp base," "square floor tile")
+- Final focal length value after iterative correction
+- Reference distance used for scaling (object name and measured value)
+- Date performed
+
+### Verification
+
+To verify your camera match, overlay at least two different geometric primitives (e.g., a circle AND a cube) against corresponding objects in the background image at different depths. If both align correctly, your camera parameters are likely accurate. Additionally, check that vertical lines in your 3D scene remain vertical when viewed through the matched camera—any tilt indicates principal point or VP errors.
+
+### Common Limitations
+
+Camera matching from a single photograph cannot determine absolute camera position—only relative position and orientation. If the source image has been cropped, rotated, or had perspective correction applied, the principal point will be offset and may require manual adjustment. Lens distortion (barrel or pincushion) is not corrected by fSpy; heavily distorted images (especially from wide-angle or action cameras) require pre-processing. The accuracy of your match is limited by the precision of the reference lines you can identify in the image.
+
+### Example Methodology Statement
+
+> "Camera calibration was performed using fSpy 1.0.3 with the Blender importer add-on. The source photograph [filename, resolution, source] exhibited 2-point perspective. Vanishing points were established using the horizontal edges of the building's north-facing windows (X-axis) and the western wall's door frames (Y-axis). The principal point was manually adjusted vertically to correct for image cropping until the Z-axis aligned with known vertical features. Initial import to Blender 4.2 showed focal length distortion; iterative correction using a circular reference object (overhead lamp, verified as circular in additional photographs) yielded a final focal length of [X] mm. Scene scale was established using the reference distance tool set to [Y] meters, matched to [reference object]. Verification: cube primitives aligned to floor tiles at near and far positions confirmed consistent perspective across the scene depth."
+
+</details>
 
 ---
