@@ -996,9 +996,9 @@ Accurate camera parameter matching transforms your 3D reconstruction from an app
 Every camera choice affects how space is perceived. Master these fundamentals, and you'll be able to read photographs like documents—understanding not just what they show, but how they were captured, what was possible to see, and what the camera's perspective reveals about the scene.
 
 **Further Resources:**
-- [Camera Matching Technique](/docs/module-3-tools-addons-techniques/techniques/camera-matching) - Detailed camera matching workflows
-- [fSpy Tool](/docs/module-3-tools-addons-techniques/tools/fspy) - Camera matching software for Blender
-- [Camera Tracking Technique](/docs/module-3-tools-addons-techniques/techniques/camera-tracking) - Video-based camera solving
+- [Camera Matching Technique](/docs/tools-addons-techniques/techniques/camera-matching) - Detailed camera matching workflows
+- [fSpy Tool](/docs/tools-addons-techniques/tools/fspy) - Camera matching software for Blender
+- [Camera Tracking Technique](/docs/tools-addons-techniques/techniques/camera-tracking) - Video-based camera solving
 - [Blender Documentation: Camera Settings](https://docs.blender.org/manual/en/latest/render/cameras.html)
 - [fSpy Official Website](https://fspy.io/) - Free, open-source camera matching tool
 - [ExifTool](https://exiftool.org/) - Extract metadata from digital images

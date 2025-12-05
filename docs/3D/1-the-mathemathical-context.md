@@ -161,6 +161,6 @@ Understanding the logic of spaceâ€”from dimensionless points to full 3D volumesâ
 - Understanding these concepts deepens your intuition for 3D reconstruction work
 
 **Further Resources:**
-- [From Math to Mesh](/docs/3D/4-from-math-to-mesh) - How these concepts translate to Blender's vocabulary
-- [Core Paradigms](/docs/3D/3-core-paradigms) - Different ways to represent geometry
+- [From Math to Mesh](/docs/3D/from-math-to-mesh) - How these concepts translate to Blender's vocabulary
+- [Core Paradigms](/docs/3D/core-paradigms) - Different ways to represent geometry
 - [Blender Documentation: 3D Viewport](https://docs.blender.org/manual/en/latest/editors/3dview/index.html)

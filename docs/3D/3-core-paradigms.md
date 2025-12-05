@@ -181,6 +181,6 @@ Understanding the different geometry paradigms helps you make informed decisions
 - Converting between paradigms always involves interpretation or approximation
 
 **Further Resources:**
-- [From Math to Mesh](/docs/3D/4-from-math-to-mesh) - Polygonal terminology and concepts
-- [Anatomy of a 3D Model](/docs/3D/3-what-is-a-3d-model) - Understanding mesh structure
+- [From Math to Mesh](/docs/3D/from-math-to-mesh) - Polygonal terminology and concepts
+- [Anatomy of a 3D Model](/docs/3D/what-is-a-3d-model) - Understanding mesh structure
 - [Blender Documentation: Mesh Editing](https://docs.blender.org/manual/en/latest/modeling/meshes/index.html)

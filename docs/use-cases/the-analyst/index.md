@@ -41,7 +41,7 @@ This streamlined course covers only what you need:
 
 ## Prerequisites
 
-- **Blender installed** (see [Installation Guide](/docs/blender/intro-to-blender-doc))
+- **Blender installed** (see [Installation Guide](/docs/blender))
 - **Basic computer skills** (file management, mouse/keyboard)
 - **No 3D experience required**
 

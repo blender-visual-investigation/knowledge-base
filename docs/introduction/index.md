@@ -94,5 +94,5 @@ This knowledge base is built to help you learn Blender in the context of real in
 
 **Further Resources:**
 - [Knowledge Base Structure](/docs/introduction/structure) - How this site is organized
-- [Why Blender?](/docs/introduction/on-blender) - Why we chose Blender for this work
+- [Why Blender?](/docs/introduction/why-blender) - Why we chose Blender for this work
 - [Support](/docs/introduction/support) - Where to get help

@@ -144,6 +144,6 @@ The shift from abstract mathematical concepts to Blender's concrete data structu
 - Precision matters: use exact coordinates and measurements, not approximations
 
 **Further Resources:**
-- [Anatomy of a 3D Model](/docs/3D/3-what-is-a-3d-model) - Deep dive into mesh structure and quality
-- [The Logic of Space](/docs/3D/1-the-mathemathical-context) - The mathematical foundations
+- [Anatomy of a 3D Model](/docs/3D/what-is-a-3d-model) - Deep dive into mesh structure and quality
+- [The Logic of Space](/docs/3D/the-mathemathical-context) - The mathematical foundations
 - [Blender Documentation: Object Transforms](https://docs.blender.org/manual/en/latest/scene_layout/object/editing/transform/index.html)

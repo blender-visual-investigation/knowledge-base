@@ -124,6 +124,6 @@ Choosing the right file format ensures your investigative models can be shared, 
 **Further Resources:**
 - [Blender File Import/Export Documentation](https://docs.blender.org/manual/en/latest/files/import_export.html)
 - [glTF Overview](https://www.khronos.org/gltf/) - The Khronos Group's modern 3D format
-- [Working with Models](/docs/use-cases/working-with-models) - Practical guidance on model workflows
+- [The Analyst Use Case](/docs/use-cases/the-analyst) - Practical guidance on model workflows
 
 

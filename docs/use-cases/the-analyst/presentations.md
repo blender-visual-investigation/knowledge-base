@@ -287,7 +287,7 @@ Create a full set of renders for a case report.
     </div>
     <ul style={{margin: 0, paddingLeft: '20px', color: 'white'}}>
       <li><a href="https://docs.blender.org/manual/en/latest/render/index.html" style={{color: 'white'}}>Rendering Documentation</a></li>
-      <li><a href="/knowledge-base/docs/module-4-use-cases/working-with-models/crime-scene-reconstruction" style={{color: 'white'}}>Crime Scene Reconstruction</a></li>
+      <!-- <li><a href="/docs/use-cases/the-analyst/presentations" style={{color: 'white'}}>Crime Scene Reconstruction</a></li> -->
     </ul>
   </div>
 

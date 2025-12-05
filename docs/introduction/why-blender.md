@@ -225,7 +225,7 @@ Trying to achieve specific results often involves navigating confusing tools and
 
 Ready to begin? You have two paths:
 
-1. **Dive straight in:** Visit the [Blender Installation & Setup](/docs/blender/blender-introduction-setup) page to download and configure Blender for investigative work.
+1. **Dive straight in:** Visit the [Blender Installation & Setup](/docs/blender) page to download and configure Blender for investigative work.
 
 2. **Build context first:** Continue through the Introduction section to understand the methodology, then explore the [3D Context](/docs/3D) module to build foundational spatial understanding before touching the software.
 

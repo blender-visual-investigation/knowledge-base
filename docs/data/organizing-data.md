@@ -69,7 +69,7 @@ Data organization isn't about following rigid rules. It's about creating systems
 
 **The goal**: When you return to a project six months later, or when a colleague needs to understand your work, the organization should make the path clear.
 
-This connects directly to methodology: as discussed in the [Methodology](/docs/data/methodology) page, documentation and transparency aren't optional extras—they're what transform your work from illustration into evidence. Your folder structure and naming conventions are part of that documentation.
+This connects directly to methodology: as discussed in the [Methodology](/docs/data) page, documentation and transparency aren't optional extras—they're what transform your work from illustration into evidence. Your folder structure and naming conventions are part of that documentation.
 
 ---
 
@@ -597,7 +597,7 @@ Good data organization serves your investigation by making files findable, relat
 - Systems should evolve as you learn what works
 
 **Further Resources:**
-- [Methodology](/docs/data/methodology) - The broader framework these practices support
+- [Methodology](/docs/data) - The broader framework these practices support
 - [Analyzing Data](/docs/data/analyzing-data) - Data analysis techniques
 - [Collaboration](/docs/data/collaboration) - Team-specific organizational considerations
 - [Berkeley Protocol](https://www.ohchr.org/en/publications/policy-and-methodological-publications/berkeley-protocol-digital-open-source) - Standards for evidence handling

@@ -46,7 +46,7 @@ Content in development.
       <h3 style={{margin: 0, fontSize: '18px', color: 'white'}}>Links</h3>
     </div>
     <ul style={{margin: 0, paddingLeft: '20px', color: 'white'}}>
-      <li><a href="/docs/module-4-use-cases/working-with-models/presentations" style={{color: 'white'}}>Presentation Guide</a></li>
+      <!-- <li><a href="/docs/use-cases/the-analyst/presentations" style={{color: 'white'}}>Presentation Guide</a></li> -->
       <li><a href="/docs/module-2-data/2-3-collaboration" style={{color: 'white'}}>Collaboration Tools</a></li>
     </ul>
   </div>
