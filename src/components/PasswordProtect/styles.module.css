@@ -1,0 +1,287 @@
+/* Lock Screen */
+.lockScreen {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.lockCard {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] .lockCard {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lockIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, color-mix(in srgb, var(--ifm-color-primary) 70%, black) 100%);
+  border-radius: 50%;
+  font-size: 32px;
+  color: white;
+}
+
+.lockTitle {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.lockDescription {
+  margin: 0 0 32px;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.95rem;
+}
+
+/* Form */
+.lockForm {
+  margin-bottom: 24px;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.passwordInput {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.passwordInput:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(48, 140, 231, 0.15);
+}
+
+.passwordInput::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+[data-theme='dark'] .passwordInput {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .passwordInput:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(48, 140, 231, 0.25);
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.unlockButton {
+  padding: 14px 20px;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unlockButton:hover {
+  background: color-mix(in srgb, var(--ifm-color-primary) 85%, black);
+  transform: translateX(2px);
+}
+
+/* Messages */
+.errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 10px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .errorMessage {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.hintText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+}
+
+.hintText i {
+  color: #f59e0b;
+}
+
+/* Footer */
+.lockFooter {
+  padding-top: 24px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .lockFooter {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.lockFooter p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.85rem;
+}
+
+/* Loading */
+.loadingContainer {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--ifm-color-emphasis-200);
+  border-top-color: var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Unlocked State */
+.unlockedContainer {
+  position: relative;
+}
+
+.logoutBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 8px;
+}
+
+[data-theme='dark'] .logoutBar {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.15);
+}
+
+.accessGranted {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+[data-theme='dark'] .accessGranted {
+  color: #4ade80;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.logoutButton:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] .logoutButton {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .logoutButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .lockCard {
+    padding: 32px 24px;
+  }
+  
+  .lockIcon {
+    width: 64px;
+    height: 64px;
+    font-size: 26px;
+  }
+  
+  .lockTitle {
+    font-size: 1.3rem;
+  }
+  
+  .inputWrapper {
+    flex-direction: column;
+  }
+  
+  .unlockButton {
+    width: 100%;
+  }
+}

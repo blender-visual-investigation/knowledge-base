@@ -1,8 +1,8 @@
 {
-  "label": "Use Cases & Tutorials",
+  "label": "Use Cases & Projects",
   "position": 8,
   "link": {
     "type": "generated-index",
-    "description": "Practical use cases and real-world applications of 3D modeling and Blender for visual investigations."
+    "description": "Practical use cases, case studies, and client project dashboards. Case studies demonstrate workflows with educational focus. Project dashboards provide communication links, schedules, and resources for active client engagements."
   }
 }

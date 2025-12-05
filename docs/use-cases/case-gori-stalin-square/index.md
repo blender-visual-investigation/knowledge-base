@@ -20,10 +20,23 @@ sidebar_position: 1
 
 **Location:** Stalin Square, Gori, Georgia  
 **Date:** August 2008  
-**Event:** Artillery strike during the Russo-Georgian War  
-**Objective:** Create an accurate 3D reconstruction of the square, document civilian positions, and analyze movement patterns when the rocket struck
+**Event:** Cluster bomb strike during the Russo-Georgian War  
+**Objective:** Create an accurate 3D reconstruction of the square, document actors positions, and analyze movement patterns before, during and after the rocket strike. 
 
 ## What You'll Learn
+
+- Polygonal modeling
+- Scale and dimensions
+- Precision fundamentals
+- Posing
+- Animating the camera
+- Camera Matching
+- Sourcing models
+- Cleaning models
+- Analyze data
+- FSPY
+- QGIS
+- 
 
 This comprehensive tutorial demonstrates a complete visual investigation workflow:
 

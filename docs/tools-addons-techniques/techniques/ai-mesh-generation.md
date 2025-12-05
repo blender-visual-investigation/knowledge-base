@@ -2,7 +2,58 @@
 
 Using artificial intelligence and machine learning for 3D mesh creation.
 
+---
+
+## Online AI Mesh Generators
+
+Numerous cloud-based services offer image-to-3D conversion through simple web interfaces. These tools are convenient for quick results but require uploading your data to third-party servers.
+
+| Service | Input Type | Output Format | Notes | Link |
+|---------|------------|---------------|-------|------|
+| — | — | — | — | — |
+
+> **Privacy Note:** Online services process your images on their servers. For sensitive investigative work, consider local alternatives below.
+
+---
+
+## Local AI Solutions
+
+For investigative workflows where data privacy and control are critical, running AI models locally is preferred. **ComfyUI** provides an excellent platform for orchestrating local 3D AI models through a node-based interface.
+
+### Why ComfyUI?
+
+- **Node-based workflow:** Visual pipeline construction, easy to iterate and customize
+- **Model flexibility:** Run different models for segmentation, depth estimation, rigging, and reconstruction
+- **Privacy:** All processing happens on your machine
+- **Integration:** Works well with Blender and other 3D pipelines
+- **Community nodes:** Extensive library of custom nodes for specialized tasks
+
+### Local Models for 3D Workflows
+
+| Model/Node | Purpose | Input | Output | Link |
+|------------|---------|-------|--------|------|
+| SAM 3D Objects | Segment objects from images for 3D reconstruction | Image | Segmentation masks + 3D bounding data | https://github.com/PozzettiAndrea/ComfyUI-SAM3DObjects |
+| DepthAnything V3 | High-quality monocular depth estimation | Image | Depth map | https://github.com/PozzettiAndrea/ComfyUI-DepthAnythingV3 |
+| SAM 3D Body | Human body segmentation for character reconstruction | Image | Body segmentation masks | https://github.com/PozzettiAndrea/ComfyUI-SAM3DBody |
+| UniRig | Automatic rigging for 3D characters | 3D mesh | Rigged character | https://github.com/PozzettiAndrea/ComfyUI-UniRig |
+
+> **Setup Note:** These require ComfyUI installation and model weights. See the individual repositories for installation instructions and system requirements.
+
+---
+
 ## Generative 3D: Neural Implicit Representations and Topology
+
+> **⚠️ Critical Note: Generative ≠ Accurate**
+>
+> AI mesh generation is called "generative" for a reason—these models **interpolate and invent details** based on their training data, not actual measurements. The output is a plausible guess, not ground truth.
+>
+> **For investigative work:**
+> - **Never use AI-generated geometry as primary evidence** without verification
+> - **Best use cases:** Creating non-critical props, background elements, or conceptual mockups
+> - **Valid workflow:** Use as a starting point that requires manual verification and refinement
+> - **Always document** when AI generation was used and how results were validated
+>
+> If geometric accuracy matters (measurements, spatial relationships, evidence), rely on photogrammetry, LiDAR, or manual modeling with verified references.
 
 ### Executive Summary
 

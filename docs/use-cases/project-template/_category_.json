@@ -1,0 +1,12 @@
+{
+  "label": "Project Template",
+  "position": 99,
+  "link": {
+    "type": "doc",
+    "id": "use-cases/project-template/index"
+  },
+  "customProps": {
+    "type": "project",
+    "status": "template"
+  }
+}

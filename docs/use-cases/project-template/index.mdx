@@ -1,0 +1,586 @@
+---
+sidebar_position: 99
+title: "[PROJECT NAME] Dashboard"
+description: "Project dashboard for [CLIENT/PROJECT NAME]"
+---
+
+{/* 
+  PROJECT DASHBOARD TEMPLATE
+  ==========================
+  This template is for client projects with password protection.
+  
+  Features:
+  - Password protection (using sessionStorage)
+  - Communication links (Signal, Google Meet)
+  - Important dates calendar
+  - Software downloads
+  - Project-specific file storage
+  - Status updates and milestones
+  - Full dark/light mode support
+  
+  To customize:
+  1. Change the password prop on PasswordProtect
+  2. Replace all [PLACEHOLDER] values
+  3. Update links, dates, and software as needed
+  4. Remove or add sections as required
+*/}
+
+import PasswordProtect from '@site/src/components/PasswordProtect';
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
+<PasswordProtect 
+  password="demo123" 
+  projectName="[PROJECT NAME]"
+  hint="Contact the project lead for access"
+>
+
+# [PROJECT NAME]
+
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+  <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+    <span style={{backgroundColor: 'var(--ifm-color-primary)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>CLIENT PROJECT</span>
+    <span style={{backgroundColor: '#22c55e', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>ACTIVE</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--ifm-color-emphasis-600)', fontSize: '14px', whiteSpace: 'nowrap'}}>
+    <span style={{fontSize: '16px'}}>📅</span>
+    <span>Started: [DATE]</span>
+  </div>
+</div>
+
+---
+
+## Project Overview
+
+**Client:** [Organization Name]  
+**Project Lead:** [Your Name]  
+**Start Date:** [Start Date]  
+**Target Completion:** [End Date or "Ongoing"]
+
+### Project Description
+
+[2-3 paragraphs describing the project scope, objectives, and deliverables. What are you building? What problem does it solve? What will the final output be?]
+
+### Current Status
+
+{/* 
+  Status types (change background and border colors):
+  - Active:   background: rgba(34, 197, 94, 0.1), border: #22c55e, icon: fa-circle-check
+  - Waiting:  background: rgba(245, 158, 11, 0.1), border: #f59e0b, icon: fa-clock
+  - Blocked:  background: rgba(239, 68, 68, 0.1), border: #ef4444, icon: fa-triangle-exclamation
+  - Complete: background: rgba(59, 130, 246, 0.1), border: #3b82f6, icon: fa-flag-checkered
+*/}
+
+<div style={{
+  backgroundColor: 'rgba(34, 197, 94, 0.1)',
+  border: '2px solid #22c55e',
+  borderRadius: '8px',
+  padding: '16px',
+  marginBottom: '20px'
+}}>
+  <div style={{display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px'}}>
+    <i className="fa-solid fa-circle-check" style={{color: '#22c55e', fontSize: '20px'}}></i>
+    <strong style={{color: '#16a34a', fontSize: '16px'}}>Phase 2: Scene Construction</strong>
+  </div>
+  <p style={{margin: 0, color: 'var(--ifm-color-emphasis-700)'}}>
+    Currently modeling the main structure. Expected to move to Phase 3 by [DATE].
+  </p>
+</div>
+
+---
+
+## Quick Links
+
+<FeatureCardGrid columns={4}>
+  <FeatureCard 
+    title="Signal Group" 
+    headerColor="#3a76f0"
+    icon="fa-solid fa-message"
+  >
+    <p style={{marginBottom: '12px', fontSize: '14px'}}>Project communication channel for quick updates and questions.</p>
+    <a href="https://signal.group/#[GROUP_LINK]" target="_blank" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#3a76f0',
+      color: 'white',
+      padding: '10px 18px',
+      borderRadius: '8px',
+      textDecoration: 'none',
+      fontWeight: '600',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-arrow-up-right-from-square"></i>
+      Join Signal
+    </a>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Video Calls" 
+    headerColor="#00897b"
+    icon="fa-solid fa-video"
+  >
+    <p style={{marginBottom: '12px', fontSize: '14px'}}>Weekly check-in meetings and screen sharing sessions.</p>
+    <a href="https://meet.google.com/[MEETING_CODE]" target="_blank" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#00897b',
+      color: 'white',
+      padding: '10px 18px',
+      borderRadius: '8px',
+      textDecoration: 'none',
+      fontWeight: '600',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-arrow-up-right-from-square"></i>
+      Google Meet
+    </a>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Project Files" 
+    headerColor="#f4b400"
+    textColor="#333"
+    icon="fa-solid fa-folder"
+  >
+    <p style={{marginBottom: '12px', fontSize: '14px'}}>Shared folder with project assets, references, and deliverables.</p>
+    <a href="https://drive.google.com/drive/folders/[FOLDER_ID]" target="_blank" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#333',
+      color: 'white',
+      padding: '10px 18px',
+      borderRadius: '8px',
+      textDecoration: 'none',
+      fontWeight: '600',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-arrow-up-right-from-square"></i>
+      Google Drive
+    </a>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Remote Support" 
+    headerColor="#ff5722"
+    icon="fa-solid fa-desktop"
+  >
+    <p style={{marginBottom: '12px', fontSize: '14px'}}>Screen sharing for troubleshooting and live guidance.</p>
+    <a href="#software-downloads" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#ff5722',
+      color: 'white',
+      padding: '10px 18px',
+      borderRadius: '8px',
+      textDecoration: 'none',
+      fontWeight: '600',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-download"></i>
+      Get RustDesk
+    </a>
+  </FeatureCard>
+</FeatureCardGrid>
+
+---
+
+## Important Dates
+
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  gap: '16px',
+  marginBottom: '30px'
+}}>
+
+  {/* UPCOMING - Blue */}
+  <div style={{
+    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+    borderLeft: '4px solid #3b82f6',
+    borderRadius: '0 8px 8px 0',
+    padding: '16px',
+    position: 'relative'
+  }}>
+    <div style={{
+      position: 'absolute',
+      top: '-10px',
+      right: '10px',
+      backgroundColor: '#3b82f6',
+      color: 'white',
+      padding: '2px 10px',
+      borderRadius: '10px',
+      fontSize: '11px',
+      fontWeight: 'bold'
+    }}>NEXT UP</div>
+    <div style={{display: 'flex', alignItems: 'flex-start', gap: '12px'}}>
+      <div style={{
+        backgroundColor: '#3b82f6',
+        color: 'white',
+        padding: '8px 12px',
+        borderRadius: '6px',
+        textAlign: 'center',
+        minWidth: '60px'
+      }}>
+        <div style={{fontSize: '20px', fontWeight: 'bold', lineHeight: 1}}>15</div>
+        <div style={{fontSize: '12px'}}>DEC</div>
+      </div>
+      <div>
+        <strong style={{color: '#2563eb'}}>Weekly Check-in Call</strong>
+        <p style={{margin: '4px 0 0', fontSize: '14px', color: 'var(--ifm-color-emphasis-700)'}}>
+          Review progress on building exteriors. Screen share Blender session.
+        </p>
+        <span style={{fontSize: '12px', color: 'var(--ifm-color-emphasis-500)'}}>14:00 CET via Google Meet</span>
+      </div>
+    </div>
+  </div>
+
+  {/* DEADLINE - Amber */}
+  <div style={{
+    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+    borderLeft: '4px solid #f59e0b',
+    borderRadius: '0 8px 8px 0',
+    padding: '16px',
+    position: 'relative'
+  }}>
+    <div style={{
+      position: 'absolute',
+      top: '-10px',
+      right: '10px',
+      backgroundColor: '#f59e0b',
+      color: 'white',
+      padding: '2px 10px',
+      borderRadius: '10px',
+      fontSize: '11px',
+      fontWeight: 'bold'
+    }}>DEADLINE</div>
+    <div style={{display: 'flex', alignItems: 'flex-start', gap: '12px'}}>
+      <div style={{
+        backgroundColor: '#f59e0b',
+        color: 'white',
+        padding: '8px 12px',
+        borderRadius: '6px',
+        textAlign: 'center',
+        minWidth: '60px'
+      }}>
+        <div style={{fontSize: '20px', fontWeight: 'bold', lineHeight: 1}}>20</div>
+        <div style={{fontSize: '12px'}}>DEC</div>
+      </div>
+      <div>
+        <strong style={{color: '#d97706'}}>Phase 2 Delivery</strong>
+        <p style={{margin: '4px 0 0', fontSize: '14px', color: 'var(--ifm-color-emphasis-700)'}}>
+          Complete building models and initial camera positions ready for review.
+        </p>
+        <span style={{fontSize: '12px', color: 'var(--ifm-color-emphasis-500)'}}>End of day</span>
+      </div>
+    </div>
+  </div>
+
+  {/* COMPLETED - Gray */}
+  <div style={{
+    backgroundColor: 'var(--ifm-color-emphasis-100)',
+    borderLeft: '4px solid var(--ifm-color-emphasis-400)',
+    borderRadius: '0 8px 8px 0',
+    padding: '16px',
+    opacity: 0.7
+  }}>
+    <div style={{display: 'flex', alignItems: 'flex-start', gap: '12px'}}>
+      <div style={{
+        backgroundColor: 'var(--ifm-color-emphasis-400)',
+        color: 'white',
+        padding: '8px 12px',
+        borderRadius: '6px',
+        textAlign: 'center',
+        minWidth: '60px'
+      }}>
+        <div style={{fontSize: '20px', fontWeight: 'bold', lineHeight: 1}}>01</div>
+        <div style={{fontSize: '12px'}}>DEC</div>
+      </div>
+      <div>
+        <strong style={{color: 'var(--ifm-color-emphasis-600)'}}>
+          <i className="fa-solid fa-check" style={{marginRight: '6px', color: '#22c55e'}}></i>
+          Project Kickoff
+        </strong>
+        <p style={{margin: '4px 0 0', fontSize: '14px', color: 'var(--ifm-color-emphasis-600)'}}>
+          Initial meeting, scope definition, data handover.
+        </p>
+        <span style={{fontSize: '12px', color: 'var(--ifm-color-emphasis-500)'}}>Completed</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{/* 
+  Additional date card types:
+  
+  MILESTONE (Purple):
+  backgroundColor: 'rgba(139, 92, 246, 0.1)'
+  borderLeft: '4px solid #8b5cf6'
+  Badge/box backgroundColor: '#8b5cf6'
+  Title color: '#7c3aed'
+  
+  MEETING (Green):
+  backgroundColor: 'rgba(34, 197, 94, 0.1)'
+  borderLeft: '4px solid #22c55e'
+  Badge/box backgroundColor: '#22c55e'
+  Title color: '#16a34a'
+*/}
+
+---
+
+## Project Phases & Milestones
+
+| Phase | Description | Status | Target Date |
+|:------|:------------|:------:|:------------|
+| **1. Data Collection** | Gather reference photos, videos, satellite imagery | ✅ Complete | Nov 25 |
+| **2. Scene Construction** | Model primary structures and environment | 🔄 In Progress | Dec 20 |
+| **3. Detail & Texturing** | Add architectural details, apply textures | ⏳ Pending | Jan 10 |
+| **4. Camera Matching** | Align 3D scene with reference photos | ⏳ Pending | Jan 20 |
+| **5. Final Delivery** | Renders, documentation, handover | ⏳ Pending | Jan 31 |
+
+---
+
+## Software Downloads {#software-downloads}
+
+Essential software for this project. All links are to official sources.
+
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+  gap: '16px',
+  marginBottom: '30px'
+}}>
+
+  <div style={{
+    border: '1px solid var(--ifm-color-emphasis-200)',
+    borderRadius: '8px',
+    padding: '20px',
+    backgroundColor: 'var(--ifm-background-color)'
+  }}>
+    <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+      <img src="https://www.blender.org/favicon.ico" alt="Blender" style={{width: '32px', height: '32px'}} />
+      <div>
+        <strong style={{fontSize: '16px'}}>Blender</strong>
+        <div style={{fontSize: '12px', color: 'var(--ifm-color-emphasis-600)'}}>3D Modeling & Visualization</div>
+      </div>
+    </div>
+    <p style={{fontSize: '14px', color: 'var(--ifm-color-emphasis-700)', marginBottom: '12px'}}>
+      Required version: <strong>4.2 LTS</strong> or later
+    </p>
+    <a href="https://www.blender.org/download/" target="_blank" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#ea7600',
+      color: 'white',
+      padding: '8px 16px',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      fontWeight: 'bold',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-download"></i>
+      Download Blender
+    </a>
+  </div>
+
+  <div style={{
+    border: '1px solid var(--ifm-color-emphasis-200)',
+    borderRadius: '8px',
+    padding: '20px',
+    backgroundColor: 'var(--ifm-background-color)'
+  }}>
+    <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+      <i className="fa-solid fa-desktop" style={{fontSize: '28px', color: '#0066ff'}}></i>
+      <div>
+        <strong style={{fontSize: '16px'}}>RustDesk</strong>
+        <div style={{fontSize: '12px', color: 'var(--ifm-color-emphasis-600)'}}>Remote Desktop Support</div>
+      </div>
+    </div>
+    <p style={{fontSize: '14px', color: 'var(--ifm-color-emphasis-700)', marginBottom: '12px'}}>
+      For screen sharing and troubleshooting sessions
+    </p>
+    <a href="https://rustdesk.com/download" target="_blank" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#0066ff',
+      color: 'white',
+      padding: '8px 16px',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      fontWeight: 'bold',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-download"></i>
+      Download RustDesk
+    </a>
+  </div>
+
+  <div style={{
+    border: '1px solid var(--ifm-color-emphasis-200)',
+    borderRadius: '8px',
+    padding: '20px',
+    backgroundColor: 'var(--ifm-background-color)'
+  }}>
+    <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+      <i className="fa-solid fa-camera" style={{fontSize: '28px', color: '#e91e63'}}></i>
+      <div>
+        <strong style={{fontSize: '16px'}}>fSpy</strong>
+        <div style={{fontSize: '12px', color: 'var(--ifm-color-emphasis-600)'}}>Camera Matching Tool</div>
+      </div>
+    </div>
+    <p style={{fontSize: '14px', color: 'var(--ifm-color-emphasis-700)', marginBottom: '12px'}}>
+      For matching camera perspective to reference photos
+    </p>
+    <a href="https://fspy.io/" target="_blank" style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      backgroundColor: '#e91e63',
+      color: 'white',
+      padding: '8px 16px',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      fontWeight: 'bold',
+      fontSize: '13px'
+    }}>
+      <i className="fa-solid fa-download"></i>
+      Download fSpy
+    </a>
+  </div>
+
+</div>
+
+---
+
+## Project-Specific Resources
+
+### Reference Materials
+
+Files shared in the Google Drive folder:
+
+| Folder | Contents | Access |
+|:-------|:---------|:-------|
+| `/01_Reference_Photos` | Source imagery, witness photos | View only |
+| `/02_Video_Footage` | Video files, frame extracts | View only |
+| `/03_Maps_Satellite` | Satellite imagery, GIS exports | View only |
+| `/04_Work_In_Progress` | Current Blender files | Edit access |
+| `/05_Deliverables` | Final outputs, renders | Edit access |
+
+### Project-Specific Addons
+
+Blender addons required for this project:
+
+1. **BlenderGIS** - [Installation Guide](/docs/tools-addons-techniques/addons/blendergis)
+2. **fSpy Importer** - [Installation Guide](/docs/tools-addons-techniques/addons/fspy)
+3. **MeasureIt** - [Installation Guide](/docs/tools-addons-techniques/addons/measureit)
+
+---
+
+## Notes & Updates
+
+{/* 
+  Use this section for ongoing notes, status updates, or important information.
+  Newest updates at the top.
+*/}
+
+<details open style={{
+  border: '1px solid var(--ifm-color-emphasis-200)',
+  borderRadius: '8px',
+  marginBottom: '12px'
+}}>
+<summary style={{
+  padding: '12px 16px',
+  cursor: 'pointer',
+  fontWeight: '600',
+  backgroundColor: 'var(--ifm-color-emphasis-100)',
+  borderRadius: '8px'
+}}><strong>December 10, 2024</strong> - Progress Update</summary>
+
+<div style={{padding: '16px'}}>
+
+[Add update content here. What was accomplished? What's next? Any blockers or questions?]
+
+</div>
+</details>
+
+<details style={{
+  border: '1px solid var(--ifm-color-emphasis-200)',
+  borderRadius: '8px',
+  marginBottom: '12px'
+}}>
+<summary style={{
+  padding: '12px 16px',
+  cursor: 'pointer',
+  fontWeight: '600',
+  backgroundColor: 'var(--ifm-color-emphasis-100)',
+  borderRadius: '8px'
+}}><strong>December 1, 2024</strong> - Project Kickoff</summary>
+
+<div style={{padding: '16px'}}>
+
+Initial meeting completed. Scope confirmed:
+- [Key scope item 1]
+- [Key scope item 2]
+- [Key scope item 3]
+
+Data handover received. Beginning Phase 1.
+
+</div>
+</details>
+
+---
+
+## Getting Help
+
+<div style={{
+  backgroundColor: 'rgba(34, 197, 94, 0.1)',
+  border: '1px solid rgba(34, 197, 94, 0.2)',
+  borderRadius: '8px',
+  padding: '20px',
+  marginBottom: '20px'
+}}>
+  <h4 style={{margin: '0 0 12px', color: '#16a34a'}}>
+    <i className="fa-solid fa-circle-question" style={{marginRight: '8px'}}></i>
+    Need Assistance?
+  </h4>
+  <ul style={{margin: 0, paddingLeft: '20px'}}>
+    <li><strong>Quick questions:</strong> Post in the Signal group</li>
+    <li><strong>Screen sharing needed:</strong> Schedule a Google Meet or request RustDesk session</li>
+    <li><strong>File issues:</strong> Check the Google Drive or contact project lead</li>
+    <li><strong>Technical problems:</strong> Refer to the <a href="/docs/introduction/support">Support page</a></li>
+  </ul>
+</div>
+
+---
+
+## Knowledge Base Resources
+
+Relevant documentation for this project:
+
+- [Data Gathering](/docs/data/gathering-data) - How to collect and organize reference materials
+- [Organizing Data](/docs/data/organizing-data) - File naming and folder structure
+- [Camera Matching](/docs/tools-addons-techniques/techniques/camera-matching) - Aligning 3D to photos
+- [Establishing Scale](/docs/tools-addons-techniques/techniques/establishing-scale-dimension) - Accurate measurements
+
+---
+
+<div style={{
+  textAlign: 'center',
+  padding: '30px',
+  backgroundColor: 'var(--ifm-color-emphasis-100)',
+  borderRadius: '8px',
+  marginTop: '30px'
+}}>
+  <p style={{margin: 0, color: 'var(--ifm-color-emphasis-600)', fontSize: '14px'}}>
+    <strong>Project Dashboard</strong> • Last Updated: [DATE]<br/>
+    Questions? Contact the project lead via Signal or email.
+  </p>
+</div>
+
+</PasswordProtect>

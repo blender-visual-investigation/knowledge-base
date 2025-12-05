@@ -26,24 +26,23 @@ Understanding how this knowledge base is organized will help you navigate the co
 
 ```
 docs/
-├── intro.md                      # Welcome & methodology overview
-├── introduction/                 # 5 foundational orientation pages
+├── intro.md                     # Welcome & methodology overview
+├── introduction/                # Foundational orientation pages
 ├── 3D/                          # Mathematical/conceptual foundation
 ├── blender/                     # Software-specific training
 ├── data/                        # Evidence management workflows
 ├── tools-addons-techniques/     # Reference library (databases)
 │   ├── addons/                  # Blender add-on catalog
 │   ├── techniques/              # Modeling technique library
-│   │   ├── precision-modeling/  # 8 precision technique pages
-│   │   ├── direct-modeling/     # 10 direct modeling pages
+│   │   ├── precision-modeling/  # Precision technique pages
+│   │   ├── direct-modeling/     # Direct modeling pages
 │   │   └── [other techniques]
 │   └── tools/                   # External tool documentation
-├── use-cases/                   # Applied learning
-│   ├── case-gori-stalin-square/ # Full crime scene case study
-│   ├── the-analyst/             # Non-modeler track (7 pages)
-│   └── case-basic-model-inspection/
-├── template-pages/              # Documentation templates
-└── archive/                     # Legacy/deprecated content
+└── use-cases/                   # Applied learning
+    ├── case-gori-stalin-square/ # Full crime scene case study
+    ├── the-analyst/             # Non-modeler track (7 pages)
+    └── case-basic-model-inspection/
+
 ```
 
 ---
@@ -74,7 +73,7 @@ The structure supports two distinct user personas:
 | Track | Located | Target User |
 |-------|---------|-------------|
 | **Creator Track** | Full curriculum (3D → Blender → Techniques → Use Cases) | Investigators who need to build 3D models from scratch |
-| **Analyst Track** | `use-cases/the-analyst/` | Legal professionals, managers, analysts who only need to *review and verify* 3D evidence |
+| **Analyst Track** | Journalists, Legal professionals, managers, analysts who only need to *review and verify* 3D evidence |
 
 **Why separate?** A lawyer doesn't need to learn subdivision modeling—they need to know how to measure distances in a 3D scene and verify accuracy. The Analyst track is a focused, practical shortcut.
 

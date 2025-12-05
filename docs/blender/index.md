@@ -1,11 +1,10 @@
 ---
-id: intro-to-blender-doc
 title: "Introduction & Setup"
 description: "Getting started with the Blender interface and basic navigation. This is the perfect entry point for new users."
 sidebar_position: 1
 ---
 
-# 1.2 : Introduction & Setup
+# Introduction & Setup
 
 Getting started with the Blender interface and basic navigation for visual investigation workflows.
 

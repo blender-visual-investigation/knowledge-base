@@ -12,3 +12,13 @@ Every object has an origin point (the small orange dot). This is the point from 
 
 ## Pivot Points
 The pivot point is the center of any rotation or scaling operation. You can change the pivot point to suit your needs (e.g., 3D Cursor, Individual Origins, Median Point).
+
+---
+
+## Transform Options: Affect Only Origins
+
+In the viewport header, under Options, you can enable "Affect Only: Origins". This lets you move, rotate, or scale an object's origin without transforming the mesh itself.
+
+Shortcut: press Ctrl + . (Control and period) to toggle this option quickly.
+
+![Affect Only Origins option in Blender](/img/pivot-point-origin.jpg)

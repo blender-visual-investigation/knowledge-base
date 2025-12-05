@@ -1,25 +1,60 @@
 ---
-title: "Exploring the User Interface"
+title: "Blender from Scratch: Object Mode"
 description: Exploring the User Interface
 sidebar_position: 1
 ---
 
 # Exploring the User Interface
 
-Adjust the user interface
+<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '20px', gap: '15px'}}>
+  <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+    <span style={{backgroundColor: '#4caf50', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold'}}>BEGINNER</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '6px', color: '#666', fontSize: '14px', whiteSpace: 'nowrap'}}>
+    <span style={{fontSize: '16px'}}>📖</span>
+    <span>8 min read</span>
+  </div>
+</div>
 
-### todo
-Remove all the stuff we don't need
-Practice the fundamental transformation operations.
+---
 
-### Steps
+## Introduction
 
-1. **Start fresh**: Delete the default cube (`X` → confirm)
-2. **Add a sphere**: `Shift + A` → Mesh → UV Sphere
-3. **Move it**: Press `G`, then `Z`, then type `2` → Enter (moves 2 units up)
-4. **Rotate it**: Press `R`, then `X`, then type `45` → Enter (rotates 45° around X)
-5. **Scale it**: Press `S`, then type `1.5` → Enter (scales to 150%)
+This guide walks you through Blender's user interface and fundamental operations. You'll learn how to navigate the viewport, select and transform objects, and work with the different panels and workspaces that make up Blender's workspace.
 
+---
+
+import FeatureCard from '@site/src/components/FeatureCard';
+import FeatureCardGrid from '@site/src/components/FeatureCardGrid';
+
+<FeatureCardGrid>
+  <FeatureCard 
+    title="Resources" 
+    headerColor="#6dfb72"
+    textColor="#333"
+    icon="fa-solid fa-book"
+  >
+    <p style={{margin: 0}}>Official Blender documentation on interface, navigation, and basic operations.</p>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Template File" 
+    headerColor="#1C75BC"
+    icon="fa-solid fa-download"
+  >
+    <p style={{margin: 0}}><a href="#" style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Download starter template</a> to follow along with the exercises.</p>
+  </FeatureCard>
+  
+  <FeatureCard 
+    title="Practice" 
+    headerColor="#EF4C3C"
+    icon="fa-solid fa-play"
+  >
+    <p style={{margin: 0}}>Hands-on exercises to build muscle memory for common workflows.</p>
+  </FeatureCard>
+</FeatureCardGrid>
+
+---
 
 ## The Blender Interface
 
@@ -65,7 +100,11 @@ Blender offers predefined workspaces for different tasks:
 - **Animation**: Timeline and keyframes
 - **Rendering**: Render settings and output
 
-## First Steps Practice
+---
+
+## Hands-On Exercises
+
+### Exercise 1: First Steps Practice
 
 1. Select the default cube
 2. Press `G` to move it
@@ -128,6 +167,8 @@ Work with accurate measurements for forensic work.
 - Ignoring the active object vs selected objects
 - Applying transformations in Object Mode vs Edit Mode
 
+---
+
 ## Next Steps
 
-Practice these exercises until they become second nature. Speed and precision come with repetition.
+Practice these exercises until they become second nature. Speed and precision come with repetition. Use the template file above to have a pre-configured workspace to experiment with.

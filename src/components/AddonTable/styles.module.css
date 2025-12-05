@@ -1,9 +1,9 @@
 .tableContainer {
   margin-top: 20px;
   overflow-x: auto;
-  border-radius: 0;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 0.5px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .filterContainer {
@@ -15,8 +15,9 @@
   padding: 16px;
   border-radius: 8px;
   border: 0.5px solid var(--ifm-color-emphasis-200);
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
+  overflow: visible;
 }
 
 .searchInput {
@@ -42,6 +43,7 @@
   gap: 12px;
   flex: 1;
   min-width: 200px;
+  overflow: visible;
 }
 
 .filterSelect {
@@ -53,6 +55,7 @@
   color: var(--ifm-font-color-base);
   cursor: pointer;
   flex: 1;
+  min-width: 120px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -67,6 +70,9 @@
   border-collapse: collapse;
   font-size: 15px;
   background-color: var(--ifm-background-surface-color);
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
 }
 
 .addonTable th,
@@ -93,6 +99,14 @@
 
 .addonTable tr:last-child td {
   border-bottom: none;
+}
+
+.addonTable tbody tr:nth-child(even) {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.addonTable tbody tr:nth-child(odd) {
+  background-color: var(--ifm-background-surface-color);
 }
 
 .addonTable tr:hover td {

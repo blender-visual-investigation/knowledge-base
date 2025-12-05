@@ -1,7 +1,13 @@
 /* Give only the header row of all tables a different background color */
 table thead th {
+  background: var(--ifm-color-emphasis-200) !important;
+}
+
+/* Dark mode table header */
+[data-theme='dark'] table thead th {
   background: #0e1523 !important;
 }
+
 /* Make table font size one step smaller */
 table, th, td {
   font-size: 0.95em !important;
@@ -11,13 +17,19 @@ table {
   border-radius: 12px !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  border: 1px solid var(--ifm-table-border-color, #333) !important;
-  background: #18191a !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  background: var(--ifm-background-surface-color) !important;
   width: fit-content !important;
   min-width: 0 !important;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Dark mode table border */
+[data-theme='dark'] table {
+  border-color: #333 !important;
+  background: #18191a !important;
 }
 
 /* Remove borders from edge cells to prevent doubling with table border */
@@ -46,10 +58,38 @@ article table {
   width: fit-content !important;
   max-width: 100%;
 }
+
+/* Table cell styling */
 th, td {
   border-radius: 0 !important;
   border: none !important;
+}
+
+/* Light mode: zebra stripes */
+table tbody tr:nth-child(odd) td {
+  background: var(--ifm-background-surface-color) !important;
+}
+
+table tbody tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Dark mode: zebra stripes */
+[data-theme='dark'] table tbody tr:nth-child(odd) td {
   background: #18191a !important;
+}
+
+[data-theme='dark'] table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+/* Table row hover effect */
+table tbody tr:hover td {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme='dark'] table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 /**
  * Any CSS included here will be global. The classic template

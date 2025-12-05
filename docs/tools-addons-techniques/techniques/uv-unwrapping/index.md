@@ -1,5 +1,5 @@
 ---
-title: Introduction to UV Unwrapping
+title: UV Unwrapping
 sidebar_position: 1
 ---
 

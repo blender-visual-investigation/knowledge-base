@@ -45,7 +45,7 @@
 
 ## Introduction
 
-The 3D Cursor is a powerful tool unique to Blender. It acts as a temporary anchor point in 3D space, enabling precise placement and manipulation of objects.
+The 3D Cursor is the spawn point for all new primitives. It is also a versatile tool for precision alignment, pivoting, and origin manipulation.
 
 This page covers:
 - What the 3D Cursor is and why it matters
@@ -95,17 +95,59 @@ The 3D Cursor is Blender’s unique tool for marking a specific location in 3D s
 - A pivot for transformations
 - A snapping target for precise alignment
 
-### How to Use
+### 1. Basic Controls & Navigation
 
-- **Place the 3D Cursor:** `Shift + Right Click` (by default)
-- **Snap objects to the cursor:** Use the Snap menu or shortcut (`Shift + S`)
-- **Set as pivot point:** Change the pivot point to 3D Cursor in the header
+- **Move Cursor:** `Shift + RMB` (Click to place manually).
+- **Snapping Menu (Crucial):** `Shift + S`. This is the primary interface for precision control.
+	- **Cursor to World Origin:** Resets cursor to (0,0,0).
+	- **Cursor to Selected:** Snaps cursor to the center of the current selection (object, face, edge, or vertex).
+	- **Selection to Cursor:** Snaps the selected object to the 3D cursor's current location.
 
-### Practical Tips
+- **Transform Orientation:** `Comma (,)`. Changes the axis orientation (Global, Local, etc.). Set to **Cursor** to align movement axes to the cursor's rotation.
+- **Pivot Point:** `Period (.)`. Changes the point around which objects rotate or scale. Set to **3D Cursor** to rotate objects around the cursor location rather than their own origin.
 
-- Use the 3D Cursor for accurate placement when modeling or aligning objects
-- Combine with snapping for even more precision
-- Reset the cursor to the world origin with `Shift + S` → “Cursor to World Origin”
+### 2. Recommended Configuration (Pro Setup)
+
+To make the cursor useful for hard surface modeling, adjust the preferences to allow it to snap to surface angles.
+
+1. Go to **Edit > Preferences > Keymap**.
+2. Search for "3D cursor".
+3. Ensure **Surface Project** is enabled.
+4. Change **Orientation** to **Geometry**.
+
+**Effect:** When you `Shift + RMB` click on a surface, the cursor will not only snap to the surface location but also align its rotation to the normal of that face.
+
+### 3. Practical Workflows
+
+#### A. Creating Primitives at Specific Angles
+Instead of creating a cylinder at the world origin and rotating it manually:
+1. `Shift + RMB` click on the target face (with the configuration above, the cursor aligns to the face normal).
+2. `Shift + S` > **Cursor to Selected** (optional, ensures it is perfectly centered on the face).
+3. Add the primitive (`Shift + A`).
+4. In the "Add Object" menu (bottom left), set **Align** to **3D Cursor**. The object spawns perfectly aligned to the surface.
+
+#### B. Moving the Origin Point
+The origin point (orange dot) dictates how an object transforms. To move it precisely:
+1. Enter Edit Mode. Select the vertex/face where you want the origin.
+2. `Shift + S` > **Cursor to Selected**.
+3. Enter Object Mode.
+4. Right Click > **Set Origin** > **Origin to 3D Cursor**.
+
+Bonus: Enable the "3D Viewport Pie Menus" add-on in preferences to access `Ctrl + Alt + X` for faster origin manipulation.
+
+#### C. Aligning Objects (e.g., Bolts into Holes)
+1. Select the target geometry (the hole).
+2. `Shift + S` > **Cursor to Selected**.
+3. Select the object to move (the bolt).
+4. `Shift + S` > **Selection to Cursor**.
+
+#### D. Radial Arrays (Rotating around a point)
+To rotate an object around a specific point rather than its own center:
+1. Place the 3D Cursor at the desired center of rotation.
+2. Set **Pivot Point** (`Period`) to **3D Cursor**.
+3. Set **Transform Orientation** (`Comma`) to **Cursor** (if the cursor is rotated).
+4. Select the object.
+5. Duplicate (`Shift + D`) and Rotate (`R`). The object will orbit the cursor.
 
 ---
 

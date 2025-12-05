@@ -2,7 +2,7 @@
   "label": "Data",
   "position": 5,
   "link": {
-    "type": "generated-index",
-    "description": "Learn data management, gathering, and collaboration techniques for visual investigation."
+    "type": "doc",
+    "id": "data/index"    
   }
 }
